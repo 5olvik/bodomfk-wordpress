@@ -20,6 +20,7 @@ Temaet bruker klubbens egen visuelle identitet og inkluderer:
 - en fremhevet Facebook-velger høyt på forsiden for medlemsgruppen og den offentlige gruppen;
 - tydelige kortflater som er tilpasset både Light og Dark via WP Dark Mode;
 - beskyttede kontaktadresser for generelle henvendelser og faktura;
+- avtalen fra Bodø kontrolltårn om klubbens aktivitet ved Bestemorenga og 5 km-sonen;
 - redigerbare lenker og åpningstider i WordPress Customizer;
 - tilgjengelig navigasjon uten eksterne JavaScript- eller fontavhengigheter.
 
@@ -31,7 +32,7 @@ Repositoryet skal **aldri** inneholde:
 - WordPress-database eller SQL-eksport;
 - Duplicator-/backupfiler eller `installer.php`;
 - WordPress-opplastinger som ikke er eksplisitt godkjent for offentlig bruk;
-- personopplysninger eller lister over medlemmer og brukerkontoer.
+- private personopplysninger eller lister over medlemmer og brukerkontoer. Offisielle dokumenter med navn eller signatur skal være eksplisitt godkjent av klubben for offentlig publisering.
 
 Se [SECURITY.md](SECURITY.md) hvis du oppdager en sikkerhetsfeil eller sensitiv informasjon.
 

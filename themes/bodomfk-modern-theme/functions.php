@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.2.0' );
+define( 'BMFK_THEME_VERSION', '1.3.0' );
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );

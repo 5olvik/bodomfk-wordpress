@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BMFK Modern – oppsett og opprydding
  * Description: Flytter Bodø Modellflyklubb bort fra SiteOrigin/Ultimate Member, arkiverer gamle innloggingssider og hjelper med kontrollert deaktivering av gamle utvidelser.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Bodø Modellflyklubb
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_SETUP_VERSION', '1.2.0' );
+define( 'BMFK_SETUP_VERSION', '1.3.0' );
 
 function bmfk_setup_admin_menu() {
 	add_management_page(
@@ -50,7 +50,17 @@ function bmfk_setup_legacy_plugins() {
 	);
 }
 
+function bmfk_setup_airfield_agreement_url() {
+	return trailingslashit( get_template_directory_uri() ) . 'assets/documents/avinor-bestemorenga-avtale-2026.pdf';
+}
+
+function bmfk_setup_airfield_agreement_path() {
+	return trailingslashit( get_template_directory() ) . 'assets/documents/avinor-bestemorenga-avtale-2026.pdf';
+}
+
 function bmfk_setup_page_content() {
+	$airfield_agreement_url = esc_url( bmfk_setup_airfield_agreement_url() );
+
 	return array(
 		'medlemsfordeler' => array(
 			'title'   => 'Medlemsfordeler',
@@ -76,11 +86,14 @@ function bmfk_setup_page_content() {
 		'flyplassregler' => array(
 			'title'   => 'Flyplass og sikkerhet',
 			'content' => '<!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">Sikker flyging starter med riktig og oppdatert informasjon.</p><!-- /wp:paragraph -->
-<!-- wp:quote --><blockquote class="wp-block-quote"><p><strong>Viktig før publisering:</strong> Styret må legge inn eller lenke til klubbens gjeldende lokale flyplassregler og eventuell avtale/prosedyre for aktivitet nær Bodø lufthavn. PDF-en fra 2018 skal ikke behandles som gjeldende uten ny godkjenning.</p></blockquote><!-- /wp:quote -->
+<!-- wp:heading {"level":2} --><h2>Avtale med Bodø kontrolltårn</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>Datert 26. mai 2026:</strong> Bodø kontrolltårn gir Bodø Modellflyklubb generell tillatelse til å operere på Bestemorenga modellflyplass, selv om deler av flygingen kan berøre 5 km-sonen rundt Bodø lufthavn. Tillatelsen forutsetter at aktiviteten følger Norges Luftsportforbunds regelverk i Modellflyhåndboken.</p><!-- /wp:paragraph -->
+<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="' . $airfield_agreement_url . '" target="_blank" rel="noopener">Åpne avtalen med Bodø kontrolltårn (PDF)</a></div><!-- /wp:button --></div><!-- /wp:buttons -->
+<!-- wp:quote --><blockquote class="wp-block-quote"><p><strong>Viktig:</strong> Tillatelsen gjelder klubbens organiserte aktivitet ved Bestemorenga og er ikke et generelt unntak for droneflyging andre steder. Gjeldende lokale regler og Modellflyhåndboken skal alltid følges.</p></blockquote><!-- /wp:quote -->
 <!-- wp:heading {"level":2} --><h2>Gjeldende kilder</h2><!-- /wp:heading -->
 <!-- wp:list --><ul><li><a href="https://nlf.no/siteassets/modellfly/sikkerhet-og-utdanning/modellflyhandboka/modellflyhandboka/modellflyhandboka-v-2.2---01.06-2025.pdf">NLF Modellflyhåndboka, versjon 2.2</a></li><li><a href="https://nlf.no/grener/modellfly/sikkerhet-utdanning/kompetansebevis/kompetansebevis-oversikt/">NLF – kompetansebevis og krav</a></li><li><a href="https://www.luftfartstilsynet.no/droner/droneregler/droneregler/">Luftfartstilsynet – droneregler og modellflyging</a></li><li><a href="https://nlfmodellfly.wufoo.com/">Meld hendelse eller uhell</a></li></ul><!-- /wp:list -->
-<!-- wp:heading {"level":2} --><h2>Lokale regler</h2><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Erstatt denne teksten med klubbens kontrollerte regler for flysoner, pilotområde, høyde, varsling, åpningstider og lokale prosedyrer. Oppgi revisjonsdato og hvem som har godkjent dokumentet.</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":2} --><h2>Lokale flyplassregler</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Følg alltid gjeldende oppslag og instrukser ved modellflyplassen om flysoner, pilotområde, høyde, varsling, åpningstider og lokale prosedyrer. Kontakt styret før flyging dersom noe er uklart.</p><!-- /wp:paragraph -->
 <!-- wp:paragraph --><p><a href="/wp-content/uploads/2018/02/Flyplass-og-sikkerhetsregler-08.01.18.pdf">Historisk dokument: flyplass- og sikkerhetsregler fra 2018</a></p><!-- /wp:paragraph -->',
 		),
 		'gruppeansvarlige' => array(
@@ -284,6 +297,39 @@ function bmfk_setup_update_contact_page() {
 }
 add_action( 'admin_post_bmfk_update_contact', 'bmfk_setup_update_contact_page' );
 
+/**
+ * Update only the airfield rules page with the current Avinor agreement.
+ */
+function bmfk_setup_update_airfield_rules_page() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Du har ikke tilgang til denne handlingen.', 'bmfk' ) );
+	}
+
+	check_admin_referer( 'bmfk_update_airfield_rules' );
+
+	$pages = bmfk_setup_page_content();
+	$page  = get_page_by_path( 'flyplassregler' );
+
+	if ( ! $page || empty( $pages['flyplassregler'] ) || ! file_exists( bmfk_setup_airfield_agreement_path() ) ) {
+		wp_safe_redirect( add_query_arg( array( 'page' => 'bmfk-modernisering', 'bmfk_airfield_rules_updated' => 0 ), admin_url( 'tools.php' ) ) );
+		exit;
+	}
+
+	$result = bmfk_setup_backup_and_update_page( $page, $pages['flyplassregler'] );
+
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'page'                         => 'bmfk-modernisering',
+				'bmfk_airfield_rules_updated' => is_wp_error( $result ) ? 0 : 1,
+			),
+			admin_url( 'tools.php' )
+		)
+	);
+	exit;
+}
+add_action( 'admin_post_bmfk_update_airfield_rules', 'bmfk_setup_update_airfield_rules_page' );
+
 function bmfk_setup_deactivate_plugins() {
 	if ( ! current_user_can( 'activate_plugins' ) ) {
 		wp_die( esc_html__( 'Du har ikke tilgang til denne handlingen.', 'bmfk' ) );
@@ -312,6 +358,7 @@ function bmfk_setup_render_page() {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 	$theme       = wp_get_theme();
 	$theme_ready = 'Bodø Modellflyklubb Modern' === $theme->get( 'Name' );
+	$agreement_ready = file_exists( bmfk_setup_airfield_agreement_path() );
 	$migrated_at = get_option( 'bmfk_modern_migrated_at' );
 	?>
 	<div class="wrap">
@@ -329,6 +376,13 @@ function bmfk_setup_render_page() {
 				<div class="notice notice-success"><p>Kontaktsiden er oppdatert med egne adresser for generelle henvendelser og faktura.</p></div>
 			<?php else : ?>
 				<div class="notice notice-error"><p>Kontaktsiden kunne ikke oppdateres. Kontroller at siden med adressen «kontaktoss» finnes.</p></div>
+			<?php endif; ?>
+		<?php endif; ?>
+		<?php if ( isset( $_GET['bmfk_airfield_rules_updated'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+			<?php if ( '1' === sanitize_text_field( wp_unslash( $_GET['bmfk_airfield_rules_updated'] ) ) ) : ?>
+				<div class="notice notice-success"><p>Siden «Flyplass og sikkerhet» er oppdatert med avtalen fra Bodø kontrolltårn.</p></div>
+			<?php else : ?>
+				<div class="notice notice-error"><p>Siden kunne ikke oppdateres. Kontroller at siden «flyplassregler» finnes og at tema versjon 1.3.0 eller nyere er installert.</p></div>
 			<?php endif; ?>
 		<?php endif; ?>
 
@@ -359,7 +413,21 @@ function bmfk_setup_render_page() {
 		</div>
 
 		<div class="card" style="max-width:1000px;padding:22px;margin-top:20px">
-			<h2>3. Deaktiver gamle utvidelser</h2>
+			<h2>3. Oppdater flyplassreglene</h2>
+			<p>Oppdaterer bare siden «Flyplass og sikkerhet» med avtalen fra Bodø kontrolltårn, datert 26. mai 2026. PDF-en følger temaet og åpnes fra en tydelig knapp på siden.</p>
+			<?php if ( ! $agreement_ready ) : ?><p style="color:#b32d2e"><strong>Installer tema versjon 1.3.0 før du oppdaterer flyplassreglene.</strong></p><?php endif; ?>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="bmfk_update_airfield_rules">
+				<?php wp_nonce_field( 'bmfk_update_airfield_rules' ); ?>
+				<?php
+				$button_attributes = $theme_ready && $agreement_ready ? array() : array( 'disabled' => 'disabled' );
+				submit_button( 'Oppdater flyplassreglene', 'primary', 'submit', false, $button_attributes );
+				?>
+			</form>
+		</div>
+
+		<div class="card" style="max-width:1000px;padding:22px;margin-top:20px">
+			<h2>4. Deaktiver gamle utvidelser</h2>
 			<p>Kjør dette etter at du har kontrollert forsiden, undersidene, menyen og mobilvisningen. Dette deaktiverer – det sletter ikke.</p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="bmfk_deactivate_plugins">

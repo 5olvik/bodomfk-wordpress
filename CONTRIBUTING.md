@@ -24,7 +24,7 @@ Takk for at du vil hjelpe Bodø Modellflyklubb.
 - Mobilmeny og horisontal scrolling på liten skjerm.
 - Alle eksterne lenker.
 - PHP-syntaks og JavaScript-syntaks.
-- At endringen ikke introduserer passord, persondata eller backupfiler.
+- At endringen ikke introduserer passord, private persondata eller backupfiler. Offisielle dokumenter med navn eller signatur krever klubbens godkjenning før publisering.
 
 ## Pull request
 
@@ -36,4 +36,3 @@ Beskriv:
 - skjermbilder ved visuelle endringer.
 
 Ikke bruk ekte medlems- eller brukerdata i tester eller skjermbilder.
-

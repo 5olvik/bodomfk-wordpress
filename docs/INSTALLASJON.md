@@ -8,6 +8,8 @@ Dette repositoryet inneholder et nytt, selvstendig WordPress-tema og en midlerti
 
 **Versjon 1.2.0:** Beholder WP Dark Mode og Light/Dark-bryteren, gir alle kortflater tydeligere kontrast i begge visninger og legger inn `post@bodomfk.no` og `faktura@bodomfk.no` med Email Address Encoder.
 
+**Versjon 1.3.0:** Legger avtalen med Bodø kontrolltårn, datert 26. mai 2026, under «Flyplassregler» og gir en egen oppdateringsknapp som ikke overskriver de andre migrerte sidene.
+
 ## Innhold
 
 - `themes/bodomfk-modern-theme/` – det nye WordPress-temaet.
@@ -15,6 +17,15 @@ Dette repositoryet inneholder et nytt, selvstendig WordPress-tema og en midlerti
 - `docs/UTVIDELSESPLAN.md` – anbefalt opprydding.
 
 Last ned repositoryet og komprimer temamappen og pluginmappen hver for seg. ZIP-filene må inneholde henholdsvis toppmappen `bodomfk-modern-theme` og `bmfk-modern-setup`.
+
+## Oppdatere fra versjon 1.2.0 til 1.3.0
+
+1. Last opp `bodomfk-modern-theme.zip` under **Utseende → Temaer → Legg til nytt tema → Last opp tema**, og velg å erstatte den installerte versjonen.
+2. Last opp `bmfk-modern-setup.zip` under **Utvidelser → Legg til ny utvidelse → Last opp utvidelse**, og erstatt den installerte versjonen.
+3. Gå til **Verktøy → BMFK modernisering** og trykk **Oppdater flyplassreglene**.
+4. Åpne siden **Flyplassregler** og kontroller at knappen til avtalen med Bodø kontrolltårn åpner PDF-en.
+
+Du skal ikke kjøre hele innholdsmigreringen på nytt for denne oppdateringen.
 
 ## Før du starter
 
@@ -33,7 +44,7 @@ Last ned repositoryet og komprimer temamappen og pluginmappen hver for seg. ZIP-
 6. Gå til **Verktøy → BMFK modernisering**.
 7. Trykk **Kjør innholdsmigrering**.
 
-Hvis migreringen allerede er kjørt, bruker du i stedet **Verktøy → BMFK modernisering → Oppdater kontaktsiden**. Det oppdaterer bare kontaktinformasjonen og lar de andre sidene være urørt.
+Hvis migreringen allerede er kjørt, bruker du de egne knappene under **Verktøy → BMFK modernisering**. «Oppdater kontaktsiden» og «Oppdater flyplassreglene» endrer bare den aktuelle siden og lar de andre sidene være urørt.
 
 Migreringen:
 
@@ -55,6 +66,7 @@ Migreringen:
 - Light/Dark-bryteren og at kortene er tydelig skilt fra bakgrunnen i begge visninger.
 - At åpningstidene er riktige.
 - At lenken til lokale flyplassregler peker på den faktisk gjeldende versjonen.
+- At knappen til avtalen med Bodø kontrolltårn åpner PDF-en, og at omtalen tydelig avgrenser tillatelsen til klubbens aktivitet ved Bestemorenga.
 - At klubbens ansvarlige og nøkkelavgiften fortsatt er riktige.
 
 Åpningstider og lenker kan endres under **Utseende → Tilpass → Klubbinformasjon**.
