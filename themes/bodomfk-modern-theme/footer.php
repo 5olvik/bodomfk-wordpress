@@ -29,7 +29,8 @@ $email = bmfk_setting( 'bmfk_contact_email', 'post@bodomfk.no' );
 			<h2>Kontakt</h2>
 			<ul>
 				<li><a href="mailto:<?php echo esc_attr( antispambot( $email ) ); ?>"><?php echo esc_html( antispambot( $email ) ); ?></a></li>
-				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_facebook_page_url', 'https://www.facebook.com/bodomfk' ) ); ?>">Facebook</a></li>
+				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' ) ); ?>">Facebook: medlemsgruppen</a></li>
+				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' ) ); ?>">Facebook: offentlig gruppe</a></li>
 				<li>Postboks 410, 8001 Bodø</li>
 				<li>Org.nr. 993 764 299</li>
 			</ul>

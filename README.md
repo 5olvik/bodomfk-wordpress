@@ -17,7 +17,7 @@ Temaet bruker klubbens egen visuelle identitet og inkluderer:
 - mobilmeny og responsivt oppsett;
 - tydelige snarveier til innmelding, webkamera og sikkerhetsinformasjon;
 - presentasjon av klubbens aktiviteter;
-- bilde- og Facebook-seksjoner;
+- en fremhevet Facebook-velger høyt på forsiden for medlemsgruppen og den offentlige gruppen;
 - redigerbare lenker og åpningstider i WordPress Customizer;
 - tilgjengelig navigasjon uten eksterne JavaScript- eller fontavhengigheter.
 
@@ -58,4 +58,3 @@ Forslag, feilrettinger og designforbedringer er velkomne. Les [CONTRIBUTING.md](
 ## Lisens
 
 Koden distribueres under [GNU General Public License v2.0](LICENSE), i tråd med WordPress-økosystemet. Bilder og klubbmerker tilhører Bodø Modellflyklubb og skal ikke brukes som om de representerer andre organisasjoner.
-

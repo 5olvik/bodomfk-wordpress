@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.0.0' );
+define( 'BMFK_THEME_VERSION', '1.1.0' );
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );
@@ -76,9 +76,8 @@ function bmfk_register_customizer( $wp_customize ) {
 		'bmfk_webcam_url'           => array( __( 'Lenke til webkamera', 'bmfk' ), 'https://webcam.bodomfk.no/' ),
 		'bmfk_incident_url'         => array( __( 'Lenke for hendelse/uhell', 'bmfk' ), 'https://nlfmodellfly.wufoo.com/' ),
 		'bmfk_local_rules_url'      => array( __( 'Lenke til lokale regler', 'bmfk' ), home_url( '/flyplassregler/' ) ),
-		'bmfk_facebook_page_url'    => array( __( 'Facebook-side', 'bmfk' ), 'https://www.facebook.com/bodomfk' ),
-		'bmfk_facebook_members_url' => array( __( 'Facebook medlemsgruppe', 'bmfk' ), 'https://www.facebook.com/groups/bodomfk/' ),
-		'bmfk_facebook_market_url'  => array( __( 'Facebook kjøp og salg', 'bmfk' ), 'https://www.facebook.com/groups/bodomfksalg/' ),
+		'bmfk_facebook_members_url' => array( __( 'Facebook medlemsgruppe', 'bmfk' ), 'https://www.facebook.com/groups/bodomfk' ),
+		'bmfk_facebook_market_url'  => array( __( 'Offentlig Facebook-gruppe', 'bmfk' ), 'https://www.facebook.com/groups/bodomfksalg' ),
 	);
 
 	foreach ( $url_settings as $id => $data ) {
@@ -129,6 +128,7 @@ function bmfk_primary_menu_fallback() {
 	?>
 	<ul class="menu">
 		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Hjem', 'bmfk' ); ?></a></li>
+		<li><a href="<?php echo esc_url( home_url( '/#facebook-grupper' ) ); ?>"><?php esc_html_e( 'Facebook-grupper', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ); ?>"><?php esc_html_e( 'Webkamera', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/medlemsfordeler/' ) ); ?>"><?php esc_html_e( 'Medlemsfordeler', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>"><?php esc_html_e( 'Flyplassregler', 'bmfk' ); ?></a></li>
