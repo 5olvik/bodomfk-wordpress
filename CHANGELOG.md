@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.4.1 – 2026-07-19
+
+- Gjør «Se medlemsfordelene» tydelig lesbar igjen i Dark Mode.
+- Lar den sekundære knappen følge mørk modus som i versjon 1.3, med eksplisitt kontrastsikre farger som reserve.
+- Flytter snarveikortene under banneret slik at teksten i klubbmotivet ikke dekkes på PC eller mobil.
+
 ## 1.4.0 – 2026-07-19
 
 - Faser ut og fjerner den ferdigbrukte BMFK-migreringsutvidelsen.

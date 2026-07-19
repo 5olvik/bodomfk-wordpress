@@ -71,7 +71,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 				<p>Bodø Modellflyklubb er møteplassen for deg som bygger, flyr eller bare er nysgjerrig på modellfly, helikopter, droner og FPV. Hos oss finner du kunnskap, trygg opplæring og et miljø som heier på nye piloter.</p>
 				<div class="button-row">
 					<a class="button button--orange wp-dark-mode-ignore" href="<?php echo esc_url( $membership_url ); ?>">Jeg vil bli medlem <span aria-hidden="true">→</span></a>
-					<a class="button button--ghost wp-dark-mode-ignore" href="<?php echo esc_url( home_url( '/medlemsfordeler/' ) ); ?>">Se medlemsfordelene</a>
+					<a class="button button--ghost" href="<?php echo esc_url( home_url( '/medlemsfordeler/' ) ); ?>">Se medlemsfordelene</a>
 				</div>
 			</div>
 			<div class="intro-values wp-dark-mode-ignore">
