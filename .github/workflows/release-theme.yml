@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "themes/bodomfk-modern-theme/**"
+      - "tests/test-content-pages.php"
       - ".github/workflows/release-theme.yml"
   workflow_dispatch:
 
@@ -39,6 +40,10 @@ jobs:
       - name: Kontroller JavaScript-syntaks
         shell: bash
         run: node --check themes/bodomfk-modern-theme/assets/js/site.js
+
+      - name: Kontroller Git-versjonerte sidetekster
+        shell: bash
+        run: php tests/test-content-pages.php
 
       - name: Pakk temaet
         shell: bash

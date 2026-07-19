@@ -1,5 +1,15 @@
 # Endringslogg
 
+## 1.5.0 – 2026-07-19
+
+- Flytter de publiserte tekstene for Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler til egne Markdown-filer i GitHub.
+- Gjør Git-versjonert innhold til hovedkilde for disse sidene, med eksisterende WordPress-innhold som automatisk reserve.
+- Beholder sideutforming, kolonner, knapper, sitater og e-postbeskyttelse når Markdown-filene vises.
+- Merker de aktuelle sidene med «Innhold fra GitHub» i WordPress og viser en tydelig redaktørmelding med lenke til riktig fil.
+- Dokumenterer hvordan bidragsytere endrer tekster og sender pull request uten å håndtere databasekopier eller brukerdata.
+- Utvider `.gitignore` slik at WordPress XML-eksporter ikke legges til ved et uhell.
+- Tar med klubbens tidligere flyplass- og sikkerhetsregler fra 2018 som et tydelig merket historisk PDF-dokument.
+
 ## 1.4.3 – 2026-07-19
 
 - Oppgraderer den eksisterende flyplassdelen med Windys offisielle timelapse-spiller og avslått automatisk avspilling.

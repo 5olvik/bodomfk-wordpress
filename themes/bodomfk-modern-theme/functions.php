@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.4.3' );
+define( 'BMFK_THEME_VERSION', '1.5.0' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -17,6 +17,8 @@ define( 'BMFK_WINDY_WEBCAM_ID', '1577496579' );
 define( 'BMFK_WINDY_WEBCAM_URL', 'https://windy.com/webcams/' . BMFK_WINDY_WEBCAM_ID );
 define( 'BMFK_YR_URL', 'https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-269332/Norge/Nordland/Bod%C3%B8/Bestemorenga' );
 define( 'BMFK_YR_WIDGET_URL', 'https://www.yr.no/nb/innhold/1-269332/card.html?mode=dark' );
+
+require_once get_template_directory() . '/inc/content-pages.php';
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );

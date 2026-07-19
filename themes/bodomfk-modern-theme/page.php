@@ -10,7 +10,8 @@ get_header();
 <main id="main-content">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
-		$page_slug   = get_post_field( 'post_name', get_the_ID() );
+		$page_slug       = get_post_field( 'post_name', get_the_ID() );
+		$git_page_content = bmfk_git_page_content( $page_slug );
 		$useful_links = array(
 			array( 'label' => 'Bli medlem', 'url' => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ),
 			array( 'label' => 'Webkamera', 'url' => BMFK_WINDY_WEBCAM_URL ),
@@ -26,7 +27,15 @@ get_header();
 			<div class="wrap"><span class="eyebrow">Bodø Modellflyklubb</span><h1><?php the_title(); ?></h1></div>
 		</header>
 		<div class="page-content-wrap wrap">
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-content' ); ?>><?php the_content(); ?></article>
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-content' ); ?>>
+				<?php
+				if ( null !== $git_page_content ) {
+					echo $git_page_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by the Markdown renderer.
+				} else {
+					the_content();
+				}
+				?>
+			</article>
 			<aside class="page-aside wp-dark-mode-ignore" aria-label="Nyttige lenker">
 				<h2>Nyttige lenker</h2>
 				<ul>

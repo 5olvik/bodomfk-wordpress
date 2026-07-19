@@ -11,6 +11,9 @@ wp-config-*.php
 *.sql.gz
 *.sqlite
 *.sqlite3
+*.WordPress.*.xml
+*.wordpress.*.xml
+wordpress-export*.xml
 
 # Backups and installer packages
 *.zip
@@ -47,4 +50,3 @@ build/
 .vscode/
 .DS_Store
 Thumbs.db
-

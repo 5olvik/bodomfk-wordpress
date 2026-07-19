@@ -9,6 +9,8 @@ Takk for at du vil hjelpe Bodø Modellflyklubb.
 3. Lag en egen branch fra `main`.
 4. Hold hver pull request avgrenset til én logisk endring.
 
+Skal du bare endre en fast sidetekst, les [veiledningen for Git-versjonert innhold](docs/INNHOLD-I-GITHUB.md) og rediger riktig Markdown-fil under `themes/bodomfk-modern-theme/content/pages/`.
+
 ## Krav til endringer
 
 - Behold støtte for WordPress 6.4+ og PHP 7.4+.
