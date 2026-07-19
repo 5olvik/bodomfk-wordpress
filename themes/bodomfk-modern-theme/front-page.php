@@ -8,7 +8,6 @@
 get_header();
 
 $membership_url = bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' );
-$webcam_url     = bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' );
 $incident_url   = bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL );
 $rules_url      = bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) );
 $facebook_group = bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' );
@@ -25,7 +24,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 			<span class="quick-action__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
 			<span><strong>Bli medlem</strong><small>Kom i gang med hobbyen</small></span>
 		</a>
-		<a class="quick-action" href="<?php echo esc_url( $webcam_url ); ?>">
+		<a class="quick-action" href="#flyplassen">
 			<span class="quick-action__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="m17 10 4-2v8l-4-2z"/></svg></span>
 			<span><strong>Webkamera</strong><small>Se forholdene på banen</small></span>
 		</a>
@@ -130,7 +129,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 						<div class="hours-card wp-dark-mode-ignore"><small>Forbrenningsmotor</small><strong><?php echo esc_html( bmfk_setting( 'bmfk_combustion_hours', '09:00–21:00' ) ); ?></strong></div>
 					</div>
 					<div class="button-row">
-						<a class="button button--orange wp-dark-mode-ignore" href="<?php echo esc_url( $webcam_url ); ?>">Åpne webkamera</a>
+						<a class="button button--orange wp-dark-mode-ignore" href="#webkamera">Åpne webkamera</a>
 						<a class="button wp-dark-mode-ignore" href="<?php echo esc_url( $rules_url ); ?>">Les reglene</a>
 					</div>
 				</div>
@@ -138,6 +137,22 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 					<span class="live-badge">Kamera tilgjengelig</span>
 				</div>
 			</div>
+
+			<section class="field-live-grid" id="webkamera" aria-labelledby="field-live-title">
+				<div class="field-live-copy">
+					<span class="eyebrow">Direkte fra Bestemorenga</span>
+					<h2 id="field-live-title">Se forholdene før du kjører.</h2>
+					<div class="field-weather wp-dark-mode-ignore">
+						<iframe src="<?php echo esc_url( BMFK_YR_WIDGET_URL ); ?>" title="Værvarsel for Bestemorenga fra Yr" loading="lazy" scrolling="no"></iframe>
+						<a class="field-weather__link" href="<?php echo esc_url( BMFK_YR_URL ); ?>" target="_blank" rel="noopener noreferrer">Se hele værvarselet på Yr <span aria-hidden="true">↗</span></a>
+					</div>
+				</div>
+				<div class="field-webcam-card wp-dark-mode-ignore">
+					<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga via Windy">
+						<a name="windy-webcam-timelapse-player" data-id="1577496579" data-play="day" data-loop="0" data-auto-play="0" data-force-full-screen-on-overlay-play="0" data-interactive="1" href="https://windy.com/webcams/1577496579" target="_blank" rel="noopener noreferrer">Lopsmarka › South: Bodø Modellflyklubb</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/v2/script/player.js"></script>
+					</div>
+				</div>
+			</section>
 		</div>
 	</section>
 

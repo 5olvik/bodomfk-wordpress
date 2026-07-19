@@ -9,10 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.4.2' );
+define( 'BMFK_THEME_VERSION', '1.4.3' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
+define( 'BMFK_WINDY_WEBCAM_ID', '1577496579' );
+define( 'BMFK_WINDY_WEBCAM_URL', 'https://windy.com/webcams/' . BMFK_WINDY_WEBCAM_ID );
+define( 'BMFK_YR_URL', 'https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-269332/Norge/Nordland/Bod%C3%B8/Bestemorenga' );
+define( 'BMFK_YR_WIDGET_URL', 'https://www.yr.no/nb/innhold/1-269332/card.html?mode=dark' );
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );
@@ -125,7 +129,6 @@ function bmfk_register_customizer( $wp_customize ) {
 
 	$url_settings = array(
 		'bmfk_membership_url'       => array( __( 'Lenke for innmelding', 'bmfk' ), 'https://blimedlem.bodomfk.no/' ),
-		'bmfk_webcam_url'           => array( __( 'Lenke til webkamera', 'bmfk' ), 'https://webcam.bodomfk.no/' ),
 		'bmfk_incident_url'         => array( __( 'Lenke for hendelse/uhell', 'bmfk' ), BMFK_INCIDENT_REPORT_URL ),
 		'bmfk_local_rules_url'      => array( __( 'Lenke til lokale regler', 'bmfk' ), home_url( '/flyplassregler/' ) ),
 		'bmfk_facebook_members_url' => array( __( 'Facebook medlemsgruppe', 'bmfk' ), 'https://www.facebook.com/groups/bodomfk' ),
@@ -183,7 +186,7 @@ function bmfk_primary_menu_fallback() {
 	<ul class="menu">
 		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Hjem', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/#facebook-grupper' ) ); ?>"><?php esc_html_e( 'Facebook-grupper', 'bmfk' ); ?></a></li>
-		<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ); ?>"><?php esc_html_e( 'Webkamera', 'bmfk' ); ?></a></li>
+		<li><a href="<?php echo esc_url( BMFK_WINDY_WEBCAM_URL ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Webkamera', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/medlemsfordeler/' ) ); ?>"><?php esc_html_e( 'Medlemsfordeler', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/klubbhytta/' ) ); ?>"><?php esc_html_e( 'Klubbhytta', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>"><?php esc_html_e( 'Flyplassregler', 'bmfk' ); ?></a></li>
@@ -221,7 +224,7 @@ function bmfk_fragment_menu_classes( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'bmfk_fragment_menu_classes', 10, 2 );
 
 /**
- * Remove the duplicate aria-current value from front-page anchor links.
+ * Keep front-page anchor state correct and route webcam menu links via Windy.
  *
  * @param array    $attributes Link attributes.
  * @param WP_Post $item       Menu item.
@@ -230,6 +233,12 @@ add_filter( 'nav_menu_css_class', 'bmfk_fragment_menu_classes', 10, 2 );
 function bmfk_fragment_menu_link_attributes( $attributes, $item ) {
 	if ( is_front_page() && ! empty( $item->url ) && false !== strpos( $item->url, '#' ) ) {
 		unset( $attributes['aria-current'] );
+	}
+
+	if ( isset( $item->title ) && 'webkamera' === strtolower( trim( wp_strip_all_tags( $item->title ) ) ) ) {
+		$attributes['href']   = BMFK_WINDY_WEBCAM_URL;
+		$attributes['target'] = '_blank';
+		$attributes['rel']    = 'noopener noreferrer';
 	}
 
 	return $attributes;

@@ -21,7 +21,7 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 			<h2>Snarveier</h2>
 			<ul>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ); ?>">Bli medlem</a></li>
-				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ); ?>">Webkamera</a></li>
+				<li><a href="<?php echo esc_url( BMFK_WINDY_WEBCAM_URL ); ?>" target="_blank" rel="noopener noreferrer">Webkamera</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>">Flyplassregler</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ) ); ?>">Meld hendelse/uhell</a></li>
 			</ul>

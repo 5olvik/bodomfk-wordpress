@@ -1,5 +1,14 @@
 # Endringslogg
 
+## 1.4.3 – 2026-07-19
+
+- Oppgraderer den eksisterende flyplassdelen med Windys offisielle timelapse-spiller og avslått automatisk avspilling.
+- Bygger inn Yrs offisielle 24-timers værkort for Bestemorenga under overskriften til venstre.
+- Beholder den opprinnelige flyplassruten og klubbmotivet urørt, og viser vær til venstre og kamera i en avrundet rute til høyre etter samme mal som velkomstfeltet.
+- Legger inn tydelig lenke til det komplette værvarselet for Bestemorenga på Yr.
+- Erstatter alle temalenker til kameraets direkteadresse med den offentlige Windy-siden.
+- Lar Windy-spilleren beholde sitt opprinnelige 16:9-format, slik at kamerabildet ikke får en fast, duplisert stripe nederst.
+
 ## 1.4.2 – 2026-07-19
 
 - Gjør alle vanlige H1–H4-overskrifter tydelig lesbare i Dark Mode.

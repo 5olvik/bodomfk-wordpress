@@ -1,6 +1,6 @@
 # Installere og oppdatere BMFK-temaet
 
-Dette er rutinen for versjon 1.4.2 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
+Dette er rutinen for versjon 1.4.3 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
 ## Før oppdatering
 
@@ -8,15 +8,15 @@ Dette er rutinen for versjon 1.4.2 og nyere. Den tidligere migreringsutvidelsen 
 2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
 3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-Filen skal hete omtrent `bodomfk-modern-theme-1.4.2.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
+Filen skal hete omtrent `bodomfk-modern-theme-1.4.3.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
 ## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Velg `bodomfk-modern-theme-1.4.2.zip`.
+2. Velg `bodomfk-modern-theme-1.4.3.zip`.
 3. Trykk **Installer nå**.
 4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
-5. Kontroller at **Bodø Modellflyklubb Modern 1.4.2** fortsatt er aktivt.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.4.3** fortsatt er aktivt.
 
 Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
@@ -28,6 +28,7 @@ Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en
   - medlemsgruppen: `https://www.facebook.com/groups/bodomfk`
   - offentlig gruppe: `https://www.facebook.com/groups/bodomfksalg`
 - At **Meld hendelse** åpner NLFs side for hendelsesrapportering.
+- At Windy-webkameraet og Yrs værkort vises riktig på forsiden.
 - At Modellflyhåndboka åpnes via NLFs oppdaterte oversiktsside.
 - At flyplassreglene viser avtalen med Bodø kontrolltårn og at PDF-en åpnes.
 - At `post@bodomfk.no` og `faktura@bodomfk.no` vises riktig på kontaktsiden og i bunnteksten.
@@ -40,7 +41,7 @@ Tøm eventuell cache på webhotellet eller i WordPress hvis gamle farger eller f
 Gå til **Utseende → Tilpass → Klubbinformasjon** for å endre:
 
 - innmeldingslenke;
-- webkamera og lokale regler;
+- lokale regler;
 - Facebook-grupper;
 - åpningstider;
 - kontakt- og fakturaadresse.

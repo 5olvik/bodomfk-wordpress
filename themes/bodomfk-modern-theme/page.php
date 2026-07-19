@@ -13,7 +13,7 @@ get_header();
 		$page_slug   = get_post_field( 'post_name', get_the_ID() );
 		$useful_links = array(
 			array( 'label' => 'Bli medlem', 'url' => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ),
-			array( 'label' => 'Webkamera', 'url' => bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ),
+			array( 'label' => 'Webkamera', 'url' => BMFK_WINDY_WEBCAM_URL ),
 			array( 'label' => 'Flyplassregler', 'url' => bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ), 'slug' => 'flyplassregler' ),
 			array( 'label' => 'Kontakt klubben', 'url' => home_url( '/kontaktoss/' ), 'slug' => 'kontaktoss' ),
 		);
