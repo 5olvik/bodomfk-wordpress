@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BMFK Modern – oppsett og opprydding
  * Description: Flytter Bodø Modellflyklubb bort fra SiteOrigin/Ultimate Member, arkiverer gamle innloggingssider og hjelper med kontrollert deaktivering av gamle utvidelser.
- * Version: 1.0.0
+ * Version: 1.1.1
  * Author: Bodø Modellflyklubb
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_SETUP_VERSION', '1.0.0' );
+define( 'BMFK_SETUP_VERSION', '1.1.1' );
 
 function bmfk_setup_admin_menu() {
 	add_management_page(
@@ -69,8 +69,8 @@ function bmfk_setup_page_content() {
 		),
 		'kontaktoss' => array(
 			'title'   => 'Kontakt oss',
-			'content' => '<!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">Vi svarer vanligvis raskest på Facebook. Du kan også kontakte styret på e-post.</p><!-- /wp:paragraph -->
-<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Klubben</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>E-post</strong><br><a href="mailto:post@bodomfk.no">post@bodomfk.no</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Facebook</strong><br><a href="https://www.facebook.com/bodomfk">Bodø Modellflyklubb</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Postadresse</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Bodø Modellflyklubb<br>Postboks 410<br>8001 Bodø</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Organisasjonsnummer</strong><br>993 764 299</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->
+			'content' => '<!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">For klubbinformasjon og miljøet rundt hobbyen bruker vi to Facebook-grupper. Du kan også kontakte styret på e-post.</p><!-- /wp:paragraph -->
+<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Klubben</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>E-post</strong><br><a href="mailto:post@bodomfk.no">post@bodomfk.no</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Facebook for medlemmer</strong><br><a href="https://www.facebook.com/groups/bodomfk">Bodø Modellflyklubb – medlemsgruppen</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Offentlig Facebook-gruppe</strong><br><a href="https://www.facebook.com/groups/bodomfksalg">Kjøp, salg og åpen hobbyprat</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Postadresse</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Bodø Modellflyklubb<br>Postboks 410<br>8001 Bodø</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Organisasjonsnummer</strong><br>993 764 299</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->
 <!-- wp:heading {"level":2} --><h2>Spørsmål om NLF-medlemskap</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Har du spørsmål om registrering eller medlemskapet hos Norges Luftsportforbund, kan du kontakte <a href="https://nlf.no/">NLF direkte</a>.</p><!-- /wp:paragraph -->',
 		),
 		'flyplassregler' => array(
@@ -119,9 +119,12 @@ function bmfk_setup_create_menu() {
 		return $menu_id;
 	}
 
-	if ( ! wp_get_nav_menu_items( $menu_id ) ) {
+	$existing_items = wp_get_nav_menu_items( $menu_id );
+
+	if ( ! $existing_items ) {
 		$items = array(
 			array( 'Hjem', home_url( '/' ) ),
+			array( 'Facebook-grupper', home_url( '/#facebook-grupper' ) ),
 			array( 'Webkamera', 'https://webcam.bodomfk.no/' ),
 			array( 'Medlemsfordeler', home_url( '/medlemsfordeler/' ) ),
 			array( 'Klubbhytta', home_url( '/klubbhytta/' ) ),
@@ -136,6 +139,27 @@ function bmfk_setup_create_menu() {
 				array(
 					'menu-item-title'  => $item[0],
 					'menu-item-url'    => $item[1],
+					'menu-item-status' => 'publish',
+				)
+			);
+		}
+	} else {
+		$facebook_url = home_url( '/#facebook-grupper' );
+		$has_facebook = false;
+		foreach ( $existing_items as $existing_item ) {
+			if ( $facebook_url === $existing_item->url ) {
+				$has_facebook = true;
+				break;
+			}
+		}
+
+		if ( ! $has_facebook ) {
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'  => 'Facebook-grupper',
+					'menu-item-url'    => $facebook_url,
 					'menu-item-status' => 'publish',
 				)
 			);
@@ -212,6 +236,9 @@ function bmfk_setup_run_migration() {
 	$wpdb->query( "UPDATE {$wpdb->posts} SET comment_status = 'closed', ping_status = 'closed' WHERE post_type IN ('post','page')" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 	update_option( 'default_comment_status', 'closed' );
 	update_option( 'default_ping_status', 'closed' );
+	remove_theme_mod( 'bmfk_facebook_page_url' );
+	set_theme_mod( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' );
+	set_theme_mod( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' );
 	bmfk_setup_create_menu();
 	update_option( 'bmfk_modern_migrated_at', current_time( 'mysql' ) );
 
@@ -270,7 +297,10 @@ function bmfk_setup_render_page() {
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="bmfk_run_migration">
 				<?php wp_nonce_field( 'bmfk_run_migration' ); ?>
-				<?php submit_button( 'Kjør innholdsmigrering', 'primary', 'submit', false, array( 'disabled' => ! $theme_ready ) ); ?>
+				<?php
+				$button_attributes = $theme_ready ? array() : array( 'disabled' => 'disabled' );
+				submit_button( 'Kjør innholdsmigrering', 'primary', 'submit', false, $button_attributes );
+				?>
 			</form>
 		</div>
 

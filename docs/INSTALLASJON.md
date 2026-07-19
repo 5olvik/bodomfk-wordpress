@@ -2,6 +2,10 @@
 
 Dette repositoryet inneholder et nytt, selvstendig WordPress-tema og en midlertidig oppsettsutvidelse. Temaet er ikke avhengig av GeneratePress, GP Premium, SiteOrigin, Jetpack, Photo Gallery eller Ultimate Member.
 
+**Versjon 1.1:** Facebook-valget er flyttet høyt opp på forsiden. Den fjernede Facebook-siden er tatt bort, og løsningen peker nå bare til medlemsgruppen og den offentlige gruppen.
+
+**Versjon 1.1.1:** Rettet en feil som gjorde knappen «Kjør innholdsmigrering» grå selv når riktig tema var aktivt.
+
 ## Innhold
 
 - `themes/bodomfk-modern-theme/` – det nye WordPress-temaet.
@@ -41,7 +45,8 @@ Migreringen:
 - Forsiden, banneret og alle snarveier.
 - Menyen på PC og mobil.
 - Medlemsfordeler, klubbhytta, kontakt og gruppeansvarlige.
-- Webkamera, innmelding, Facebook-lenker og hendelsesskjema.
+- Webkamera, innmelding og hendelsesskjema.
+- Facebook-velgeren høyt på forsiden: medlemsgruppen skal peke til `https://www.facebook.com/groups/bodomfk`, og den offentlige gruppen til `https://www.facebook.com/groups/bodomfksalg`.
 - At åpningstidene er riktige.
 - At lenken til lokale flyplassregler peker på den faktisk gjeldende versjonen.
 - At klubbens ansvarlige og nøkkelavgiften fortsatt er riktige.

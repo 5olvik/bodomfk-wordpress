@@ -11,9 +11,8 @@ $membership_url = bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomf
 $webcam_url     = bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' );
 $incident_url   = bmfk_setting( 'bmfk_incident_url', 'https://nlfmodellfly.wufoo.com/' );
 $rules_url      = bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) );
-$facebook_page  = bmfk_setting( 'bmfk_facebook_page_url', 'https://www.facebook.com/bodomfk' );
-$facebook_group = bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk/' );
-$facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg/' );
+$facebook_group = bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' );
+$facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' );
 ?>
 
 <main id="main-content">
@@ -39,6 +38,30 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 			<span><strong>Meld hendelse</strong><small>Rapporter uhell eller avvik</small></span>
 		</a>
 	</nav>
+
+	<section class="facebook-hub" id="facebook-grupper" aria-labelledby="facebook-hub-title">
+		<div class="wrap facebook-hub__layout">
+			<div class="facebook-hub__intro">
+				<span class="eyebrow">Møteplassen vår på Facebook</span>
+				<h2 id="facebook-hub-title">Finn riktig Facebook-kanal</h2>
+				<p>Klubben har to grupper. Velg medlemsgruppen for intern klubbinformasjon, eller den offentlige gruppen for kjøp, salg og åpen prat om hobbyen.</p>
+			</div>
+			<div class="facebook-hub__grid">
+				<a class="facebook-channel facebook-channel--members" href="<?php echo esc_url( $facebook_group ); ?>" target="_blank" rel="noopener noreferrer">
+					<span class="facebook-channel__topline"><span class="facebook-channel__icon" aria-hidden="true">f</span><span class="facebook-channel__badge">Kun for medlemmer</span></span>
+					<h3>Medlemsgruppen</h3>
+					<p>Viktig klubbinformasjon, aktiviteter, praktiske beskjeder og diskusjoner mellom medlemmene.</p>
+					<span class="facebook-channel__link">Gå til medlemsgruppen <span aria-hidden="true">↗</span></span>
+				</a>
+				<a class="facebook-channel facebook-channel--public" href="<?php echo esc_url( $facebook_sale ); ?>" target="_blank" rel="noopener noreferrer">
+					<span class="facebook-channel__topline"><span class="facebook-channel__icon" aria-hidden="true">f</span><span class="facebook-channel__badge">Åpen for alle</span></span>
+					<h3>Offentlig Facebook-gruppe</h3>
+					<p>Kjøp og salg av modellflyutstyr, tips, spørsmål og åpen kontakt med modellflymiljøet i Bodø.</p>
+					<span class="facebook-channel__link">Åpne den offentlige gruppen <span aria-hidden="true">↗</span></span>
+				</a>
+			</div>
+		</div>
+	</section>
 
 	<section class="intro-section" id="om">
 		<div class="wrap intro-grid">
@@ -162,30 +185,6 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-pilot.webp' ) ); ?>" alt="Pilot med modellfly" width="1200" height="800" loading="lazy"><figcaption>Flyglede på bakken</figcaption></figure>
 				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-building.webp' ) ); ?>" alt="Klargjøring av modellfly" width="1200" height="800" loading="lazy"><figcaption>Klargjøring og fellesskap</figcaption></figure>
 			</section>
-		</div>
-	</section>
-
-	<section class="social-section" aria-labelledby="social-title">
-		<div class="wrap">
-			<div class="section-heading section-heading--center">
-				<span class="eyebrow">Hold deg oppdatert</span>
-				<h2 id="social-title">Finn riktig Facebook-kanal</h2>
-				<p>Nyheter for alle, praktisk medlemsprat og et eget marked for modellflyutstyr – ryddig samlet på ett sted.</p>
-			</div>
-			<div class="social-grid">
-				<a class="social-card" href="<?php echo esc_url( $facebook_page ); ?>" target="_blank" rel="noopener">
-					<span class="social-card__icon" aria-hidden="true">f</span><span class="social-card__arrow" aria-hidden="true">↗</span>
-					<h3>Klubbens Facebook-side</h3><p>Nyheter, arrangementer og bilder fra Bodø Modellflyklubb.</p>
-				</a>
-				<a class="social-card" href="<?php echo esc_url( $facebook_group ); ?>" target="_blank" rel="noopener">
-					<span class="social-card__icon" aria-hidden="true">f</span><span class="social-card__arrow" aria-hidden="true">↗</span>
-					<h3>Medlemsgruppen</h3><p>Praktisk informasjon og diskusjoner for klubbens medlemmer.</p>
-				</a>
-				<a class="social-card" href="<?php echo esc_url( $facebook_sale ); ?>" target="_blank" rel="noopener">
-					<span class="social-card__icon" aria-hidden="true">f</span><span class="social-card__arrow" aria-hidden="true">↗</span>
-					<h3>Kjøp og salg</h3><p>Modellfly, elektronikk, radioutstyr, deler og annet hobbyutstyr.</p>
-				</a>
-			</div>
 		</div>
 	</section>
 
