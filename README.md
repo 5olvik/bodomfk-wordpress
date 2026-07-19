@@ -18,6 +18,8 @@ Temaet bruker klubbens egen visuelle identitet og inkluderer:
 - tydelige snarveier til innmelding, webkamera og sikkerhetsinformasjon;
 - presentasjon av klubbens aktiviteter;
 - en fremhevet Facebook-velger høyt på forsiden for medlemsgruppen og den offentlige gruppen;
+- tydelige kortflater som er tilpasset både Light og Dark via WP Dark Mode;
+- beskyttede kontaktadresser for generelle henvendelser og faktura;
 - redigerbare lenker og åpningstider i WordPress Customizer;
 - tilgjengelig navigasjon uten eksterne JavaScript- eller fontavhengigheter.
 
