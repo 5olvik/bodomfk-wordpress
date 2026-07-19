@@ -9,18 +9,31 @@ get_header();
 ?>
 <main id="main-content">
 	<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+		$page_slug   = get_post_field( 'post_name', get_the_ID() );
+		$useful_links = array(
+			array( 'label' => 'Bli medlem', 'url' => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ),
+			array( 'label' => 'Webkamera', 'url' => bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ),
+			array( 'label' => 'Flyplassregler', 'url' => bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ), 'slug' => 'flyplassregler' ),
+			array( 'label' => 'Kontakt klubben', 'url' => home_url( '/kontaktoss/' ), 'slug' => 'kontaktoss' ),
+		);
+
+		if ( 'kontaktoss' === $page_slug ) {
+			$useful_links[] = array( 'label' => 'Kontaktpersoner og ansvarlige', 'url' => home_url( '/gruppeansvarlige/' ), 'slug' => 'gruppeansvarlige' );
+		}
+		?>
 		<header class="page-hero">
 			<div class="wrap"><span class="eyebrow">Bodø Modellflyklubb</span><h1><?php the_title(); ?></h1></div>
 		</header>
 		<div class="page-content-wrap wrap">
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-content' ); ?>><?php the_content(); ?></article>
-			<aside class="page-aside" aria-label="Nyttige lenker">
+			<aside class="page-aside wp-dark-mode-ignore" aria-label="Nyttige lenker">
 				<h2>Nyttige lenker</h2>
 				<ul>
-					<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ); ?>">Bli medlem</a></li>
-					<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ); ?>">Webkamera</a></li>
-					<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>">Flyplassregler</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/kontaktoss/' ) ); ?>">Kontakt klubben</a></li>
+					<?php foreach ( $useful_links as $useful_link ) : ?>
+						<?php if ( isset( $useful_link['slug'] ) && $page_slug === $useful_link['slug'] ) { continue; } ?>
+						<li><a href="<?php echo esc_url( $useful_link['url'] ); ?>"><?php echo esc_html( $useful_link['label'] ); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</aside>
 		</div>

@@ -8,11 +8,11 @@
 $email         = bmfk_setting( 'bmfk_contact_email', 'post@bodomfk.no' );
 $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 ?>
-<footer class="site-footer">
+<footer class="site-footer wp-dark-mode-ignore">
 	<div class="footer-main wrap">
 		<div class="footer-column">
 			<div class="footer-brand">
-				<img src="<?php echo esc_url( bmfk_asset_url( 'images/bmfk-logo.webp' ) ); ?>" alt="" width="66" height="66" loading="lazy">
+				<img src="<?php echo esc_url( bmfk_asset_url( 'images/bmfk-logo.webp' ) ); ?>" alt="" width="66" height="66" loading="lazy" decoding="async">
 				<div><strong>Bodø Modellflyklubb</strong><span>Fly · Fellesskap · Hobby · Glede</span></div>
 			</div>
 			<p class="footer-intro">Klubben for modellfly, helikopter, droner og FPV i Bodø. Vi holder til ved Bestemorenga aktivitetspark.</p>
@@ -23,7 +23,7 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ); ?>">Bli medlem</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_webcam_url', 'https://webcam.bodomfk.no/' ) ); ?>">Webkamera</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>">Flyplassregler</a></li>
-				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_incident_url', 'https://nlfmodellfly.wufoo.com/' ) ); ?>">Meld hendelse/uhell</a></li>
+				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ) ); ?>">Meld hendelse/uhell</a></li>
 			</ul>
 		</div>
 		<div class="footer-column">

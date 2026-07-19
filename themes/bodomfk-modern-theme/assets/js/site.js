@@ -2,30 +2,46 @@
   const button = document.querySelector('[data-menu-toggle]');
   const navigation = document.querySelector('[data-navigation]');
 
-  if (!button || !navigation) return;
-
-  function closeMenu() {
-    button.setAttribute('aria-expanded', 'false');
-    navigation.classList.remove('is-open');
-    document.body.classList.remove('menu-open');
+  function labelDarkModeSwitch() {
+    const darkModeSwitch = document.querySelector('.wp-dark-mode-switch[role="button"]');
+    if (darkModeSwitch) {
+      darkModeSwitch.setAttribute('aria-label', 'Bytt mellom lys og mørk visning');
+    }
   }
 
-  button.addEventListener('click', function () {
-    const open = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!open));
-    navigation.classList.toggle('is-open', !open);
-    document.body.classList.toggle('menu-open', !open);
-  });
+  labelDarkModeSwitch();
+  document.addEventListener('DOMContentLoaded', function () {
+    labelDarkModeSwitch();
+    window.setTimeout(labelDarkModeSwitch, 500);
+  }, { once: true });
 
-  navigation.addEventListener('click', function (event) {
-    if (event.target.closest('a')) closeMenu();
-  });
+  if (button && navigation) {
+    const buttonLabel = button.querySelector('.screen-reader-text');
 
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') closeMenu();
-  });
+    function setMenuState(open) {
+      button.setAttribute('aria-expanded', String(open));
+      navigation.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+      if (buttonLabel) buttonLabel.textContent = open ? 'Lukk meny' : 'Åpne meny';
+    }
 
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 900) closeMenu();
-  });
+    button.addEventListener('click', function () {
+      setMenuState(button.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navigation.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setMenuState(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+        setMenuState(false);
+        button.focus();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) setMenuState(false);
+    });
+  }
 }());

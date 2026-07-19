@@ -1,58 +1,52 @@
 # Bodø Modellflyklubb – WordPress
 
-Åpen kildekode for moderniseringen av [bodomfk.no](https://bodomfk.no/): et selvstendig WordPress-tema og et kontrollert migreringsverktøy for klubbens eksisterende nettsted.
+Åpen kildekode for [bodomfk.no](https://bodomfk.no/). Repositoryet inneholder det selvstendige WordPress-temaet som driver klubbens offentlige nettsted.
 
 ![Forhåndsvisning av BMFK-temaet](themes/bodomfk-modern-theme/screenshot.png)
 
-## Hva prosjektet inneholder
+## Temaet
 
-- `themes/bodomfk-modern-theme/` – responsivt WordPress-tema uten avhengighet til GeneratePress, GP Premium eller en sidebygger.
-- `plugins/bmfk-modern-setup/` – midlertidig migrerings- og oppryddingsverktøy for den eksisterende siden.
-- `docs/INSTALLASJON.md` – trinnvis installasjon og kontroll.
-- `docs/UTVIDELSESPLAN.md` – vurdering av de gamle WordPress-utvidelsene.
+`themes/bodomfk-modern-theme/` er et responsivt tema uten avhengighet til GeneratePress, GP Premium, SiteOrigin eller en sidebygger. Temaet inkluderer blant annet:
 
-Temaet bruker klubbens egen visuelle identitet og inkluderer:
-
-- hovedbanner og moderne forside;
-- mobilmeny og responsivt oppsett;
-- tydelige snarveier til innmelding, webkamera og sikkerhetsinformasjon;
-- presentasjon av klubbens aktiviteter;
-- en fremhevet Facebook-velger høyt på forsiden for medlemsgruppen og den offentlige gruppen;
-- tydelige kortflater som er tilpasset både Light og Dark via WP Dark Mode;
+- hovedbanner, moderne forside og mobilmeny;
+- fremhevet valg mellom klubbens to Facebook-grupper;
+- snarveier til innmelding, webkamera, regler og hendelsesrapportering;
+- Light/Dark-visning styrt av WP Dark Mode, med egne kontrastsikre kortfarger;
 - beskyttede kontaktadresser for generelle henvendelser og faktura;
-- avtalen fra Bodø kontrolltårn om klubbens aktivitet ved Bestemorenga og 5 km-sonen;
-- redigerbare lenker og åpningstider i WordPress Customizer;
-- tilgjengelig navigasjon uten eksterne JavaScript- eller fontavhengigheter.
+- avtalen med Bodø kontrolltårn om klubbaktiviteten ved Bestemorenga;
+- metadata for søkemotorer og deling i sosiale medier;
+- redigerbare lenker og åpningstider under **Utseende → Tilpass → Klubbinformasjon**.
 
-## Viktig om sikkerhet og personvern
+Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig migrert, og temaet trenger ikke et separat migreringsverktøy i normal drift.
 
-Repositoryet skal **aldri** inneholde:
+## Last ned og installer
 
-- `wp-config.php`, `.env` eller passord;
-- WordPress-database eller SQL-eksport;
-- Duplicator-/backupfiler eller `installer.php`;
-- WordPress-opplastinger som ikke er eksplisitt godkjent for offentlig bruk;
-- private personopplysninger eller lister over medlemmer og brukerkontoer. Offisielle dokumenter med navn eller signatur skal være eksplisitt godkjent av klubben for offentlig publisering.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.4.0.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
-Se [SECURITY.md](SECURITY.md) hvis du oppdager en sikkerhetsfeil eller sensitiv informasjon.
+I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
 
-## Installere temaet
+Hver endring på `main` som berører temaet blir kontrollert og pakket automatisk av GitHub Actions. Versjonsnummeret i `style.css` bestemmer navnet på utgivelsen.
 
-1. Last ned repositoryet eller pakk mappen `themes/bodomfk-modern-theme` som ZIP.
-2. Gå til **Utseende → Temaer → Legg til nytt → Last opp tema**.
-3. Installer og aktiver temaet.
-4. Følg deretter [installasjonsveiledningen](docs/INSTALLASJON.md) dersom en eksisterende BMFK-side skal migreres.
-
-Migreringsutvidelsen er laget for klubbens eksisterende nettsted og bør ikke aktiveres på andre WordPress-installasjoner uten gjennomgang.
-
-## Utvikling
-
-Prosjektet bruker vanlig PHP, HTML, CSS og JavaScript uten en egen byggeprosess. Krav:
+## Krav
 
 - WordPress 6.4 eller nyere
 - PHP 7.4 eller nyere
+- WP Dark Mode for besøksstyrt Light/Dark-visning
+- Email Address Encoder for ekstra beskyttelse av e-postadresser
 
-Test alltid endringer i en staging-kopi og kontroller både desktop og mobil før en pull request sendes.
+Temaet har ingen byggeprosess og bruker vanlig PHP, HTML, CSS og JavaScript.
+
+## Sikkerhet og personvern
+
+Repositoryet skal aldri inneholde:
+
+- `wp-config.php`, `.env`, passord eller tilgangsnøkler;
+- database- eller SQL-eksporter;
+- Duplicator-/backupfiler eller `installer.php`;
+- medlemslister, brukerkontoer eller private personopplysninger;
+- opplastinger som ikke er godkjent for offentlig bruk.
+
+Se [SECURITY.md](SECURITY.md) dersom du oppdager en sikkerhetsfeil eller sensitiv informasjon.
 
 ## Bidra
 
@@ -60,4 +54,4 @@ Forslag, feilrettinger og designforbedringer er velkomne. Les [CONTRIBUTING.md](
 
 ## Lisens
 
-Koden distribueres under [GNU General Public License v2.0](LICENSE), i tråd med WordPress-økosystemet. Bilder og klubbmerker tilhører Bodø Modellflyklubb og skal ikke brukes som om de representerer andre organisasjoner.
+Koden distribueres under [GNU General Public License v2.0](LICENSE). Bilder og klubbmerker tilhører Bodø Modellflyklubb og skal ikke brukes som om de representerer andre organisasjoner.

@@ -1,44 +1,34 @@
 # Anbefalt utvidelsesplan
 
-Den opplastede sikkerhetskopien har 20 aktive utvidelser. Det nye temaet er laget for å kunne drive den offentlige klubbnettsiden med WordPress-kjernen og svært få eller ingen presentasjonsutvidelser.
-
-## Deaktiver etter innholdsmigreringen
-
-| Utvidelse | Hvorfor den kan bort |
-| --- | --- |
-| GP Premium | Nytt tema er selvstendig og bruker ikke GeneratePress. |
-| SiteOrigin Page Builder | Forsiden ligger i temaet, og undersidene migreres til WordPress-blokker. |
-| SiteOrigin Widgets Bundle | Bare støttepakke for gammel sidebygger. |
-| Ultimate Member | Offentlig innlogging og skjermet medlemsinnhold er ikke lenger i bruk. |
-| UM Online | Tillegg til Ultimate Member. |
-| UM reCAPTCHA | Tillegg til Ultimate Member. |
-| Classic Editor | Det nye innholdet bruker blokkredigering. |
-| Disable Comments | Migreringen lukker kommentarer direkte i WordPress. |
-| Photo Gallery | Nytt galleri er innebygd i temaet. |
-| Easy Video Player | Ingen nåværende offentlige sider trenger denne. |
-| Jetpack | Temaet bruker ikke Jetpack-presentasjon eller galleri. Kontroller først at klubben ikke bruker en betalt Jetpack-tjeneste. |
-| Disable auto-update emails | Unødvendig liten hjelpeplugin. |
-| Burst Statistics | Kan bort dersom klubben ikke trenger besøksstatistikk. Gir mindre personvernarbeid. |
-| Ninja Forms | Nåværende kontaktside bruker e-post/Facebook, ikke skjema. Eksporter eventuelle gamle innsendinger før sletting. |
-| WP Maintenance Mode | Kan bort etter at den nye siden er lansert. |
-
-## Kontroller før deaktivering
-
-| Utvidelse | Anbefaling |
-| --- | --- |
-| Duplicator | Behold gjennom lanseringen. Fjern først etter fersk backup av den nye siden. |
-| Really Simple SSL | Behold til `https://bodomfk.no`, HTTP→HTTPS og ingen blandet innhold er verifisert uten plugin. Mange webhotell håndterer dette direkte. |
-| Complianz GDPR | Behold under første test. Hvis Burst/Jetpack fjernes og siden ikke laster tredjepartsinnhold før klikk, gjennomfør ny cookie-skanning. Fjern bare hvis siden faktisk ikke setter samtykkekrevende cookies. |
+BMFK-nettsiden er ferdig migrert. Temaet er selvstendig og trenger ikke GeneratePress, GP Premium, SiteOrigin, Ultimate Member eller den tidligere BMFK-migreringsutvidelsen.
 
 ## Behold aktive
 
-| Utvidelse | Anbefaling |
+| Utvidelse | Hvorfor |
 | --- | --- |
-| WP Dark Mode | Beholdes for Light/Dark-bryteren. Temaet har egne kortfarger som fungerer i begge visninger. |
-| Email Address Encoder | Beholdes for å kode både `post@bodomfk.no` og `faktura@bodomfk.no`. Temaet bruker utvidelsens `[encode]`-funksjon eksplisitt i bunnteksten. |
+| WP Dark Mode | Gir besøkende valget mellom lys og mørk visning. Temaet låser egne kort og knapper til kontrastsikre farger. |
+| Email Address Encoder | Gir ekstra koding av `post@bodomfk.no` og `faktura@bodomfk.no`. Temaet bruker også WordPress-beskyttelse som reserve. |
 
-## Fullstendig fjerning
+## Bare dersom det fortsatt er nødvendig
 
-Deaktiver først. Test siden i minst noen dager. Slett deretter utvidelsene fra **Utvidelser → Installerte utvidelser**. Sletting bør utføres i små grupper med en rask kontroll av siden mellom hver gruppe.
+| Utvidelse | Vurdering |
+| --- | --- |
+| Complianz GDPR | Behold hvis nettstedets cookie-skanning viser samtykkekrevende informasjonskapsler eller tredjepartstjenester. Kjør ny skanning etter større endringer. |
+| Really Simple SSL | Behold bare dersom webhotellet ikke selv håndterer HTTPS, omdirigering og sikkerhetsoverskrifter. Test før fjerning. |
+| Duplicator | Kan brukes til manuelle sikkerhetskopier, men ferdige pakker og `installer.php` må aldri legges i GitHub eller være offentlig tilgjengelige. |
 
-Ultimate Member kan ha etterlatt tabeller og metadata i databasen. Ikke bruk automatiske database-cleanere uten en ny backup. Den viktigste gevinsten kommer allerede av å deaktivere og fjerne pluginfilene samt rydde brukerkontoene manuelt.
+## Utfaset
+
+**BMFK Modern – oppsett og opprydding** ble brukt til den opprinnelige innholdsmigreringen og er ikke lenger nødvendig. Fra tema 1.4.0 ligger eventuelle små, versjonerte vedlikeholdsjusteringer i temaet og kjører én gang.
+
+Gamle sidebyggere, medlemsinnlogging, gallerier og presentasjonsutvidelser skal ikke installeres igjen med mindre en ny funksjon er besluttet og gjennomgått.
+
+## Ved fremtidige utvidelser
+
+Før en ny utvidelse installeres:
+
+1. Avklar hvilket konkret behov den løser.
+2. Kontroller at funksjonen ikke allerede finnes i WordPress eller temaet.
+3. Vurder personvern, oppdateringshistorikk og påvirkning på ytelse.
+4. Ta backup og test på staging dersom endringen er omfattende.
+5. Dokumenter hvorfor utvidelsen skal beholdes.

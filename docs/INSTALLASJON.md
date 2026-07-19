@@ -1,98 +1,56 @@
-# Bodø Modellflyklubb – modernisering
+# Installere og oppdatere BMFK-temaet
 
-Dette repositoryet inneholder et nytt, selvstendig WordPress-tema og en midlertidig oppsettsutvidelse. Temaet er ikke avhengig av GeneratePress, GP Premium, SiteOrigin, Jetpack, Photo Gallery eller Ultimate Member.
+Dette er rutinen for versjon 1.4.0 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
-**Versjon 1.1:** Facebook-valget er flyttet høyt opp på forsiden. Den fjernede Facebook-siden er tatt bort, og løsningen peker nå bare til medlemsgruppen og den offentlige gruppen.
+## Før oppdatering
 
-**Versjon 1.1.1:** Rettet en feil som gjorde knappen «Kjør innholdsmigrering» grå selv når riktig tema var aktivt.
+1. Ta en fersk sikkerhetskopi av nettstedet og databasen.
+2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
+3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-**Versjon 1.2.0:** Beholder WP Dark Mode og Light/Dark-bryteren, gir alle kortflater tydeligere kontrast i begge visninger og legger inn `post@bodomfk.no` og `faktura@bodomfk.no` med Email Address Encoder.
+Filen skal hete omtrent `bodomfk-modern-theme-1.4.0.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
-**Versjon 1.3.0:** Legger avtalen med Bodø kontrolltårn, datert 26. mai 2026, under «Flyplassregler» og gir en egen oppdateringsknapp som ikke overskriver de andre migrerte sidene.
-
-## Innhold
-
-- `themes/bodomfk-modern-theme/` – det nye WordPress-temaet.
-- `plugins/bmfk-modern-setup/` – migrering og kontrollert deaktivering av gamle utvidelser.
-- `docs/UTVIDELSESPLAN.md` – anbefalt opprydding.
-
-Last ned repositoryet og komprimer temamappen og pluginmappen hver for seg. ZIP-filene må inneholde henholdsvis toppmappen `bodomfk-modern-theme` og `bmfk-modern-setup`.
-
-## Oppdatere fra versjon 1.2.0 til 1.3.0
-
-1. Last opp `bodomfk-modern-theme.zip` under **Utseende → Temaer → Legg til nytt tema → Last opp tema**, og velg å erstatte den installerte versjonen.
-2. Last opp `bmfk-modern-setup.zip` under **Utvidelser → Legg til ny utvidelse → Last opp utvidelse**, og erstatt den installerte versjonen.
-3. Gå til **Verktøy → BMFK modernisering** og trykk **Oppdater flyplassreglene**.
-4. Åpne siden **Flyplassregler** og kontroller at knappen til avtalen med Bodø kontrolltårn åpner PDF-en.
-
-Du skal ikke kjøre hele innholdsmigreringen på nytt for denne oppdateringen.
-
-## Før du starter
-
-1. Behold Duplicator-pakken fra før moderniseringen på et trygt sted.
-2. Ta helst en ny backup rett før installasjon dersom innholdet på den aktive siden er endret.
-3. Gjør installasjonen når du har tid til å kontrollere siden både på PC og mobil.
-4. Ikke slett gamle utvidelser i første runde. Deaktivering er nok frem til alt er verifisert.
-
-## Installasjon
+## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Last opp ZIP-filen du laget av `themes/bodomfk-modern-theme`.
-3. Installer og aktiver **Bodø Modellflyklubb Modern**.
-4. Gå til **Utvidelser → Legg til ny utvidelse → Last opp utvidelse**.
-5. Last opp ZIP-filen du laget av `plugins/bmfk-modern-setup`, og aktiver den.
-6. Gå til **Verktøy → BMFK modernisering**.
-7. Trykk **Kjør innholdsmigrering**.
+2. Velg `bodomfk-modern-theme-1.4.0.zip`.
+3. Trykk **Installer nå**.
+4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.4.0** fortsatt er aktivt.
 
-Hvis migreringen allerede er kjørt, bruker du de egne knappene under **Verktøy → BMFK modernisering**. «Oppdater kontaktsiden» og «Oppdater flyplassreglene» endrer bare den aktuelle siden og lar de andre sidene være urørt.
+Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
-Migreringen:
+## Kontroller etter oppdatering
 
-- gjør om relevante SiteOrigin-sider til vanlig WordPress-blokkinnhold;
-- tar vare på det gamle sideinnholdet i metadata før endring;
-- setter de gamle Ultimate Member-sidene til utkast;
-- lukker kommentarer og pingbacks;
-- lager og aktiverer en ny hovedmeny;
-- sletter ikke WordPress-brukere eller utvidelser.
+- Forsiden og banneret på PC og mobil.
+- Mobilmenyen, tastaturfokus og Light/Dark-bryteren.
+- At Facebook-valget ligger høyt på forsiden og åpner:
+  - medlemsgruppen: `https://www.facebook.com/groups/bodomfk`
+  - offentlig gruppe: `https://www.facebook.com/groups/bodomfksalg`
+- At **Meld hendelse** åpner NLFs side for hendelsesrapportering.
+- At Modellflyhåndboka åpnes via NLFs oppdaterte oversiktsside.
+- At flyplassreglene viser avtalen med Bodø kontrolltårn og at PDF-en åpnes.
+- At `post@bodomfk.no` og `faktura@bodomfk.no` vises riktig på kontaktsiden og i bunnteksten.
+- At kortene har god kontrast i både lys og mørk visning.
 
-## Kontroller før opprydding
+Tøm eventuell cache på webhotellet eller i WordPress hvis gamle farger eller filer fortsatt vises.
 
-- Forsiden, banneret og alle snarveier.
-- Menyen på PC og mobil.
-- Medlemsfordeler, klubbhytta, kontakt og gruppeansvarlige.
-- Webkamera, innmelding og hendelsesskjema.
-- Facebook-velgeren høyt på forsiden: medlemsgruppen skal peke til `https://www.facebook.com/groups/bodomfk`, og den offentlige gruppen til `https://www.facebook.com/groups/bodomfksalg`.
-- Kontaktsiden og bunnteksten: `post@bodomfk.no` skal brukes for generelle henvendelser og `faktura@bodomfk.no` for faktura.
-- Light/Dark-bryteren og at kortene er tydelig skilt fra bakgrunnen i begge visninger.
-- At åpningstidene er riktige.
-- At lenken til lokale flyplassregler peker på den faktisk gjeldende versjonen.
-- At knappen til avtalen med Bodø kontrolltårn åpner PDF-en, og at omtalen tydelig avgrenser tillatelsen til klubbens aktivitet ved Bestemorenga.
-- At klubbens ansvarlige og nøkkelavgiften fortsatt er riktige.
+## Redigere klubbinformasjon
 
-Åpningstider og lenker kan endres under **Utseende → Tilpass → Klubbinformasjon**.
+Gå til **Utseende → Tilpass → Klubbinformasjon** for å endre:
 
-Behold **WP Dark Mode** og **Email Address Encoder** aktive. Under **Innstillinger → Email Encoder** kan du bruke Page Scanner for å kontrollere at e-postadressene er kodet i HTML-kilden.
+- innmeldingslenke;
+- webkamera og lokale regler;
+- Facebook-grupper;
+- åpningstider;
+- kontakt- og fakturaadresse.
 
-## Deaktiver gamle utvidelser
+## Utvidelser
 
-Når kontrollen er utført, gå tilbake til **Verktøy → BMFK modernisering**. Listen viser hvilke utvidelser som er aktive og hvorfor de ikke lenger behøves. De anbefalte utvidelsene er forhåndsvalgt.
+Behold **WP Dark Mode** og **Email Address Encoder**. Se [UTVIDELSESPLAN.md](UTVIDELSESPLAN.md) for den anbefalte minimale driften.
 
-Velg **Deaktiver valgte utvidelser**. Handlingen sletter ingenting. Hvis noe uventet skjer, kan utvidelsen aktiveres igjen.
+Utvidelsen **BMFK Modern – oppsett og opprydding** er utfaset. Dersom den fremdeles finnes under **Utvidelser**, kan den deaktiveres og slettes etter at 1.4.0 er installert.
 
-Vent med å fjerne Duplicator, Really Simple SSL og Complianz til punktene i `UTVIDELSESPLAN.md` er kontrollert.
+## Tilbakerulling
 
-## Brukerkontoer
-
-Backupen inneholder 11 WordPress-brukere. De gamle offentlige innloggingssidene blir arkivert, men brukerkontoene slettes ikke automatisk. Gå gjennom **Brukere → Alle brukere** manuelt:
-
-- behold bare kontoer som faktisk trenger tilgang til administrasjonen;
-- fjern eller nedgrader gamle medlem-/testkontoer;
-- kontroller at ingen ukjente kontoer har administratorrolle;
-- bruk unike passord og tofaktorautentisering for administratorer.
-
-## Når alt fungerer
-
-1. Ta en ny komplett sikkerhetskopi.
-2. Slett utvidelser som har vært deaktivert uten problemer.
-3. Deaktiver og slett oppsettsutvidelsen `BMFK Modern – oppsett og opprydding`. Temaet trenger den ikke i normal drift.
-4. Behold én kopi av gammel og én kopi av ny side utenfor webhotellet.
+Hvis en oppdatering gir en alvorlig feil, aktiver et standardtema midlertidig eller gjenopprett siste sikkerhetskopi. Tidligere tema-ZIP-er ligger under [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).

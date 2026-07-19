@@ -25,6 +25,7 @@ Takk for at du vil hjelpe Bodø Modellflyklubb.
 - Alle eksterne lenker.
 - PHP-syntaks og JavaScript-syntaks.
 - At endringen ikke introduserer passord, private persondata eller backupfiler. Offisielle dokumenter med navn eller signatur krever klubbens godkjenning før publisering.
+- At `Version` i temaets `style.css` økes når en temaendring skal publiseres som en ny utgivelse.
 
 ## Pull request
 
@@ -36,3 +37,5 @@ Beskriv:
 - skjermbilder ved visuelle endringer.
 
 Ikke bruk ekte medlems- eller brukerdata i tester eller skjermbilder.
+
+Når en temaendring blir slått sammen til `main`, kontrollerer GitHub Actions PHP og JavaScript, bygger en installerbar tema-ZIP og publiserer den under **Releases**.
