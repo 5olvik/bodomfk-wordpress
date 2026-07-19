@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.1.0' );
+define( 'BMFK_THEME_VERSION', '1.2.0' );
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );
@@ -61,6 +61,44 @@ function bmfk_setting( $key, $default = '' ) {
 	return get_theme_mod( $key, $default );
 }
 
+/**
+ * Return a clickable, obfuscated email address.
+ *
+ * Email Address Encoder only filters selected WordPress content in its free
+ * version. The footer is rendered by the theme, so use the plugin shortcode
+ * explicitly there. WordPress' antispambot() is kept as a safe fallback.
+ *
+ * @param string $email Email address to display.
+ * @param string $class Optional CSS class for the link.
+ * @return string
+ */
+function bmfk_protected_email_link( $email, $class = '' ) {
+	$email = sanitize_email( $email );
+	$class = sanitize_html_class( $class );
+
+	if ( ! $email ) {
+		return '';
+	}
+
+	if ( shortcode_exists( 'encode' ) ) {
+		$shortcode = sprintf(
+			'[encode link="mailto:%1$s"%2$s]%1$s[/encode]',
+			$email,
+			$class ? ' class="' . $class . '"' : ''
+		);
+
+		return do_shortcode( $shortcode );
+	}
+
+	$encoded = antispambot( $email );
+
+	return sprintf(
+		'<a href="mailto:%1$s"%2$s>%1$s</a>',
+		$encoded,
+		$class ? ' class="' . esc_attr( $class ) . '"' : ''
+	);
+}
+
 function bmfk_register_customizer( $wp_customize ) {
 	$wp_customize->add_section(
 		'bmfk_club_settings',
@@ -101,7 +139,8 @@ function bmfk_register_customizer( $wp_customize ) {
 	$text_settings = array(
 		'bmfk_electric_hours'   => array( __( 'Åpningstid elektromotor', 'bmfk' ), __( 'Hele døgnet', 'bmfk' ) ),
 		'bmfk_combustion_hours' => array( __( 'Åpningstid forbrenningsmotor', 'bmfk' ), '09:00–21:00' ),
-		'bmfk_contact_email'    => array( __( 'E-postadresse', 'bmfk' ), 'post@bodomfk.no' ),
+		'bmfk_contact_email'    => array( __( 'E-postadresse – generelle henvendelser', 'bmfk' ), 'post@bodomfk.no' ),
+		'bmfk_invoice_email'    => array( __( 'E-postadresse – faktura', 'bmfk' ), 'faktura@bodomfk.no' ),
 	);
 
 	foreach ( $text_settings as $id => $data ) {
@@ -145,7 +184,7 @@ function bmfk_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'bmfk_body_classes' );
 
-// Keep the public site light and independent of legacy presentation plugins.
+// Remove obsolete WordPress metadata from the public page header.
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'rsd_link' );

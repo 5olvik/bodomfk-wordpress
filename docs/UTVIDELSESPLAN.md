@@ -16,9 +16,7 @@ Den opplastede sikkerhetskopien har 20 aktive utvidelser. Det nye temaet er lage
 | Disable Comments | Migreringen lukker kommentarer direkte i WordPress. |
 | Photo Gallery | Nytt galleri er innebygd i temaet. |
 | Easy Video Player | Ingen nåværende offentlige sider trenger denne. |
-| WP Dark Mode | Nytt design har en helhetlig marineblå profil uten plugin. |
 | Jetpack | Temaet bruker ikke Jetpack-presentasjon eller galleri. Kontroller først at klubben ikke bruker en betalt Jetpack-tjeneste. |
-| Email Address Encoder | Temaet bruker WordPress-funksjonen `antispambot`. |
 | Disable auto-update emails | Unødvendig liten hjelpeplugin. |
 | Burst Statistics | Kan bort dersom klubben ikke trenger besøksstatistikk. Gir mindre personvernarbeid. |
 | Ninja Forms | Nåværende kontaktside bruker e-post/Facebook, ikke skjema. Eksporter eventuelle gamle innsendinger før sletting. |
@@ -32,9 +30,15 @@ Den opplastede sikkerhetskopien har 20 aktive utvidelser. Det nye temaet er lage
 | Really Simple SSL | Behold til `https://bodomfk.no`, HTTP→HTTPS og ingen blandet innhold er verifisert uten plugin. Mange webhotell håndterer dette direkte. |
 | Complianz GDPR | Behold under første test. Hvis Burst/Jetpack fjernes og siden ikke laster tredjepartsinnhold før klikk, gjennomfør ny cookie-skanning. Fjern bare hvis siden faktisk ikke setter samtykkekrevende cookies. |
 
+## Behold aktive
+
+| Utvidelse | Anbefaling |
+| --- | --- |
+| WP Dark Mode | Beholdes for Light/Dark-bryteren. Temaet har egne kortfarger som fungerer i begge visninger. |
+| Email Address Encoder | Beholdes for å kode både `post@bodomfk.no` og `faktura@bodomfk.no`. Temaet bruker utvidelsens `[encode]`-funksjon eksplisitt i bunnteksten. |
+
 ## Fullstendig fjerning
 
 Deaktiver først. Test siden i minst noen dager. Slett deretter utvidelsene fra **Utvidelser → Installerte utvidelser**. Sletting bør utføres i små grupper med en rask kontroll av siden mellom hver gruppe.
 
 Ultimate Member kan ha etterlatt tabeller og metadata i databasen. Ikke bruk automatiske database-cleanere uten en ny backup. Den viktigste gevinsten kommer allerede av å deaktivere og fjerne pluginfilene samt rydde brukerkontoene manuelt.
-

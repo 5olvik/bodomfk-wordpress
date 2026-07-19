@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BMFK Modern – oppsett og opprydding
  * Description: Flytter Bodø Modellflyklubb bort fra SiteOrigin/Ultimate Member, arkiverer gamle innloggingssider og hjelper med kontrollert deaktivering av gamle utvidelser.
- * Version: 1.1.1
+ * Version: 1.2.0
  * Author: Bodø Modellflyklubb
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_SETUP_VERSION', '1.1.1' );
+define( 'BMFK_SETUP_VERSION', '1.2.0' );
 
 function bmfk_setup_admin_menu() {
 	add_management_page(
@@ -37,10 +37,10 @@ function bmfk_setup_legacy_plugins() {
 		'disable-comments/disable-comments.php'                      => array( 'Disable Comments', 'Oppsettet lukker kommentarer med WordPress-kjernen.', true ),
 		'photo-gallery/photo-gallery.php'                            => array( 'Photo Gallery', 'Galleriet er bygget inn uten egen galleriutvidelse.', true ),
 		'easy-video-player/easy-video-player.php'                    => array( 'Easy Video Player', 'Ingen aktive offentlige sider trenger avspilleren.', true ),
-		'wp-dark-mode/plugin.php'                                    => array( 'WP Dark Mode', 'Det nye designet har sin egen gjennomgående fargeprofil.', true ),
+		'wp-dark-mode/plugin.php'                                    => array( 'WP Dark Mode', 'Beholdes: gir besøkende et godt valg mellom Light og Dark.', false ),
 		'wp-maintenance-mode/wp-maintenance-mode.php'                => array( 'Maintenance Mode', 'Kan fjernes når lanseringen er ferdig.', true ),
 		'jetpack/jetpack.php'                                        => array( 'Jetpack', 'Det nye temaet bruker ikke Jetpack-galleri eller presentasjonsfunksjoner.', true ),
-		'email-address-encoder/email-address-encoder.php'            => array( 'Email Address Encoder', 'Temaet bruker WordPress sin innebygde antispambot-visning.', true ),
+		'email-address-encoder/email-address-encoder.php'            => array( 'Email Address Encoder', 'Beholdes: beskytter klubbens e-postadresser i sideinnhold og bunntekst.', false ),
 		'disable-auto-update-email-notifications/disable-auto-update-email-notifications.php' => array( 'Disable auto-update emails', 'Lite hjelpeplugin som kan erstattes av normal WordPress-drift.', true ),
 		'burst-statistics/burst.php'                                 => array( 'Burst Statistics', 'Valgfri statistikk; fjern for en enklere og mer personvernvennlig side.', true ),
 		'ninja-forms/ninja-forms.php'                                => array( 'Ninja Forms', 'Kontakt skjer via e-post/Facebook og offentlig kontaktside bruker ikke skjema.', true ),
@@ -70,7 +70,7 @@ function bmfk_setup_page_content() {
 		'kontaktoss' => array(
 			'title'   => 'Kontakt oss',
 			'content' => '<!-- wp:paragraph {"fontSize":"large"} --><p class="has-large-font-size">For klubbinformasjon og miljøet rundt hobbyen bruker vi to Facebook-grupper. Du kan også kontakte styret på e-post.</p><!-- /wp:paragraph -->
-<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Klubben</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>E-post</strong><br><a href="mailto:post@bodomfk.no">post@bodomfk.no</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Facebook for medlemmer</strong><br><a href="https://www.facebook.com/groups/bodomfk">Bodø Modellflyklubb – medlemsgruppen</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Offentlig Facebook-gruppe</strong><br><a href="https://www.facebook.com/groups/bodomfksalg">Kjøp, salg og åpen hobbyprat</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Postadresse</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Bodø Modellflyklubb<br>Postboks 410<br>8001 Bodø</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Organisasjonsnummer</strong><br>993 764 299</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->
+<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Kontakt klubben</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>Generelle henvendelser</strong><br>[encode link="mailto:post@bodomfk.no"]post@bodomfk.no[/encode]</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Fakturaer og regninger</strong><br>[encode link="mailto:faktura@bodomfk.no"]faktura@bodomfk.no[/encode]</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Facebook for medlemmer</strong><br><a href="https://www.facebook.com/groups/bodomfk">Bodø Modellflyklubb – medlemsgruppen</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Offentlig Facebook-gruppe</strong><br><a href="https://www.facebook.com/groups/bodomfksalg">Kjøp, salg og åpen hobbyprat</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":3} --><h3>Postadresse</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Bodø Modellflyklubb<br>Postboks 410<br>8001 Bodø</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><strong>Organisasjonsnummer</strong><br>993 764 299</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->
 <!-- wp:heading {"level":2} --><h2>Spørsmål om NLF-medlemskap</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Har du spørsmål om registrering eller medlemskapet hos Norges Luftsportforbund, kan du kontakte <a href="https://nlf.no/">NLF direkte</a>.</p><!-- /wp:paragraph -->',
 		),
 		'flyplassregler' => array(
@@ -239,6 +239,8 @@ function bmfk_setup_run_migration() {
 	remove_theme_mod( 'bmfk_facebook_page_url' );
 	set_theme_mod( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' );
 	set_theme_mod( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' );
+	set_theme_mod( 'bmfk_contact_email', 'post@bodomfk.no' );
+	set_theme_mod( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 	bmfk_setup_create_menu();
 	update_option( 'bmfk_modern_migrated_at', current_time( 'mysql' ) );
 
@@ -246,6 +248,41 @@ function bmfk_setup_run_migration() {
 	exit;
 }
 add_action( 'admin_post_bmfk_run_migration', 'bmfk_setup_run_migration' );
+
+/**
+ * Update only the public contact page without rewriting the other migrated pages.
+ */
+function bmfk_setup_update_contact_page() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Du har ikke tilgang til denne handlingen.', 'bmfk' ) );
+	}
+
+	check_admin_referer( 'bmfk_update_contact' );
+
+	$pages = bmfk_setup_page_content();
+	$page  = get_page_by_path( 'kontaktoss' );
+
+	if ( ! $page || empty( $pages['kontaktoss'] ) ) {
+		wp_safe_redirect( add_query_arg( array( 'page' => 'bmfk-modernisering', 'bmfk_contact_updated' => 0 ), admin_url( 'tools.php' ) ) );
+		exit;
+	}
+
+	$result = bmfk_setup_backup_and_update_page( $page, $pages['kontaktoss'] );
+	set_theme_mod( 'bmfk_contact_email', 'post@bodomfk.no' );
+	set_theme_mod( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
+
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'page'                 => 'bmfk-modernisering',
+				'bmfk_contact_updated' => is_wp_error( $result ) ? 0 : 1,
+			),
+			admin_url( 'tools.php' )
+		)
+	);
+	exit;
+}
+add_action( 'admin_post_bmfk_update_contact', 'bmfk_setup_update_contact_page' );
 
 function bmfk_setup_deactivate_plugins() {
 	if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -287,6 +324,13 @@ function bmfk_setup_render_page() {
 		<?php if ( isset( $_GET['bmfk_deactivated'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 			<div class="notice notice-success"><p>Valgte utvidelser ble deaktivert. De er ikke slettet og kan aktiveres igjen.</p></div>
 		<?php endif; ?>
+		<?php if ( isset( $_GET['bmfk_contact_updated'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+			<?php if ( '1' === sanitize_text_field( wp_unslash( $_GET['bmfk_contact_updated'] ) ) ) : ?>
+				<div class="notice notice-success"><p>Kontaktsiden er oppdatert med egne adresser for generelle henvendelser og faktura.</p></div>
+			<?php else : ?>
+				<div class="notice notice-error"><p>Kontaktsiden kunne ikke oppdateres. Kontroller at siden med adressen «kontaktoss» finnes.</p></div>
+			<?php endif; ?>
+		<?php endif; ?>
 
 		<div class="card" style="max-width:1000px;padding:22px;margin-top:20px">
 			<h2>1. Flytt innholdet bort fra gamle utvidelser</h2>
@@ -305,7 +349,17 @@ function bmfk_setup_render_page() {
 		</div>
 
 		<div class="card" style="max-width:1000px;padding:22px;margin-top:20px">
-			<h2>2. Deaktiver gamle utvidelser</h2>
+			<h2>2. Oppdater kontaktinformasjon</h2>
+			<p>Oppdaterer bare siden «Kontakt oss» med <strong>post@bodomfk.no</strong> for generelle henvendelser og <strong>faktura@bodomfk.no</strong> for fakturaer. Email Address Encoder brukes til å beskytte begge adressene.</p>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="bmfk_update_contact">
+				<?php wp_nonce_field( 'bmfk_update_contact' ); ?>
+				<?php submit_button( 'Oppdater kontaktsiden', 'primary', 'submit', false ); ?>
+			</form>
+		</div>
+
+		<div class="card" style="max-width:1000px;padding:22px;margin-top:20px">
+			<h2>3. Deaktiver gamle utvidelser</h2>
 			<p>Kjør dette etter at du har kontrollert forsiden, undersidene, menyen og mobilvisningen. Dette deaktiverer – det sletter ikke.</p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="bmfk_deactivate_plugins">

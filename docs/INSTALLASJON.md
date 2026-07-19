@@ -6,6 +6,8 @@ Dette repositoryet inneholder et nytt, selvstendig WordPress-tema og en midlerti
 
 **Versjon 1.1.1:** Rettet en feil som gjorde knappen «Kjør innholdsmigrering» grå selv når riktig tema var aktivt.
 
+**Versjon 1.2.0:** Beholder WP Dark Mode og Light/Dark-bryteren, gir alle kortflater tydeligere kontrast i begge visninger og legger inn `post@bodomfk.no` og `faktura@bodomfk.no` med Email Address Encoder.
+
 ## Innhold
 
 - `themes/bodomfk-modern-theme/` – det nye WordPress-temaet.
@@ -31,6 +33,8 @@ Last ned repositoryet og komprimer temamappen og pluginmappen hver for seg. ZIP-
 6. Gå til **Verktøy → BMFK modernisering**.
 7. Trykk **Kjør innholdsmigrering**.
 
+Hvis migreringen allerede er kjørt, bruker du i stedet **Verktøy → BMFK modernisering → Oppdater kontaktsiden**. Det oppdaterer bare kontaktinformasjonen og lar de andre sidene være urørt.
+
 Migreringen:
 
 - gjør om relevante SiteOrigin-sider til vanlig WordPress-blokkinnhold;
@@ -47,11 +51,15 @@ Migreringen:
 - Medlemsfordeler, klubbhytta, kontakt og gruppeansvarlige.
 - Webkamera, innmelding og hendelsesskjema.
 - Facebook-velgeren høyt på forsiden: medlemsgruppen skal peke til `https://www.facebook.com/groups/bodomfk`, og den offentlige gruppen til `https://www.facebook.com/groups/bodomfksalg`.
+- Kontaktsiden og bunnteksten: `post@bodomfk.no` skal brukes for generelle henvendelser og `faktura@bodomfk.no` for faktura.
+- Light/Dark-bryteren og at kortene er tydelig skilt fra bakgrunnen i begge visninger.
 - At åpningstidene er riktige.
 - At lenken til lokale flyplassregler peker på den faktisk gjeldende versjonen.
 - At klubbens ansvarlige og nøkkelavgiften fortsatt er riktige.
 
 Åpningstider og lenker kan endres under **Utseende → Tilpass → Klubbinformasjon**.
+
+Behold **WP Dark Mode** og **Email Address Encoder** aktive. Under **Innstillinger → Email Encoder** kan du bruke Page Scanner for å kontrollere at e-postadressene er kodet i HTML-kilden.
 
 ## Deaktiver gamle utvidelser
 

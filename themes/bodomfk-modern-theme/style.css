@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -346,7 +346,7 @@ p {
   width: min(1100px, calc(100% - 40px));
   margin: -42px auto 0;
   grid-template-columns: repeat(4, 1fr);
-  background: #fff;
+  background: #f8fbff;
   border: 1px solid var(--bmfk-line);
   border-radius: var(--bmfk-radius);
   box-shadow: var(--bmfk-shadow);
@@ -583,13 +583,53 @@ p {
 }
 
 .discipline-card {
+  position: relative;
   min-height: 290px;
   padding: 30px;
-  background: #fff;
-  border: 1px solid var(--bmfk-line);
+  overflow: hidden;
+  background: linear-gradient(145deg, #f1f7ff, #e2edf9);
+  border: 1px solid #a9c5e4;
   border-radius: var(--bmfk-radius);
-  box-shadow: 0 1px 0 rgba(4, 21, 47, 0.03);
+  box-shadow: 0 12px 30px rgba(4, 21, 47, 0.08);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.discipline-card:nth-child(2) {
+  background: linear-gradient(145deg, #fff8e9, #ffebbd);
+  border-color: #efc46d;
+}
+
+.discipline-card:nth-child(3) {
+  background: linear-gradient(145deg, #effbfb, #d8f0f1);
+  border-color: #8bc7cc;
+}
+
+.discipline-card:nth-child(4) {
+  background: linear-gradient(145deg, #fff3f5, #f9dfe4);
+  border-color: #e2a0ac;
+}
+
+.discipline-card::after {
+  position: absolute;
+  top: -58px;
+  right: -58px;
+  width: 170px;
+  height: 170px;
+  content: "";
+  background: rgba(22, 77, 168, 0.09);
+  border-radius: 50%;
+}
+
+.discipline-card:nth-child(2)::after {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.discipline-card:nth-child(3)::after {
+  background: rgba(17, 123, 146, 0.13);
+}
+
+.discipline-card:nth-child(4)::after {
+  background: rgba(225, 36, 47, 0.11);
 }
 
 .discipline-card:hover {
@@ -599,6 +639,8 @@ p {
 }
 
 .discipline-card__icon {
+  position: relative;
+  z-index: 1;
   display: grid;
   width: 58px;
   height: 58px;
@@ -615,18 +657,31 @@ p {
   background: var(--bmfk-orange);
 }
 
+.discipline-card:nth-child(3) .discipline-card__icon {
+  background: #0a6171;
+}
+
+.discipline-card:nth-child(4) .discipline-card__icon {
+  color: #fff;
+  background: #a9253a;
+}
+
 .discipline-card__icon svg {
   width: 30px;
   height: 30px;
 }
 
 .discipline-card h3 {
+  position: relative;
+  z-index: 1;
   margin-bottom: 10px;
 }
 
 .discipline-card p {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  color: var(--bmfk-muted);
+  color: #4f6178;
   font-size: 0.92rem;
 }
 
@@ -752,9 +807,22 @@ p {
   min-height: 300px;
   padding: 32px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #d0e3f4;
+  background: linear-gradient(145deg, #ffffff, #f1f7fd);
+  border: 1px solid #b9d4eb;
+  border-top: 4px solid var(--bmfk-blue);
   border-radius: var(--bmfk-radius);
+}
+
+.safety-card:nth-child(2) {
+  background: linear-gradient(145deg, #fffdf8, #fff3d8);
+  border-color: #efd08b;
+  border-top-color: var(--bmfk-orange);
+}
+
+.safety-card:nth-child(3) {
+  background: linear-gradient(145deg, #fafffe, #e3f5f1);
+  border-color: #9bcfc4;
+  border-top-color: #16816f;
 }
 
 .safety-card::after {
@@ -778,7 +846,7 @@ p {
 }
 
 .safety-card p {
-  color: var(--bmfk-muted);
+  color: #4f6178;
   font-size: 0.92rem;
 }
 
@@ -1243,6 +1311,14 @@ p {
   color: var(--bmfk-orange);
 }
 
+.footer-contact-label {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .footer-bottom {
   display: flex;
   min-height: 76px;
@@ -1263,6 +1339,141 @@ p {
   max-width: 600px;
   margin-inline: auto;
   color: var(--bmfk-muted);
+}
+
+/*
+ * WP Dark Mode converts light surfaces automatically. These more specific
+ * rules keep every card visibly separated from the page background while
+ * preserving the visitor-controlled Light/Dark switch.
+ */
+html[data-wp-dark-mode-active] .quick-actions {
+  background: #151b25 !important;
+  border-color: #3b4b5e !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34) !important;
+}
+
+html[data-wp-dark-mode-active] .quick-action {
+  color: #e4ebf2 !important;
+  border-color: #344354 !important;
+}
+
+html[data-wp-dark-mode-active] .quick-action:hover {
+  background: #1d2a3b !important;
+}
+
+html[data-wp-dark-mode-active] .quick-action strong {
+  color: #f3f6f8 !important;
+}
+
+html[data-wp-dark-mode-active] .quick-action small {
+  color: #9aadc0 !important;
+}
+
+html[data-wp-dark-mode-active] .facebook-channel--members {
+  color: #fff !important;
+  background: linear-gradient(145deg, #254e8d, #1d3965) !important;
+  border-color: #466da6 !important;
+}
+
+html[data-wp-dark-mode-active] .facebook-channel--public {
+  color: #101b2a !important;
+  background: linear-gradient(145deg, #ffb522, #bb811e) !important;
+  border-color: #d7a442 !important;
+}
+
+html[data-wp-dark-mode-active] .facebook-channel--members h3,
+html[data-wp-dark-mode-active] .facebook-channel--members p,
+html[data-wp-dark-mode-active] .facebook-channel--members .facebook-channel__link {
+  color: #fff !important;
+}
+
+html[data-wp-dark-mode-active] .facebook-channel--public h3,
+html[data-wp-dark-mode-active] .facebook-channel--public .facebook-channel__link {
+  color: #101b2a !important;
+}
+
+html[data-wp-dark-mode-active] .facebook-channel--public p {
+  color: rgba(16, 27, 42, 0.76) !important;
+}
+
+html[data-wp-dark-mode-active] .intro-values,
+html[data-wp-dark-mode-active] .field-panel,
+html[data-wp-dark-mode-active] .join-panel {
+  background: linear-gradient(145deg, #121c2d, #182d49) !important;
+  border: 1px solid #344a64 !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card {
+  background: linear-gradient(145deg, #182d49, #142338) !important;
+  border-color: #35608f !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24) !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card:nth-child(2) {
+  background: linear-gradient(145deg, #3c2d18, #2a231a) !important;
+  border-color: #91651f !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card:nth-child(3) {
+  background: linear-gradient(145deg, #12343c, #15272e) !important;
+  border-color: #2d7781 !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card:nth-child(4) {
+  background: linear-gradient(145deg, #3a2029, #2b1b22) !important;
+  border-color: #8e3d50 !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card h3 {
+  color: #f1f5f8 !important;
+}
+
+html[data-wp-dark-mode-active] .discipline-card p {
+  color: #b7c5d2 !important;
+}
+
+html[data-wp-dark-mode-active] .hours-card {
+  background: #1c2b3f !important;
+  border-color: #405772 !important;
+}
+
+html[data-wp-dark-mode-active] .safety-card {
+  background: linear-gradient(145deg, #172536, #151c27) !important;
+  border-color: #345d86 !important;
+  border-top-color: #4b91db !important;
+}
+
+html[data-wp-dark-mode-active] .safety-card:nth-child(2) {
+  background: linear-gradient(145deg, #352b1b, #211e1a) !important;
+  border-color: #87631f !important;
+  border-top-color: #f59e0b !important;
+}
+
+html[data-wp-dark-mode-active] .safety-card:nth-child(3) {
+  background: linear-gradient(145deg, #17312f, #172321) !important;
+  border-color: #397a70 !important;
+  border-top-color: #31a58f !important;
+}
+
+html[data-wp-dark-mode-active] .safety-card h3 {
+  color: #f1f5f8 !important;
+}
+
+html[data-wp-dark-mode-active] .safety-card p {
+  color: #b7c5d2 !important;
+}
+
+html[data-wp-dark-mode-active] .entry-content .wp-block-column,
+html[data-wp-dark-mode-active] .page-aside {
+  background: #151b25 !important;
+  border-color: #3b4b5e !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2) !important;
+}
+
+html[data-wp-dark-mode-active] .page-aside a {
+  color: #dce5ed !important;
+  background: #1d2a3b !important;
+  border-color: #3f5368 !important;
 }
 
 @media (max-width: 1080px) {

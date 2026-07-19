@@ -5,7 +5,8 @@
  * @package BMFK
  */
 
-$email = bmfk_setting( 'bmfk_contact_email', 'post@bodomfk.no' );
+$email         = bmfk_setting( 'bmfk_contact_email', 'post@bodomfk.no' );
+$invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 ?>
 <footer class="site-footer">
 	<div class="footer-main wrap">
@@ -28,7 +29,8 @@ $email = bmfk_setting( 'bmfk_contact_email', 'post@bodomfk.no' );
 		<div class="footer-column">
 			<h2>Kontakt</h2>
 			<ul>
-				<li><a href="mailto:<?php echo esc_attr( antispambot( $email ) ); ?>"><?php echo esc_html( antispambot( $email ) ); ?></a></li>
+				<li><span class="footer-contact-label">Generelt:</span> <?php echo bmfk_protected_email_link( $email ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
+				<li><span class="footer-contact-label">Faktura:</span> <?php echo bmfk_protected_email_link( $invoice_email ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' ) ); ?>">Facebook: medlemsgruppen</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' ) ); ?>">Facebook: offentlig gruppe</a></li>
 				<li>Postboks 410, 8001 Bodø</li>
