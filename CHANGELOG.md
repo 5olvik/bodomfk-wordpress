@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.4.2 – 2026-07-19
+
+- Gjør alle vanlige H1–H4-overskrifter tydelig lesbare i Dark Mode.
+- Gir innledningstekster og sitatblokker eksplisitte kontrastsikre mørkmodusfarger.
+- Retter spesielt den mørke gallerioverskriften «Hobbyen ser best ut i lufta».
+
 ## 1.4.1 – 2026-07-19
 
 - Gjør «Se medlemsfordelene» tydelig lesbar igjen i Dark Mode.
