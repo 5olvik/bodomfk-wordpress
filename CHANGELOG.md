@@ -1,5 +1,9 @@
 # Endringslogg
 
+## 1.5.1 – 2026-07-19
+
+- Retter Webkamera-snarveien under toppbanneret slik at den går direkte til `#webkamera` i stedet for den generelle flyplassdelen.
+
 ## 1.5.0 – 2026-07-19
 
 - Flytter de publiserte tekstene for Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler til egne Markdown-filer i GitHub.

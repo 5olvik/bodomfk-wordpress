@@ -24,7 +24,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 			<span class="quick-action__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
 			<span><strong>Bli medlem</strong><small>Kom i gang med hobbyen</small></span>
 		</a>
-		<a class="quick-action" href="#flyplassen">
+		<a class="quick-action" href="#webkamera">
 			<span class="quick-action__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="m17 10 4-2v8l-4-2z"/></svg></span>
 			<span><strong>Webkamera</strong><small>Se forholdene på banen</small></span>
 		</a>
