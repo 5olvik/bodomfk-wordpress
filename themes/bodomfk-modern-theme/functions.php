@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.5.1' );
+define( 'BMFK_THEME_VERSION', '1.5.3' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );

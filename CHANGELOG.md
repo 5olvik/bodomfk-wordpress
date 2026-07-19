@@ -1,5 +1,12 @@
 # Endringslogg
 
+## 1.5.3 – 2026-07-20
+
+- Retter en Safari-feil som klippet den åpne mobilmenyen til høyden på toppfeltet.
+- Gjør mobilmenyen heldekkende og rullbar, med støtte for sikkerhetsområdet nederst på iPhone.
+- Skjuler Light/Dark-bryteren mens mobilmenyen er åpen, slik at den ikke dekker menypunkter.
+- Fjerner det overflødige «Kamera tilgjengelig»-merket fra flyplassbildet.
+
 ## 1.5.1 – 2026-07-19
 
 - Retter Webkamera-snarveien under toppbanneret slik at den går direkte til `#webkamera` i stedet for den generelle flyplassdelen.

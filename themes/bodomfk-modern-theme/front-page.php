@@ -134,7 +134,6 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 					</div>
 				</div>
 				<div class="field-visual" role="img" aria-label="Modellfly og piloter ved flyplassen på Bestemorenga">
-					<span class="live-badge">Kamera tilgjengelig</span>
 				</div>
 			</div>
 

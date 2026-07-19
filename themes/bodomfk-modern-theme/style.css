@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.5.1
+Version: 1.5.3
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -777,33 +777,6 @@ p {
   inset: 0;
   content: "";
   background: linear-gradient(90deg, var(--bmfk-navy-950) 0%, transparent 44%), linear-gradient(0deg, rgba(4, 21, 47, 0.4), transparent 50%);
-}
-
-.live-badge {
-  position: absolute;
-  z-index: 1;
-  right: 26px;
-  bottom: 26px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  color: #fff;
-  background: rgba(4, 21, 47, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 99px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  backdrop-filter: blur(10px);
-}
-
-.live-badge::before {
-  width: 9px;
-  height: 9px;
-  content: "";
-  background: #54df82;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px rgba(84, 223, 130, 0.15);
 }
 
 .field-live-grid {
@@ -1711,6 +1684,18 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
 }
 
 @media (max-width: 900px) {
+  body.menu-open .site-header {
+    background: var(--bmfk-navy-950);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  body.menu-open .wp-dark-mode-floating-switch {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
   .admin-bar .site-header {
     top: 46px;
   }
@@ -1721,14 +1706,17 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
 
   .primary-navigation {
     position: fixed;
+    z-index: 1;
     top: 79px;
     right: 0;
     bottom: 0;
     left: 0;
     display: none;
-    padding: 22px 20px 40px;
+    padding: 22px 20px calc(40px + env(safe-area-inset-bottom));
     overflow-y: auto;
     background: var(--bmfk-navy-950);
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
   }
 
   .admin-bar .primary-navigation {
