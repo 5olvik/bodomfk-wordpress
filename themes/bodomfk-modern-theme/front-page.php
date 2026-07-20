@@ -137,21 +137,19 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 				</div>
 			</div>
 
-			<section class="field-live-grid" id="webkamera" aria-labelledby="field-live-title">
-				<div class="field-live-copy">
-					<span class="eyebrow">Direkte fra Bestemorenga</span>
-					<h2 id="field-live-title">Se forholdene før du kjører.</h2>
-					<div class="field-weather wp-dark-mode-ignore">
-						<iframe src="<?php echo esc_url( BMFK_YR_WIDGET_URL ); ?>" title="Værvarsel for Bestemorenga fra Yr" loading="lazy" scrolling="no"></iframe>
-						<a class="field-weather__link" href="<?php echo esc_url( BMFK_YR_URL ); ?>" target="_blank" rel="noopener noreferrer">Se hele værvarselet på Yr <span aria-hidden="true">↗</span></a>
+			<section class="field-live-section" id="webkamera" aria-labelledby="field-live-title">
+				<h2 class="eyebrow" id="field-live-title">Direkte fra Bodø Modellflyklubb</h2>
+				<div class="field-live-grid">
+					<div class="field-weather-station wp-dark-mode-ignore">
+						<iframe src="<?php echo esc_url( BMFK_WEATHER_WIDGET_URL ); ?>" title="Vindmålinger fra klubbens værstasjon på Bestemorenga" width="100%" height="400" loading="lazy"></iframe>
 					</div>
-				</div>
-				<div class="field-webcam-card wp-dark-mode-ignore">
-					<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga" data-webcam>
-						<img class="field-webcam__image" data-webcam-image data-webcam-source="<?php echo esc_url( bmfk_webcam_image_url() ); ?>" data-webcam-nonce="<?php echo esc_attr( wp_create_nonce( 'bmfk_webcam_image' ) ); ?>" alt="Siste kamerabilde fra Bestemorenga modellflyplass" width="1280" height="720" decoding="async" hidden>
-						<div class="field-webcam__fallback" data-webcam-fallback role="status">
-							<strong data-webcam-message>Henter kamerabildet …</strong>
-							<span data-webcam-detail>Dette tar vanligvis bare et øyeblikk.</span>
+					<div class="field-webcam-card wp-dark-mode-ignore">
+						<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga" data-webcam>
+							<img class="field-webcam__image" data-webcam-image data-webcam-source="<?php echo esc_url( bmfk_webcam_image_url() ); ?>" data-webcam-nonce="<?php echo esc_attr( wp_create_nonce( 'bmfk_webcam_image' ) ); ?>" alt="Siste kamerabilde fra Bestemorenga modellflyplass" width="1280" height="720" decoding="async" hidden>
+							<div class="field-webcam__fallback" data-webcam-fallback role="status">
+								<strong data-webcam-message>Henter kamerabildet …</strong>
+								<span data-webcam-detail>Dette tar vanligvis bare et øyeblikk.</span>
+							</div>
 						</div>
 					</div>
 				</div>

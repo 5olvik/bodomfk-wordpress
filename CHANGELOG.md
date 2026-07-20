@@ -1,5 +1,36 @@
 # Endringslogg
 
+## 1.5.12 – 2026-07-20
+
+- Fjerner gradientfargen fra værstasjonens topp og bunn.
+- Bruker ensfarget klubbmørkeblå `#04152F`, mens tekst, opacity, m/s og mørk logo beholdes.
+
+## 1.5.11 – 2026-07-20
+
+- Gir værstasjonens topp og bunn en gradient fra klubbens mørkeblå `#04152F` til logoblå `#1514B2`.
+- Bruker nesten hvit tekst, mørk logo og vindhastighet i m/s.
+- Øker den halvgjennomsiktige hvite målebakgrunnen til 59 prosent.
+
+## 1.5.10 – 2026-07-20
+
+- Setter værstasjonens topp og bunn til hvitt med svart tekst og mørk logo.
+- Gir måleområdet en halvgjennomsiktig hvit bakgrunn som følger siden bedre i lys og mørk visning.
+- Viser vindhastigheten i meter per sekund (m/s).
+
+## 1.5.9 – 2026-07-20
+
+- Forenkler direktedelen til én kort overskrift: «Direkte fra Bodø Modellflyklubb».
+- Plasserer den kompakte værstasjonen til venstre for webkameraet på brede skjermer.
+- Reduserer værwidgeten til 400 piksler og bruker WindNerd-visningens lyse standardutforming.
+- Beholder webkameraets størrelse og lar rutene stables ryddig på mobil.
+
+## 1.5.8 – 2026-07-20
+
+- Erstatter Yr-kortet på forsiden med klubbens egen værstasjon fra WindNerd.
+- Samler webkamera og levende vindmålinger i én ryddig kolonne ved siden av forklaringen.
+- Tilpasser værwidgeten med klubbens mørkeblå profil, lyse og lesbare måledata samt vindhastighet i m/s.
+- Legger inn en tydelig lenke til alle data fra værstasjonen.
+
 ## 1.5.7 – 2026-07-20
 
 - Legger klubbmiljøet rundt bålet inn over medlemsknappen som et varmt, responsivt bildekort.
