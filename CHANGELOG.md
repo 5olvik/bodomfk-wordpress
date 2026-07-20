@@ -1,5 +1,10 @@
 # Endringslogg
 
+## 1.5.6 – 2026-07-20
+
+- Oppdaterer tre forsidebilder med klubbens egne motiver: helikopterflyging, modellflyet på bakken og flyglede mellom generasjoner.
+- Gir helikopterbildet et tettere utsnitt og oppdaterer beskrivende bildetekster for bedre tilgjengelighet.
+
 ## 1.5.5 – 2026-07-20
 
 - Opplyser på Klubbhytta-siden at hytta kan brukes hver dag mellom kl. 08:00 og 00:00.

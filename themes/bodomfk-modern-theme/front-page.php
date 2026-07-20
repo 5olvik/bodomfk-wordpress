@@ -133,7 +133,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 						<a class="button wp-dark-mode-ignore" href="<?php echo esc_url( $rules_url ); ?>">Les reglene</a>
 					</div>
 				</div>
-				<div class="field-visual" role="img" aria-label="Modellfly og piloter ved flyplassen på Bestemorenga">
+				<div class="field-visual" role="img" aria-label="Modellfly på bakken ved Bestemorenga">
 				</div>
 			</div>
 
@@ -199,8 +199,8 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 			<section class="gallery-grid" aria-label="Bildegalleri fra modellflyplassen" tabindex="0">
 				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-aircraft.webp' ) ); ?>" alt="Modellfly klare på bakken" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Klar for neste tur</figcaption></figure>
 				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-fpv.webp' ) ); ?>" alt="FPV-pilot med radiostyrt quad" width="1200" height="800" loading="lazy" decoding="async"><figcaption>FPV og multirotor</figcaption></figure>
-				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-helicopter.webp' ) ); ?>" alt="Radiostyrt helikopter over banen" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Helikopterflyging</figcaption></figure>
-				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-pilot.webp' ) ); ?>" alt="Pilot med modellfly" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Flyglede på bakken</figcaption></figure>
+				<figure class="gallery-item gallery-item--helicopter"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-helicopter.webp' ) ); ?>" alt="Radiostyrt helikopter over banen" width="1362" height="1000" loading="lazy" decoding="async"><figcaption>Helikopterflyging</figcaption></figure>
+				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-pilot.webp' ) ); ?>" alt="En voksen og et barn klargjør et modellfly" width="1400" height="1050" loading="lazy" decoding="async"><figcaption>Flyglede på bakken</figcaption></figure>
 				<figure class="gallery-item"><img src="<?php echo esc_url( bmfk_asset_url( 'images/gallery-building.webp' ) ); ?>" alt="Klargjøring av modellfly" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Klargjøring og fellesskap</figcaption></figure>
 			</section>
 		</div>
