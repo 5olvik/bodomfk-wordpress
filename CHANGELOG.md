@@ -1,5 +1,10 @@
 # Endringslogg
 
+## 1.5.5 – 2026-07-20
+
+- Opplyser på Klubbhytta-siden at hytta kan brukes hver dag mellom kl. 08:00 og 00:00.
+- Gjør webkameraruten litt større på brede skjermer uten å endre mobilvisningen.
+
 ## 1.5.4 – 2026-07-20
 
 - Erstatter Windy-spilleren med klubbens eget kamerabilde i samme kamerarute.
