@@ -1,5 +1,15 @@
 # Endringslogg
 
+## 1.5.4 – 2026-07-20
+
+- Erstatter Windy-spilleren med klubbens eget kamerabilde i samme kamerarute.
+- Leverer bildet gjennom et eget WordPress-endepunkt uten å publisere den opprinnelige filadressen.
+- Krever en kontrollert POST-forespørsel med WordPress-sikkerhetskode, slik at endepunktet ikke viser bildet ved direkte besøk.
+- Oppdaterer bare kamerabildet automatisk hvert femte minutt, uten å laste hele forsiden på nytt.
+- Legger inn reservevisning dersom kamerafilen mangler eller er utilgjengelig.
+- Tar med en `.htaccess`-mal som kan sperre direkte tilgang til `webcam.jpg` etter vellykket test.
+- Lar Webkamera-lenken i den blå hovedmenyen bruke `https://webcam.bodomfk.no`.
+
 ## 1.5.3 – 2026-07-20
 
 - Retter en Safari-feil som klippet den åpne mobilmenyen til høyden på toppfeltet.

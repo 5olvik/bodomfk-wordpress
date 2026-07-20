@@ -14,7 +14,7 @@ get_header();
 		$git_page_content = bmfk_git_page_content( $page_slug );
 		$useful_links = array(
 			array( 'label' => 'Bli medlem', 'url' => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ),
-			array( 'label' => 'Webkamera', 'url' => BMFK_WINDY_WEBCAM_URL ),
+			array( 'label' => 'Webkamera', 'url' => home_url( '/#webkamera' ) ),
 			array( 'label' => 'Flyplassregler', 'url' => bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ), 'slug' => 'flyplassregler' ),
 			array( 'label' => 'Kontakt klubben', 'url' => home_url( '/kontaktoss/' ), 'slug' => 'kontaktoss' ),
 		);

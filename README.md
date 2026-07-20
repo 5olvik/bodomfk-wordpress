@@ -11,7 +11,7 @@
 - hovedbanner, moderne forside og mobilmeny;
 - fremhevet valg mellom klubbens to Facebook-grupper;
 - snarveier til innmelding, webkamera, regler og hendelsesrapportering;
-- Windy-webkamera og Yrs værkort for Bestemorenga på forsiden;
+- klubbens eget, WordPress-leverte webkamera og Yrs værkort for Bestemorenga på forsiden;
 - Light/Dark-visning styrt av WP Dark Mode, med egne kontrastsikre kortfarger;
 - beskyttede kontaktadresser for generelle henvendelser og faktura;
 - avtalen med Bodø kontrolltårn om klubbaktiviteten ved Bestemorenga;
@@ -23,7 +23,7 @@ Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig m
 
 ## Last ned og installer
 
-Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.5.3.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.5.4.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
 I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
 

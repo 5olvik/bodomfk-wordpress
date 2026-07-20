@@ -1,0 +1,18 @@
+# TEST FØRST: Kontroller at kamerabildet vises gjennom WordPress før denne filen tas i bruk.
+# Kopier innholdet til /webcam/.htaccess på webhotellet for å sperre direkte HTTP-tilgang.
+# Alle JPG-filer sperres, også midlertidige NVR_00_*.jpg som venter på cron-jobben.
+# webcam.php er fortsatt tilgjengelig og kan opprette, gi nytt navn til og slette filer lokalt.
+# PHP-endepunktet i BMFK-temaet leser fortsatt webcam.jpg direkte fra filsystemet.
+
+<IfModule mod_authz_core.c>
+  <FilesMatch "(?i)\.jpe?g$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+  <FilesMatch "(?i)\.jpe?g$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>

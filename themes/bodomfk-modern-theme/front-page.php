@@ -147,8 +147,12 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 					</div>
 				</div>
 				<div class="field-webcam-card wp-dark-mode-ignore">
-					<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga via Windy">
-						<a name="windy-webcam-timelapse-player" data-id="1577496579" data-play="day" data-loop="0" data-auto-play="0" data-force-full-screen-on-overlay-play="0" data-interactive="1" href="https://windy.com/webcams/1577496579" target="_blank" rel="noopener noreferrer">Lopsmarka › South: Bodø Modellflyklubb</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/v2/script/player.js"></script>
+					<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga" data-webcam>
+						<img class="field-webcam__image" data-webcam-image data-webcam-source="<?php echo esc_url( bmfk_webcam_image_url() ); ?>" data-webcam-nonce="<?php echo esc_attr( wp_create_nonce( 'bmfk_webcam_image' ) ); ?>" alt="Siste kamerabilde fra Bestemorenga modellflyplass" width="1280" height="720" decoding="async" hidden>
+						<div class="field-webcam__fallback" data-webcam-fallback role="status">
+							<strong data-webcam-message>Henter kamerabildet …</strong>
+							<span data-webcam-detail>Dette tar vanligvis bare et øyeblikk.</span>
+						</div>
 					</div>
 				</div>
 			</section>

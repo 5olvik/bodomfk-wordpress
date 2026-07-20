@@ -23,6 +23,8 @@ BMFK-nettsiden er ferdig migrert. Temaet er selvstendig og trenger ikke Generate
 
 Gamle sidebyggere, medlemsinnlogging, gallerier og presentasjonsutvidelser skal ikke installeres igjen med mindre en ny funksjon er besluttet og gjennomgått.
 
+**Webcam Viewer free** er ikke nødvendig fra tema 1.5.4. Temaet viser og oppdaterer kamerabildet selv, uten Windy eller en egen kamerautvidelse.
+
 ## Ved fremtidige utvidelser
 
 Før en ny utvidelse installeres:

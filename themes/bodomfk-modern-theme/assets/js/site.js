@@ -44,4 +44,69 @@
       if (window.innerWidth > 900) setMenuState(false);
     });
   }
+
+  const webcamImage = document.querySelector('[data-webcam-image]');
+  if (webcamImage) {
+    const webcam = webcamImage.closest('[data-webcam]');
+    const fallback = webcam ? webcam.querySelector('[data-webcam-fallback]') : null;
+    const message = fallback ? fallback.querySelector('[data-webcam-message]') : null;
+    const detail = fallback ? fallback.querySelector('[data-webcam-detail]') : null;
+    const source = webcamImage.dataset.webcamSource || webcamImage.src;
+    const nonce = webcamImage.dataset.webcamNonce || '';
+    let lastRefresh = Date.now();
+    let currentObjectUrl = '';
+
+    function setWebcamAvailable(available) {
+      if (webcam) webcam.classList.toggle('is-unavailable', !available);
+      if (fallback) fallback.hidden = available;
+      if (available) {
+        webcamImage.hidden = false;
+      } else {
+        if (message) message.textContent = 'Kamerabildet er midlertidig utilgjengelig';
+        if (detail) detail.textContent = 'Prøv igjen om litt.';
+      }
+    }
+
+    async function refreshWebcam() {
+      lastRefresh = Date.now();
+      try {
+        const body = new URLSearchParams();
+        body.set('bmfk_webcam_nonce', nonce);
+        const response = await window.fetch(source, {
+          method: 'POST',
+          credentials: 'same-origin',
+          cache: 'no-store',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: body.toString()
+        });
+
+        if (!response.ok) throw new Error('Webcam request failed');
+        const imageBlob = await response.blob();
+        if (imageBlob.type !== 'image/jpeg') throw new Error('Unexpected webcam response');
+
+        const nextObjectUrl = URL.createObjectURL(imageBlob);
+        webcamImage.onload = function () {
+          if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+          currentObjectUrl = nextObjectUrl;
+          setWebcamAvailable(true);
+        };
+        webcamImage.onerror = function () {
+          URL.revokeObjectURL(nextObjectUrl);
+          setWebcamAvailable(false);
+        };
+        webcamImage.src = nextObjectUrl;
+      } catch (error) {
+        setWebcamAvailable(false);
+      }
+    }
+
+    refreshWebcam();
+    window.setInterval(refreshWebcam, 5 * 60 * 1000);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && Date.now() - lastRefresh > 60 * 1000) refreshWebcam();
+    });
+  }
 }());

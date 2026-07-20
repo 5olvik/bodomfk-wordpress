@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.5.3
+Version: 1.5.4
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -782,9 +782,9 @@ p {
 .field-live-grid {
   display: grid;
   align-items: center;
-  gap: clamp(45px, 8vw, 105px);
+  gap: clamp(32px, 5vw, 72px);
   margin-top: 96px;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1.32fr);
 }
 
 .field-live-copy .eyebrow {
@@ -809,38 +809,53 @@ p {
   position: relative;
   display: grid;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
   place-items: stretch;
   background: #020a16;
 }
 
-.field-webcam > a[name="windy-webcam-timelapse-player"] {
-  display: flex;
+.field-webcam__image {
+  display: block;
   width: 100%;
+  height: 100%;
   aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: opacity 180ms ease;
+}
+
+.field-webcam__image[hidden] {
+  display: none;
+}
+
+.field-webcam.is-unavailable .field-webcam__image {
+  opacity: 0.18;
+}
+
+.field-webcam__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 6px;
   padding: 24px;
   color: #fff;
-  background: #020a16;
-  font-weight: 800;
+  background: rgba(2, 10, 22, 0.72);
   text-align: center;
-  text-decoration: none;
 }
 
-.field-webcam > div {
-  width: 100% !important;
-  height: auto !important;
-  max-width: none !important;
-  aspect-ratio: 16 / 9;
+.field-webcam__fallback[hidden] {
+  display: none;
 }
 
-.field-webcam iframe,
-.field-webcam video {
-  display: block;
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 16 / 9;
-  border: 0 !important;
+.field-webcam__fallback strong {
+  font-size: 1rem;
+}
+
+.field-webcam__fallback span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
 }
 
 .field-weather {
