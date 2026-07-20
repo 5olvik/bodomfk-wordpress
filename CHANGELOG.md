@@ -1,5 +1,9 @@
 # Endringslogg
 
+## 1.5.7 – 2026-07-20
+
+- Legger klubbmiljøet rundt bålet inn over medlemsknappen som et varmt, responsivt bildekort.
+
 ## 1.5.6 – 2026-07-20
 
 - Oppdaterer tre forsidebilder med klubbens egne motiver: helikopterflyging, modellflyet på bakken og flyglede mellom generasjoner.

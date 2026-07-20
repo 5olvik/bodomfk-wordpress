@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.5.6
+Version: 1.5.7
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -1207,8 +1207,8 @@ p {
   background: linear-gradient(125deg, var(--bmfk-navy-950), var(--bmfk-navy-800));
   border-radius: var(--bmfk-radius-lg);
   box-shadow: var(--bmfk-shadow);
-  grid-template-columns: 1.25fr 0.75fr;
-  align-items: end;
+  grid-template-columns: 1.12fr 0.88fr;
+  align-items: center;
   gap: 40px;
 }
 
@@ -1238,6 +1238,23 @@ p {
   max-width: 640px;
   margin-bottom: 0;
   color: rgba(255, 255, 255, 0.67);
+}
+
+.join-panel__media {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.join-panel__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
 }
 
 .join-panel .button-row {

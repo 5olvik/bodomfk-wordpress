@@ -210,7 +210,10 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 		<div class="wrap">
 			<div class="join-panel wp-dark-mode-ignore">
 				<div><span class="eyebrow">Klar for å ta av?</span><h2>Bli en del av miljøet på Bestemorenga.</h2><p>Du trenger ikke kunne alt før du kommer. Nysgjerrighet holder lenge – resten lærer vi sammen.</p></div>
-				<div class="button-row"><a class="button button--orange wp-dark-mode-ignore" href="<?php echo esc_url( $membership_url ); ?>">Bli medlem nå <span aria-hidden="true">→</span></a></div>
+				<div class="join-panel__media">
+					<img class="join-panel__image" src="<?php echo esc_url( bmfk_asset_url( 'images/join-community.webp' ) ); ?>" alt="Klubbmedlemmer samlet rundt bålet i gapahuken på Bestemorenga" width="824" height="618" loading="lazy" decoding="async">
+					<div class="button-row"><a class="button button--orange wp-dark-mode-ignore" href="<?php echo esc_url( $membership_url ); ?>">Bli medlem nå <span aria-hidden="true">→</span></a></div>
+				</div>
 			</div>
 		</div>
 	</section>
