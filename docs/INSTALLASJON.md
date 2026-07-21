@@ -1,6 +1,6 @@
 # Installere og oppdatere BMFK-temaet
 
-Dette er rutinen for versjon 1.6.1 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
+Dette er rutinen for versjon 1.6.3 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
 ## Før oppdatering
 
@@ -8,15 +8,15 @@ Dette er rutinen for versjon 1.6.1 og nyere. Den tidligere migreringsutvidelsen 
 2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
 3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-Filen skal hete omtrent `bodomfk-modern-theme-1.6.1.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
+Filen skal hete omtrent `bodomfk-modern-theme-1.6.3.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
 ## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Velg `bodomfk-modern-theme-1.6.1.zip`.
+2. Velg `bodomfk-modern-theme-1.6.3.zip`.
 3. Trykk **Installer nå**.
 4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
-5. Kontroller at **Bodø Modellflyklubb Modern 1.6.1** fortsatt er aktivt.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.6.3** fortsatt er aktivt.
 
 Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
@@ -36,6 +36,8 @@ Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en
 - At Google Maps- og Grasrotandelen-lenkene nederst på siden åpner riktig klubbside.
 - At Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler viser tekstene fra GitHub uten synlige strukturmarkører.
 - At `/nytt-medlem/` er opprettet, og at PDF-knappen åpner den oppdaterte velkomstguiden.
+- At `superpwa-manifest.json` viser JSON og at `superpwa-sw.js` viser JavaScript uten en WordPress 404-side.
+- At webkamerabildet oppdateres i den installerte PWA-en og ikke hentes fra en gammel service-worker-cache.
 - At kortene har god kontrast i både lys og mørk visning.
 
 Tøm eventuell cache på webhotellet eller i WordPress hvis gamle farger eller filer fortsatt vises.

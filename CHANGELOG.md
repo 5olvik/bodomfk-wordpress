@@ -1,5 +1,19 @@
 # Endringslogg
 
+## 1.6.3 – 2026-07-21
+
+- Retter SuperPWA-rutene for manifest og service worker på webhotellet og bygger lenkereglene automatisk én gang.
+- Fjerner utilsiktede linjeskift fra SuperPWAs cacheunntak og holder det levende webkamerakallet utenfor PWA-cachen.
+- Presiserer på «Nytt medlem» at Bestemorenga ligger i kontrollert luftrom og i ytterkanten av femkilometersonen rundt Bodø lufthavn.
+- Oppdaterer den nedlastbare velkomstguiden med samme formulering.
+
+## 1.6.2 – 2026-07-21
+
+- Legger til et vanlig BMFK-appikon i 192 × 192 og 512 × 512 piksler.
+- Legger til et maskable PWA-ikon i 512 × 512 med trygg sikkerhetsmargin for rund og adaptiv beskjæring.
+- Legger til et eget Apple Touch-ikon i 180 × 180 og kobler det til temaets sidehode.
+- Dokumenterer senere SuperPWA-oppsett uten å aktivere service worker eller PWA-cache nå.
+
 ## 1.6.1 – 2026-07-21
 
 - Setter værstasjonens lyse bakgrunn til 36 prosent gjennomsiktighet.

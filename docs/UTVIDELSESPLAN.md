@@ -8,6 +8,7 @@ BMFK-nettsiden er ferdig migrert. Temaet er selvstendig og trenger ikke Generate
 | --- | --- |
 | WP Dark Mode | Gir besøkende valget mellom lys og mørk visning. Temaet låser egne kort og knapper til kontrastsikre farger. |
 | Email Address Encoder | Gir ekstra koding av `post@bodomfk.no` og `faktura@bodomfk.no`. Temaet bruker også WordPress-beskyttelse som reserve. |
+| SuperPWA | Gjør nettstedet installerbart som app. Temaet inneholder ikoner og kompatibilitetsregler for manifest, service worker og webkamera. |
 
 ## Bare dersom det fortsatt er nødvendig
 

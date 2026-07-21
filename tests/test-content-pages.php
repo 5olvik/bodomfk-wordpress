@@ -79,6 +79,10 @@ if ( false === strpos( $new_member_html, 'velkommen-som-medlem-2026.pdf' ) ) {
 	$errors[] = 'nytt-medlem.md: mangler lenke til den oppdaterte velkomstguiden';
 }
 
+if ( false === strpos( $new_member_html, 'i ytterkanten av femkilometersonen rundt Bodø lufthavn' ) ) {
+	$errors[] = 'nytt-medlem.md: mangler presis beskrivelse av femkilometersonen';
+}
+
 if ( $errors ) {
 	fwrite( STDERR, implode( PHP_EOL, $errors ) . PHP_EOL );
 	exit( 1 );

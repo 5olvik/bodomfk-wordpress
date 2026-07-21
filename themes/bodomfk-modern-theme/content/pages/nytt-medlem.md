@@ -88,7 +88,7 @@ NLF tilbyr automatisk registrering i Luftfartstilsynets operatørregister for ak
 
 ## Bestemorenga modellflyplass
 
-Flyplassen ligger i kontrollert luftrom nær Bodø lufthavn. Klubbens avtale med Bodø kontrolltårn gjør organisert aktivitet mulig på Bestemorenga, men avtalen er ikke et generelt unntak for drone- eller modellflyging andre steder i Bodø.
+Flyplassen ligger i kontrollert luftrom og i ytterkanten av femkilometersonen rundt Bodø lufthavn. Klubbens avtale med Bodø kontrolltårn gjør organisert aktivitet mulig på Bestemorenga, men avtalen er ikke et generelt unntak for drone- eller modellflyging andre steder i Bodø.
 
 [Button: Les lokale regler og avtalen med kontrolltårnet]({{rules_url}})
 

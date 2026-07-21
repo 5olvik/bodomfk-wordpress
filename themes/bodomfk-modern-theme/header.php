@@ -10,6 +10,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#04152f">
+	<meta name="apple-mobile-web-app-title" content="BMFK">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( bmfk_asset_url( 'images/bmfk-apple-touch-icon-180.png' ) ); ?>">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

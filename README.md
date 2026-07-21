@@ -16,6 +16,8 @@
 - beskyttede kontaktadresser for generelle henvendelser og faktura;
 - avtalen med Bodø kontrolltårn om klubbaktiviteten ved Bestemorenga;
 - metadata for søkemotorer og deling i sosiale medier;
+- ferdige BMFK-ikoner for Apple-hjemskjerm og SuperPWA;
+- kompatibilitetsregler som holder SuperPWA-manifestet, service workeren og det levende webkamerabildet stabile på webhotellet;
 - Git-versjonerte sidetekster for Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler;
 - redigerbare lenker og åpningstider under **Utseende → Tilpass → Klubbinformasjon**.
 
@@ -23,9 +25,11 @@ Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig m
 
 ## Last ned og installer
 
-Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.1.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.3.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
 I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
+
+Se [PWA-oppsettet](docs/PWA.md) for ikonvalg, kontrollpunkter og cachehensyn for SuperPWA.
 
 Hver endring på `main` som berører temaet blir kontrollert og pakket automatisk av GitHub Actions. Versjonsnummeret i `style.css` bestemmer navnet på utgivelsen.
 
@@ -39,6 +43,7 @@ De fem faste informasjonssidene ligger under [`themes/bodomfk-modern-theme/conte
 - PHP 7.4 eller nyere
 - WP Dark Mode for besøksstyrt Light/Dark-visning
 - Email Address Encoder for ekstra beskyttelse av e-postadresser
+- SuperPWA for installasjon som app og grunnleggende frakoblet støtte
 
 Temaet har ingen byggeprosess og bruker vanlig PHP, HTML, CSS og JavaScript.
 
