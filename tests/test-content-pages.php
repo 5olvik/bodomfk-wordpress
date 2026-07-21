@@ -79,8 +79,12 @@ if ( false === strpos( $new_member_html, 'velkommen-som-medlem-2026.pdf' ) ) {
 	$errors[] = 'nytt-medlem.md: mangler lenke til den oppdaterte velkomstguiden';
 }
 
-if ( false === strpos( $new_member_html, 'i ytterkanten av femkilometersonen rundt Bodø lufthavn' ) ) {
+if ( false === strpos( $new_member_html, 'nær yttergrensen av femkilometersonen rundt Bodø lufthavn' ) ) {
 	$errors[] = 'nytt-medlem.md: mangler presis beskrivelse av femkilometersonen';
+}
+
+if ( false === strpos( $new_member_html, 'avtale med kontrolltårnet gjelder kun organisert aktivitet på Bestemorenga' ) ) {
+	$errors[] = 'nytt-medlem.md: mangler avgrensning av avtalen med kontrolltårnet';
 }
 
 if ( $errors ) {

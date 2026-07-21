@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.6.4 – 2026-07-21
+
+- Forenkler og presiserer beskrivelsen av Bestemorengas plassering i kontrollert luftrom og femkilometersonen.
+- Tydeliggjør at klubbens avtale med kontrolltårnet kun gjelder organisert aktivitet på Bestemorenga.
+- Oppdaterer den nedlastbare velkomstguiden med samme formulering.
+
 ## 1.6.3 – 2026-07-21
 
 - Retter SuperPWA-rutene for manifest og service worker på webhotellet og bygger lenkereglene automatisk én gang.
