@@ -9,12 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.5.12' );
+define( 'BMFK_THEME_VERSION', '1.6.1' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
-define( 'BMFK_PUBLIC_WEBCAM_URL', 'https://webcam.bodomfk.no/' );
-define( 'BMFK_WEATHER_WIDGET_URL', 'https://windnerd.net/en/widget/bhpgk?accent_bg=%2304152F&accent_text=%23fcfcfc&body_bg=rgba%28255%2C255%2C255%2C0.59%29&speed_unit=ms&logo_color=dark' );
+define( 'BMFK_WEATHER_WIDGET_URL', 'https://windnerd.net/en/widget/bhpgk?accent_bg=%2304152F&accent_text=%23fcfcfc&body_bg=rgba%28255%2C255%2C255%2C0.36%29&speed_unit=ms&logo_color=dark' );
 
 require_once get_template_directory() . '/inc/content-pages.php';
 require_once get_template_directory() . '/inc/webcam.php';
@@ -187,7 +186,8 @@ function bmfk_primary_menu_fallback() {
 	<ul class="menu">
 		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Hjem', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/#facebook-grupper' ) ); ?>"><?php esc_html_e( 'Facebook-grupper', 'bmfk' ); ?></a></li>
-		<li><a href="<?php echo esc_url( BMFK_PUBLIC_WEBCAM_URL ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Webkamera', 'bmfk' ); ?></a></li>
+		<li><a href="<?php echo esc_url( home_url( '/#webkamera' ) ); ?>"><?php esc_html_e( 'Webkamera', 'bmfk' ); ?></a></li>
+		<li><a href="<?php echo esc_url( home_url( '/nytt-medlem/' ) ); ?>"><?php esc_html_e( 'Nytt medlem', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/medlemsfordeler/' ) ); ?>"><?php esc_html_e( 'Medlemsfordeler', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( home_url( '/klubbhytta/' ) ); ?>"><?php esc_html_e( 'Klubbhytta', 'bmfk' ); ?></a></li>
 		<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>"><?php esc_html_e( 'Flyplassregler', 'bmfk' ); ?></a></li>
@@ -237,9 +237,8 @@ function bmfk_fragment_menu_link_attributes( $attributes, $item ) {
 	}
 
 	if ( isset( $item->title ) && 'webkamera' === strtolower( trim( wp_strip_all_tags( $item->title ) ) ) ) {
-		$attributes['href']   = BMFK_PUBLIC_WEBCAM_URL;
-		$attributes['target'] = '_blank';
-		$attributes['rel']    = 'noopener noreferrer';
+		$attributes['href'] = home_url( '/#webkamera' );
+		unset( $attributes['target'], $attributes['rel'] );
 	}
 
 	return $attributes;
@@ -269,6 +268,7 @@ add_filter( 'pre_get_document_title', 'bmfk_document_title' );
 function bmfk_meta_description() {
 	$descriptions = array(
 		'front'             => 'Bodø Modellflyklubb samler modellflygere, dronepiloter og FPV-interesserte ved Bestemorenga. Se flyplassregler, webkamera og medlemsfordeler.',
+		'nytt-medlem'       => 'Ny i Bodø Modellflyklubb? Her finner du medlemskap, NLF, forsikring, kompetanse, operatørregistrering og praktisk informasjon om Bestemorenga.',
 		'medlemsfordeler'   => 'Se medlemsfordelene i Bodø Modellflyklubb: trygg flyplass, opplæring, klubbmiljø og forsikringsinformasjon gjennom NLF.',
 		'klubbhytta'        => 'Informasjon for medlemmer om adgang til klubbhytta ved modellflyplassen på Bestemorenga.',
 		'flyplassregler'    => 'Gjeldende sikkerhetsinformasjon for Bestemorenga modellflyplass og avtalen mellom Bodø Modellflyklubb og Bodø kontrolltårn.',

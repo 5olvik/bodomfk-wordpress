@@ -1,5 +1,22 @@
 # Endringslogg
 
+## 1.6.1 – 2026-07-21
+
+- Setter værstasjonens lyse bakgrunn til 36 prosent gjennomsiktighet.
+- Legger Google Maps-lenke til Bestemorenga og klubbens direkte Grasrotandelen-lenke i bunnteksten.
+- Lar Webkamera-lenken i hovedmenyen åpne `/#webkamera` på klubbens egen forside.
+
+## 1.6.0 – 2026-07-21
+
+- Oppretter den nye Git-versjonerte siden «Nytt medlem» på `/nytt-medlem/`.
+- Erstatter velkomstbrevet fra 2019 med en komplett guide om medlemskap, NLF, Min idrett, TMS, opplæring, forsikring, operatørregistrering og merking.
+- Samler praktisk informasjon om Bestemorenga, åpningstider, første flydag, klubbhytta, Facebook-grupper, OBSREG og Grasrotandelen.
+- Oppretter WordPress-siden automatisk dersom den ikke finnes fra før, uten å endre en eksisterende side.
+- Legger «Nytt medlem» i forsidens snarveier, fallback-menyen, sidepanelet og bunnteksten.
+- Tar med en datert og utskriftsvennlig PDF-versjon som kan sendes direkte til nye medlemmer.
+- Oppdaterer dokumentasjonen og erstatter den utdaterte Yr-omtalen med klubbens egen værstasjon.
+- Oppdaterer GitHub Actions til `actions/checkout@v6` for å fjerne varselet om utfaset Node.js 20.
+
 ## 1.5.12 – 2026-07-20
 
 - Fjerner gradientfargen fra værstasjonens topp og bunn.

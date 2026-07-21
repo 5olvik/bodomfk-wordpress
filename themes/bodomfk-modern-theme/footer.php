@@ -16,11 +16,20 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 				<div><strong>Bodø Modellflyklubb</strong><span>Fly · Fellesskap · Hobby · Glede</span></div>
 			</div>
 			<p class="footer-intro">Klubben for modellfly, helikopter, droner og FPV i Bodø. Vi holder til ved Bestemorenga aktivitetspark.</p>
+			<div class="footer-club-links" aria-label="Besøk klubben og støtt oss">
+				<a class="footer-club-link" href="https://maps.app.goo.gl/mJBsZmK8oP1wWTuy7" target="_blank" rel="noopener noreferrer">
+					<span>Finn Bodø Modellflyklubb i Google Maps</span><span aria-hidden="true">↗</span>
+				</a>
+				<a class="footer-club-link footer-club-link--grassroots" href="https://www.norsk-tipping.no/grasrotandelen/din-mottaker/993764299?fromSearch=true" target="_blank" rel="noopener noreferrer">
+					<span>Støtt klubben med Grasrotandelen</span><span aria-hidden="true">↗</span>
+				</a>
+			</div>
 		</div>
 		<div class="footer-column">
 			<h2>Snarveier</h2>
 			<ul>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ); ?>">Bli medlem</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/nytt-medlem/' ) ); ?>">Nytt medlem - start her</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/#webkamera' ) ); ?>">Webkamera</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>">Flyplassregler</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ) ); ?>">Meld hendelse/uhell</a></li>

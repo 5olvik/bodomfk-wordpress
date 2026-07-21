@@ -15,6 +15,10 @@ function bmfk_asset_url( $path ) {
 	return 'https://example.com/theme/assets/' . ltrim( $path, '/' );
 }
 
+function home_url( $path = '/' ) {
+	return 'https://example.com' . '/' . ltrim( $path, '/' );
+}
+
 function bmfk_protected_email_link( $email, $class = '' ) {
 	return '<a href="mailto:' . htmlspecialchars( $email, ENT_QUOTES, 'UTF-8' ) . '">' . htmlspecialchars( $email, ENT_QUOTES, 'UTF-8' ) . '</a>';
 }
@@ -62,6 +66,17 @@ foreach ( bmfk_git_content_pages() as $slug => $filename ) {
 $rules_html = bmfk_git_page_content( 'flyplassregler' );
 if ( false === strpos( $rules_html, 'flyplass-og-sikkerhetsregler-2018.pdf' ) || false === strpos( $rules_html, 'Historisk dokument fra 2018' ) ) {
 	$errors[] = 'flyplassregler.md: mangler tydelig merket historisk PDF fra 2018';
+}
+
+$new_member_html = bmfk_git_page_content( 'nytt-medlem' );
+foreach ( array( 'Min idrett', 'TMS', 'Ansvarsforsikring', 'Operatørregistrering', 'OBSREG', '993 764 299' ) as $required_text ) {
+	if ( false === strpos( $new_member_html, $required_text ) ) {
+		$errors[] = 'nytt-medlem.md: mangler ' . $required_text;
+	}
+}
+
+if ( false === strpos( $new_member_html, 'velkommen-som-medlem-2026.pdf' ) ) {
+	$errors[] = 'nytt-medlem.md: mangler lenke til den oppdaterte velkomstguiden';
 }
 
 if ( $errors ) {

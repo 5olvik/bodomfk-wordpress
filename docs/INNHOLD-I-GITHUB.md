@@ -4,6 +4,7 @@ Fra tema 1.5.0 er GitHub hovedkilden for innholdet på disse offentlige informas
 
 | WordPress-side | Innholdsfil |
 | --- | --- |
+| Nytt medlem | `themes/bodomfk-modern-theme/content/pages/nytt-medlem.md` |
 | Medlemsfordeler | `themes/bodomfk-modern-theme/content/pages/medlemsfordeler.md` |
 | Klubbhytta | `themes/bodomfk-modern-theme/content/pages/klubbhytta.md` |
 | Kontakt oss | `themes/bodomfk-modern-theme/content/pages/kontaktoss.md` |
@@ -66,8 +67,18 @@ Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vis
 - `{{membership_url}}`
 - `{{incident_url}}`
 - `{{handbook_url}}`
+- `{{rules_url}}`
+- `{{clubhouse_url}}`
+- `{{contact_url}}`
+- `{{group_contacts_url}}`
+- `{{webcam_url}}`
+- `{{facebook_members_url}}`
+- `{{facebook_market_url}}`
+- `{{electric_hours}}`
+- `{{combustion_hours}}`
 - `{{avinor_pdf_url}}`
 - `{{rules_2018_pdf_url}}`
+- `{{new_member_pdf_url}}`
 
 Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende → Tilpass → Klubbinformasjon** uten at samme verdi må skrives flere steder.
 

@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function bmfk_git_content_pages() {
 	return array(
 		'medlemsfordeler' => 'medlemsfordeler.md',
+		'nytt-medlem'     => 'nytt-medlem.md',
 		'klubbhytta'      => 'klubbhytta.md',
 		'kontaktoss'      => 'kontaktoss.md',
 		'flyplassregler'  => 'flyplassregler.md',
@@ -35,11 +36,21 @@ function bmfk_git_content_pages() {
  */
 function bmfk_git_content_replace_tokens( $markdown ) {
 	$tokens = array(
-		'{{membership_url}}'     => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ),
-		'{{incident_url}}'       => bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ),
-		'{{handbook_url}}'       => BMFK_HANDBOOK_URL,
-		'{{avinor_pdf_url}}'     => bmfk_asset_url( 'documents/avinor-bestemorenga-avtale-2026.pdf' ),
-		'{{rules_2018_pdf_url}}' => bmfk_asset_url( 'documents/flyplass-og-sikkerhetsregler-2018.pdf' ),
+		'{{membership_url}}'      => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ),
+		'{{incident_url}}'        => bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ),
+		'{{handbook_url}}'        => BMFK_HANDBOOK_URL,
+		'{{rules_url}}'           => bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ),
+		'{{clubhouse_url}}'       => home_url( '/klubbhytta/' ),
+		'{{contact_url}}'         => home_url( '/kontaktoss/' ),
+		'{{group_contacts_url}}'  => home_url( '/gruppeansvarlige/' ),
+		'{{webcam_url}}'          => home_url( '/#webkamera' ),
+		'{{facebook_members_url}}' => bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' ),
+		'{{facebook_market_url}}' => bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' ),
+		'{{electric_hours}}'      => bmfk_setting( 'bmfk_electric_hours', 'Hele døgnet' ),
+		'{{combustion_hours}}'    => bmfk_setting( 'bmfk_combustion_hours', '09:00-21:00' ),
+		'{{avinor_pdf_url}}'      => bmfk_asset_url( 'documents/avinor-bestemorenga-avtale-2026.pdf' ),
+		'{{rules_2018_pdf_url}}'  => bmfk_asset_url( 'documents/flyplass-og-sikkerhetsregler-2018.pdf' ),
+		'{{new_member_pdf_url}}'  => bmfk_asset_url( 'documents/velkommen-som-medlem-2026.pdf' ),
 	);
 
 	return strtr( $markdown, $tokens );
@@ -336,3 +347,26 @@ function bmfk_git_content_admin_notice() {
 	<?php
 }
 add_action( 'admin_notices', 'bmfk_git_content_admin_notice' );
+
+/**
+ * Create the public landing page required by the Git-managed welcome guide.
+ * Existing pages are never changed or replaced.
+ */
+function bmfk_ensure_new_member_page() {
+	if ( get_page_by_path( 'nytt-medlem' ) ) {
+		return;
+	}
+
+	wp_insert_post(
+		array(
+			'post_title'     => __( 'Nytt medlem', 'bmfk' ),
+			'post_name'      => 'nytt-medlem',
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'comment_status' => 'closed',
+			'post_content'   => '<!-- wp:paragraph --><p>Velkommen til Bodø Modellflyklubb. Den oppdaterte medlemsinformasjonen leveres av klubbens tema.</p><!-- /wp:paragraph -->',
+		)
+	);
+}
+add_action( 'after_switch_theme', 'bmfk_ensure_new_member_page' );
+add_action( 'admin_init', 'bmfk_ensure_new_member_page' );
