@@ -123,7 +123,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 				<div class="field-copy">
 					<span class="eyebrow">Bestemorenga modellflyplass</span>
 					<h2>Gode forhold starter med en rask sjekk.</h2>
-					<p>Se webkameraet før du kjører hjemmefra, og kontroller alltid gjeldende flyplass- og sikkerhetsregler før aktiviteten starter.</p>
+					<p>Utfør alltid en grundig preflight-sjekk før avgang. Kontroller at modellen er hel og flyklar, og at batteri eller drivstoffsystem, propell, rorutslag, radiosignal og failsafe fungerer som de skal.</p>
 					<div class="hours-grid" role="group" aria-label="Banens åpningstider">
 						<div class="hours-card wp-dark-mode-ignore"><small>Elektromotor</small><strong><?php echo esc_html( bmfk_setting( 'bmfk_electric_hours', 'Hele døgnet' ) ); ?></strong></div>
 						<div class="hours-card wp-dark-mode-ignore"><small>Forbrenningsmotor</small><strong><?php echo esc_html( bmfk_setting( 'bmfk_combustion_hours', '09:00–21:00' ) ); ?></strong></div>

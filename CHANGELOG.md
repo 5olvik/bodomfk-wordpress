@@ -1,5 +1,10 @@
 # Endringslogg
 
+## 1.6.5 – 2026-07-22
+
+- Erstatter oppfordringen om å se webkameraet med en tydelig påminnelse om grundig preflight-sjekk før avgang.
+- Nevner kontroll av modell, batteri eller drivstoffsystem, propell, rorutslag, radiosignal og failsafe.
+
 ## 1.6.4 – 2026-07-21
 
 - Forenkler og presiserer beskrivelsen av Bestemorengas plassering i kontrollert luftrom og femkilometersonen.
