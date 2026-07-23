@@ -69,6 +69,15 @@ Søknad om ny kompetanse gjøres av deg i TMS og bekreftes digitalt av instrukt�
 Kontakt klubben eller se oversikten over [kontaktpersoner og ansvarlige]({{group_contacts_url}}). Fortell hva du ønsker å fly og hvor mye erfaring du har, så finner klubben riktig person.
 :::endcolumns
 
+## FPV - sjekkliste og teoriprøve
+
+Ved FPV-flyging gjelder egne bestemmelser i Modellflyhåndboka. Skal du fly FPV uten utkikksperson, krever NLF at den digitale sjekklisten fylles ut før hver flyging. Sjekklisten kan åpnes og fylles ut på mobil.
+
+NLFs teoriprøve for FPV uten utkikksperson er tilgjengelig i TMS. NLF har varslet at bestått prøve blir et krav, og anbefaler at den gjennomføres allerede nå. Kontroller alltid gjeldende status i TMS og Modellflyhåndboka før du flyr.
+
+- [Åpne NLFs digitale FPV-sjekkliste](https://nlf.no/grener/modellfly/sikkerhet-utdanning/sjekkliste-fpv/)
+- [Les NLFs informasjon om FPV-teoriprøven](https://nlf.no/Nyhetsvisning/2026/ta-teoriprove-for-fpv-i-dag-sa-er-du-klar-nar-kravet-kommer/)
+
 ## Ansvarsforsikring
 
 Aktive medlemmer i NLF Modellflyseksjonen er omfattet av den kollektive ansvarsforsikringen. Støttemedlemskap er ikke omfattet. Forsikringen gjelder ansvarsskade på tredjeperson som følge av flyging; den erstatter ikke skade, tap eller tyveri av din egen modell.
@@ -82,13 +91,15 @@ NLF tilbyr automatisk registrering i Luftfartstilsynets operatørregister for ak
 - Operatørnummeret tilhører deg, ikke den enkelte modellen.
 - Det samme nummeret brukes på modellfly, helikopter, multirotor og droner du opererer.
 - Modellene skal merkes etter gjeldende regler. De tre siste tegnene i operatørnøkkelen er hemmelige og skal ikke stå synlig på modellen.
-- A1/A3-kompetanse fra flydrone.no er normalt ikke nødvendig når du flyr organisert under Modellflyhåndboka. Flyging utenfor denne rammen kan følge andre regler.
+- A1/A3-kompetanse fra flydrone.no er ikke nødvendig når du flyr i regi av BMFK/NLF og under Modellflyhåndboka.
 
 [Les NLFs oppdaterte informasjon om operatørregistrering →](https://nlf.no/grener/modellfly/sikkerhet-utdanning/registrering-i-droneoperatorregisteret/)
 
+> **Hvilke regler flyr du etter?** Som medlem som flyr i regi av BMFK/NLF, følger du Modellflyhåndboka, klubbens lokale regler og kompetansekravene i NLFs godkjente sikkerhetssystem. Flyging utenfor dette systemet må skje i åpen kategori eller under en annen gyldig tillatelse. Operatørregistrering og merking er egne krav. [Les hele forklaringen under Flyplassregler.]({{rules_url}})
+
 ## Bestemorenga modellflyplass
 
-Bestemorenga ligger i kontrollert luftrom, nær yttergrensen av femkilometersonen rundt Bodø lufthavn. Klubbens avtale med kontrolltårnet gjelder kun organisert aktivitet på Bestemorenga.
+Selve Bestemorenga modellflyplass ligger rett utenfor femkilometersonen rundt Bodø lufthavn. Flyging vest for rullebanen kan likevel berøre sonen. Klubbens avtale med Bodø kontrolltårn gjelder flyging i regi av Bodø Modellflyklubb og under NLFs sikkerhetssystem.
 
 [Button: Les lokale regler og avtalen med kontrolltårnet]({{rules_url}})
 
@@ -155,4 +166,4 @@ For spørsmål om flyplassen, klubbhytta, opplæring eller klubbmiljøet kontakt
 
 For spørsmål om Min idrett, NLF-faktura, operatørregistrering eller kompetansebevis bruker du [NLFs kontaktinformasjon for modellflyseksjonen](https://nlf.no/grener/modellfly/modellflyseksjonen/kontakt-modellflyseksjonen/).
 
-> Denne guiden ble oppdatert 21. juli 2026. Regler, systemer og priser kan endres. Nettsiden, klubbens oppslag og NLFs offisielle sider er alltid gjeldende kilder.
+> Denne guiden ble oppdatert 23. juli 2026. Regler, systemer og priser kan endres. Nettsiden, klubbens oppslag og NLFs offisielle sider er alltid gjeldende kilder.

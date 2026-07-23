@@ -1,5 +1,15 @@
 # Endringslogg
 
+## 1.6.7 – 2026-07-23
+
+- Forklarer tydelig forskjellen mellom flyging under NLFs godkjente sikkerhetssystem og flyging i åpen kategori.
+- Presiserer at A1/A3-kompetanse og operatørregistrering er to forskjellige krav.
+- Opplyser at ikke-medlemmer ikke er omfattet av NLFs sikkerhetssystem eller klubbens avtale med kontrolltårnet.
+- Retter plasseringen av Bestemorenga: selve modellflyplassen ligger rett utenfor femkilometersonen, mens flyging vest for rullebanen kan berøre sonen.
+- Avgrenser tårnavtalen til flyging i regi av Bodø Modellflyklubb og under NLFs sikkerhetssystem.
+- Legger inn NLFs digitale sjekkliste og informasjon om teoriprøven for FPV-flyging uten utkikksperson.
+- Oppdaterer både Nytt medlem-siden og den nedlastbare velkomstguiden med samme forklaring.
+
 ## 1.6.6 – 2026-07-23
 
 - Legger Avinor-avtalen bak et enkelt, delt medlemspassord på Flyplassregler-siden.
