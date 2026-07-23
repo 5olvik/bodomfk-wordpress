@@ -23,6 +23,10 @@ function bmfk_protected_email_link( $email, $class = '' ) {
 	return '<a href="mailto:' . htmlspecialchars( $email, ENT_QUOTES, 'UTF-8' ) . '">' . htmlspecialchars( $email, ENT_QUOTES, 'UTF-8' ) . '</a>';
 }
 
+function bmfk_avinor_agreement_gate() {
+	return '<section data-bmfk-document-gate>Avtalen er for klubbens medlemmer.</section>';
+}
+
 function esc_html( $text ) {
 	return htmlspecialchars( $text, ENT_QUOTES, 'UTF-8' );
 }
@@ -66,6 +70,14 @@ foreach ( bmfk_git_content_pages() as $slug => $filename ) {
 $rules_html = bmfk_git_page_content( 'flyplassregler' );
 if ( false === strpos( $rules_html, 'flyplass-og-sikkerhetsregler-2018.pdf' ) || false === strpos( $rules_html, 'Historisk dokument fra 2018' ) ) {
 	$errors[] = 'flyplassregler.md: mangler tydelig merket historisk PDF fra 2018';
+}
+
+if ( false === strpos( $rules_html, 'data-bmfk-document-gate' ) ) {
+	$errors[] = 'flyplassregler.md: mangler passordpanelet for Avinor-avtalen';
+}
+
+if ( false !== strpos( $rules_html, 'avinor-bestemorenga-avtale-2026.pdf' ) ) {
+	$errors[] = 'flyplassregler.md: eksponerer Avinor-lenken før passordkontroll';
 }
 
 $new_member_html = bmfk_git_page_content( 'nytt-medlem' );

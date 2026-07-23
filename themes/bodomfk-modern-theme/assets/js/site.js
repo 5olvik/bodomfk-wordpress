@@ -109,4 +109,92 @@
       if (!document.hidden && Date.now() - lastRefresh > 60 * 1000) refreshWebcam();
     });
   }
+
+  document.querySelectorAll('[data-bmfk-document-gate]').forEach(function (gate) {
+    const endpoint = gate.dataset.endpoint || '';
+    const form = gate.querySelector('[data-bmfk-document-form]');
+    const passwordInput = gate.querySelector('[data-bmfk-document-password]');
+    const submitButton = gate.querySelector('[data-bmfk-document-submit]');
+    const status = gate.querySelector('[data-bmfk-document-status]');
+    const unlocked = gate.querySelector('[data-bmfk-document-unlocked]');
+    const documentLink = gate.querySelector('[data-bmfk-document-link]');
+
+    if (!endpoint || !form || !passwordInput || !submitButton || !status || !unlocked || !documentLink) {
+      return;
+    }
+
+    function setStatus(message, state) {
+      status.textContent = message || '';
+      if (state) {
+        status.dataset.state = state;
+      } else {
+        delete status.dataset.state;
+      }
+    }
+
+    function setBusy(busy) {
+      form.setAttribute('aria-busy', String(busy));
+      passwordInput.disabled = busy;
+      submitButton.disabled = busy;
+      submitButton.textContent = busy ? 'Kontrollerer …' : 'Lås opp';
+    }
+
+    function unlockDocument(url) {
+      documentLink.href = url;
+      form.hidden = true;
+      unlocked.hidden = false;
+      gate.dataset.state = 'unlocked';
+      setStatus('', '');
+    }
+
+    async function requestAccess(password, quiet) {
+      const body = new URLSearchParams();
+      body.set('action', 'bmfk_avinor_access');
+      if (password) body.set('password', password);
+
+      if (!quiet) {
+        setBusy(true);
+        setStatus('', '');
+      }
+
+      try {
+        const response = await window.fetch(endpoint, {
+          method: 'POST',
+          credentials: 'same-origin',
+          cache: 'no-store',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: body.toString()
+        });
+        const result = await response.json();
+        const data = result && result.data ? result.data : {};
+
+        if (result && result.success && data.url) {
+          unlockDocument(data.url);
+          return;
+        }
+
+        if (quiet && data.code === 'locked') return;
+
+        setStatus(data.message || 'Kunne ikke kontrollere passordet. Prøv igjen.', 'error');
+        if (data.code === 'incorrect') {
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      } catch (error) {
+        if (!quiet) setStatus('Kunne ikke kontrollere passordet. Prøv igjen.', 'error');
+      } finally {
+        if (!quiet && !form.hidden) setBusy(false);
+      }
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      requestAccess(passwordInput.value, false);
+    });
+
+    requestAccess('', true);
+  });
 }());

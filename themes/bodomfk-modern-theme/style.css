@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.6.5
+Version: 1.6.6
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -1342,6 +1342,144 @@ p {
   background: var(--bmfk-orange-strong);
 }
 
+.bmfk-document-gate {
+  position: relative;
+  margin: 1.8em 0 2.2em;
+  padding: clamp(24px, 5vw, 38px);
+  overflow: hidden;
+  color: var(--bmfk-ink);
+  background: linear-gradient(145deg, #f7fbff, #eaf3fc);
+  border: 1px solid #c8d9eb;
+  border-radius: var(--bmfk-radius);
+  box-shadow: var(--bmfk-shadow-sm);
+}
+
+.bmfk-document-gate::after {
+  position: absolute;
+  top: -76px;
+  right: -64px;
+  width: 190px;
+  height: 190px;
+  background: rgba(22, 77, 168, 0.08);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.bmfk-document-gate__intro,
+.bmfk-document-gate__form,
+.bmfk-document-gate__unlocked {
+  position: relative;
+  z-index: 1;
+}
+
+.bmfk-document-gate__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--bmfk-blue);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bmfk-document-gate h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.bmfk-document-gate__intro p,
+.bmfk-document-gate__unlocked p {
+  max-width: 620px;
+  margin-bottom: 20px;
+  color: var(--bmfk-muted);
+}
+
+.bmfk-document-gate__form {
+  max-width: 620px;
+}
+
+.bmfk-document-gate__form label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--bmfk-navy-950);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.bmfk-document-gate__controls {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.bmfk-document-gate__controls input {
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 14px;
+  flex: 1 1 260px;
+  color: var(--bmfk-ink);
+  background: #fff;
+  border: 1px solid #aebfd2;
+  border-radius: 10px;
+}
+
+.bmfk-document-gate__controls input:focus {
+  border-color: var(--bmfk-blue);
+  box-shadow: 0 0 0 3px rgba(22, 77, 168, 0.16);
+  outline: 0;
+}
+
+.bmfk-document-gate__controls button,
+.bmfk-document-gate__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 11px 20px;
+  color: var(--bmfk-navy-950);
+  background: var(--bmfk-orange);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bmfk-document-gate__controls button:hover,
+.bmfk-document-gate__link:hover {
+  color: #fff;
+  background: var(--bmfk-orange-strong);
+}
+
+.bmfk-document-gate__controls button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.bmfk-document-gate__status {
+  min-height: 1.5em;
+  margin: 9px 0 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.bmfk-document-gate__status[data-state="error"] {
+  color: #a4212c;
+}
+
+.bmfk-document-gate__unlocked p {
+  margin-bottom: 14px;
+  color: #17603d;
+  font-weight: 750;
+}
+
+.bmfk-document-gate [hidden] {
+  display: none !important;
+}
+
 .page-aside {
   align-self: start;
   padding: 26px;
@@ -1675,6 +1813,60 @@ html[data-wp-dark-mode-active] .page-aside a {
   color: #dce5ed !important;
   background: #1d2a3b !important;
   border-color: #3f5368 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate {
+  color: #dce5ed !important;
+  background: linear-gradient(145deg, #172536, #111a27) !important;
+  border-color: #3f5873 !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24) !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate::after {
+  background: rgba(89, 153, 224, 0.1) !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__eyebrow {
+  color: #86c4ff !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__intro p {
+  color: #b7c5d2 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__form label {
+  color: #f3f6f8 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__controls input {
+  color: #f3f6f8 !important;
+  background: #0d1724 !important;
+  border-color: #506984 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__controls input:focus {
+  border-color: #86c4ff !important;
+  box-shadow: 0 0 0 3px rgba(134, 196, 255, 0.18) !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__status[data-state="error"] {
+  color: #ff9aa3 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__unlocked p {
+  color: #7edca9 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__controls button,
+html[data-wp-dark-mode-active] .bmfk-document-gate__link {
+  color: #071425 !important;
+  background: #ffae18 !important;
+}
+
+html[data-wp-dark-mode-active] .bmfk-document-gate__controls button:hover,
+html[data-wp-dark-mode-active] .bmfk-document-gate__link:hover {
+  color: #fff !important;
+  background: #e97707 !important;
 }
 
 html[data-wp-dark-mode-active] .button--ghost {
@@ -2047,6 +2239,20 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
 
   .page-content-wrap {
     padding: 54px 0 80px;
+  }
+
+  .bmfk-document-gate__controls {
+    flex-direction: column;
+  }
+
+  .bmfk-document-gate__controls input {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .bmfk-document-gate__controls button,
+  .bmfk-document-gate__link {
+    width: 100%;
   }
 
   .footer-main {

@@ -1,5 +1,14 @@
 # Endringslogg
 
+## 1.6.6 – 2026-07-23
+
+- Legger Avinor-avtalen bak et enkelt, delt medlemspassord på Flyplassregler-siden.
+- Lagrer bare en enveis hash av passordet i WordPress; selve passordet legges aldri i temaet eller Git.
+- Legger passordstyringen under **Utseende → Dokumenttilgang**, med støtte for å bytte eller fjerne passord.
+- Husker godkjente nettlesere i 30 dager og gjør alle tidligere godkjenninger ugyldige når passordet endres.
+- Henter PDF-lenken først etter godkjent passordkontroll, slik at den ikke finnes i sidens opprinnelige HTML.
+- Dokumenterer at dette er en praktisk medlemsbarriere, ikke fullverdig beskyttelse av en PDF som fortsatt ligger i det offentlige temaarkivet.
+
 ## 1.6.5 – 2026-07-22
 
 - Erstatter oppfordringen om å se webkameraet med en tydelig påminnelse om grundig preflight-sjekk før avgang.

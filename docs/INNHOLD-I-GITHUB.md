@@ -58,6 +58,14 @@ Tekst i andre kolonne.
 [Button: Les mer](https://example.com/)
 ```
 
+Flyplassregler bruker også denne spesialmarkøren:
+
+```md
+[AvinorAgreement]
+```
+
+Den viser passordpanelet for Avinor-avtalen. Ikke erstatt markøren med en direkte PDF-lenke. Passordet settes i WordPress under **Utseende → Dokumenttilgang** og skal aldri skrives i Markdown-filen.
+
 ## Verdier som styres av WordPress
 
 Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vises:
@@ -76,7 +84,6 @@ Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vis
 - `{{facebook_market_url}}`
 - `{{electric_hours}}`
 - `{{combustion_hours}}`
-- `{{avinor_pdf_url}}`
 - `{{rules_2018_pdf_url}}`
 - `{{new_member_pdf_url}}`
 
@@ -85,3 +92,5 @@ Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende �
 ## Personvern og sikkerhet
 
 Bare publisert informasjon skal ligge i innholdsfilene. Ikke legg til medlemslister, private telefonnumre, brukerdata, passord, API-nøkler, WordPress-eksporter eller backupfiler. WordPress XML-eksporten som ble brukt til førstegangsuthenting er ikke en del av repositoryet.
+
+Avinor-PDF-en finnes fortsatt i Git-historikken og temaets offentlige filer. Passordpanelet er derfor en praktisk medlemsbarriere, ikke dokumentbeskyttelse mot en person som allerede kjenner den direkte filadressen.

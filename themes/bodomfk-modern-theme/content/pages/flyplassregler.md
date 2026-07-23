@@ -4,7 +4,7 @@ Sikker flyging starter med riktig og oppdatert informasjon.
 
 **Datert 26. mai 2026:** Bodø kontrolltårn gir Bodø Modellflyklubb generell tillatelse til å operere på Bestemorenga modellflyplass, selv om deler av flygingen kan berøre 5 km-sonen rundt Bodø lufthavn. Tillatelsen forutsetter at aktiviteten følger Norges Luftsportforbunds regelverk i Modellflyhåndboken.
 
-[Button: Åpne avtalen med Bodø kontrolltårn (PDF)]({{avinor_pdf_url}})
+[AvinorAgreement]
 
 > **Viktig:** Tillatelsen gjelder klubbens organiserte aktivitet ved Bestemorenga og er ikke et generelt unntak for droneflyging andre steder. Gjeldende lokale regler og Modellflyhåndboken skal alltid følges.
 

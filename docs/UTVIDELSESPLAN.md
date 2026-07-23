@@ -26,6 +26,8 @@ Gamle sidebyggere, medlemsinnlogging, gallerier og presentasjonsutvidelser skal 
 
 **Webcam Viewer free** er ikke nødvendig fra tema 1.5.4. Temaet viser og oppdaterer kamerabildet selv, uten Windy eller en egen kamerautvidelse.
 
+Avinor-avtalens enkle medlemspassord håndteres av temaet fra versjon 1.6.6. Det skal ikke installeres en egen passord- eller medlemsutvidelse for denne funksjonen.
+
 ## Ved fremtidige utvidelser
 
 Før en ny utvidelse installeres:
