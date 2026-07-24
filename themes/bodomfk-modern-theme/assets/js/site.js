@@ -112,6 +112,7 @@
 
   document.querySelectorAll('[data-bmfk-document-gate]').forEach(function (gate) {
     const endpoint = gate.dataset.endpoint || '';
+    const documentId = gate.dataset.document || 'avinor';
     const form = gate.querySelector('[data-bmfk-document-form]');
     const passwordInput = gate.querySelector('[data-bmfk-document-password]');
     const submitButton = gate.querySelector('[data-bmfk-document-submit]');
@@ -150,6 +151,7 @@
     async function requestAccess(password, quiet) {
       const body = new URLSearchParams();
       body.set('action', 'bmfk_avinor_access');
+      body.set('document', documentId);
       if (password) body.set('password', password);
 
       if (!quiet) {
@@ -173,6 +175,11 @@
 
         if (result && result.success && data.url) {
           unlockDocument(data.url);
+          if (password) {
+            document.dispatchEvent(new CustomEvent('bmfk:document-access-granted', {
+              detail: { source: documentId }
+            }));
+          }
           return;
         }
 
@@ -193,6 +200,13 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       requestAccess(passwordInput.value, false);
+    });
+
+    document.addEventListener('bmfk:document-access-granted', function (event) {
+      const source = event.detail && event.detail.source ? event.detail.source : '';
+      if (source !== documentId && gate.dataset.state !== 'unlocked') {
+        requestAccess('', true);
+      }
     });
 
     requestAccess('', true);

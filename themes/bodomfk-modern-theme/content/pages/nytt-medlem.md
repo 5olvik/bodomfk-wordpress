@@ -103,6 +103,29 @@ Selve Bestemorenga modellflyplass ligger rett utenfor femkilometersonen rundt Bo
 
 [Button: Les lokale regler og avtalen med kontrolltårnet]({{rules_url}})
 
+### Lokale regler - kortversjon
+
+:::columns
+:::column
+## Før og under flyging
+
+- Få en lokal sikkerhetsorientering før du flyr alene på Bestemorenga.
+- Gjør preflight-kontroll av modell, radio, batteri eller drivstoff, rorretninger og failsafe.
+- Stå sammen med de andre pilotene og avklar aktiv rullebane og flyretning.
+- Rop tydelig før avgang, landing, ferdsel på banen og nødlanding.
+- Normalt kan maksimalt tre modeller være i lufta samtidig.
+
+:::column
+## Områder og beredskap
+
+- Fly aldri over depotet, sikkerhetsgjerdet, klubbhytta, parkeringen, publikum, uvedkommende personer eller kjøretøy.
+- Bemannede luftfartøy har alltid prioritet. Varsle de andre og reduser høyden eller land sikkert.
+- Start motor, arm multirotor og spol opp rotor bare på anvist sikker plass.
+- Alle kan varsle om fare. Stans når noe er uklart, og rapporter hendelser og observasjoner.
+:::endcolumns
+
+> Kortversjonen erstatter ikke det fullstendige [lokale regelverket for Bestemorenga]({{rules_url}}), Modellflyhåndboka eller sikkerhetsbeskjeder på plassen.
+
 ### Gjeldende åpningstider
 
 - Elektromotor: **{{electric_hours}}**
@@ -166,4 +189,4 @@ For spørsmål om flyplassen, klubbhytta, opplæring eller klubbmiljøet kontakt
 
 For spørsmål om Min idrett, NLF-faktura, operatørregistrering eller kompetansebevis bruker du [NLFs kontaktinformasjon for modellflyseksjonen](https://nlf.no/grener/modellfly/modellflyseksjonen/kontakt-modellflyseksjonen/).
 
-> Denne guiden ble oppdatert 23. juli 2026. Regler, systemer og priser kan endres. Nettsiden, klubbens oppslag og NLFs offisielle sider er alltid gjeldende kilder.
+> Denne guiden ble oppdatert 24. juli 2026. Regler, systemer og priser kan endres. Nettsiden, klubbens oppslag og NLFs offisielle sider er alltid gjeldende kilder.

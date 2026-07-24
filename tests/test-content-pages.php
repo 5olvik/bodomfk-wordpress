@@ -24,7 +24,11 @@ function bmfk_protected_email_link( $email, $class = '' ) {
 }
 
 function bmfk_avinor_agreement_gate() {
-	return '<section data-bmfk-document-gate>Avtalen er for klubbens medlemmer.</section>';
+	return '<section data-bmfk-document-gate data-document="avinor">Avtalen er for klubbens medlemmer.</section>';
+}
+
+function bmfk_historical_rules_gate() {
+	return '<section data-bmfk-document-gate data-document="rules-2018">Dokumentet er for styret.</section>';
 }
 
 function esc_html( $text ) {
@@ -68,16 +72,20 @@ foreach ( bmfk_git_content_pages() as $slug => $filename ) {
 }
 
 $rules_html = bmfk_git_page_content( 'flyplassregler' );
-if ( false === strpos( $rules_html, 'flyplass-og-sikkerhetsregler-2018.pdf' ) || false === strpos( $rules_html, 'Historisk dokument fra 2018' ) ) {
-	$errors[] = 'flyplassregler.md: mangler tydelig merket historisk PDF fra 2018';
+if ( false === strpos( $rules_html, 'Historisk dokument fra 2018' ) || false === strpos( $rules_html, 'data-document="rules-2018"' ) ) {
+	$errors[] = 'flyplassregler.md: mangler passordpanelet for historisk PDF fra 2018';
 }
 
-if ( false === strpos( $rules_html, 'data-bmfk-document-gate' ) ) {
-	$errors[] = 'flyplassregler.md: mangler passordpanelet for Avinor-avtalen';
+if ( 2 !== substr_count( $rules_html, 'data-bmfk-document-gate' ) || false === strpos( $rules_html, 'data-document="avinor"' ) ) {
+	$errors[] = 'flyplassregler.md: mangler de to dokumentportene';
 }
 
 if ( false !== strpos( $rules_html, 'avinor-bestemorenga-avtale-2026.pdf' ) ) {
 	$errors[] = 'flyplassregler.md: eksponerer Avinor-lenken før passordkontroll';
+}
+
+if ( false !== strpos( $rules_html, 'flyplass-og-sikkerhetsregler-2018.pdf' ) ) {
+	$errors[] = 'flyplassregler.md: eksponerer historisk PDF-lenke før passordkontroll';
 }
 
 foreach ( array(
@@ -88,9 +96,17 @@ foreach ( array(
 	'rett utenfor femkilometersonen rundt Bodø lufthavn',
 	'Flyging vest for rullebanen kan likevel berøre sonen',
 	'i regi av Bodø Modellflyklubb og under NLFs sikkerhetssystem',
-	'Særskilt for FPV',
+	'FPV, helikopter, multirotor og automatiske funksjoner',
 	'sjekkliste-fpv',
 	'ta-teoriprove-for-fpv',
+	'Lokalt regelverk for Bestemorenga',
+	'Oppdatert 24. juli 2026',
+	'maksimalt <strong>tre modeller</strong>',
+	'Flyging over 120 meter',
+	'Modellfly har alltid vikeplikt for bemannede luftfartøy',
+	'Kontroll før flyging',
+	'Sikkerhet på bakken og bruk av området',
+	'Hendelser, avvik og brudd på reglene',
 ) as $required_text ) {
 	if ( false === strpos( $rules_html, $required_text ) ) {
 		$errors[] = 'flyplassregler.md: mangler ' . $required_text;
@@ -133,6 +149,10 @@ foreach ( array(
 	'FPV - sjekkliste og teoriprøve',
 	'sjekkliste-fpv',
 	'ta-teoriprove-for-fpv',
+	'Lokale regler - kortversjon',
+	'maksimalt tre modeller',
+	'Fly aldri over depotet',
+	'Bemannede luftfartøy har alltid prioritet',
 ) as $required_text ) {
 	if ( false === strpos( $new_member_html, $required_text ) ) {
 		$errors[] = 'nytt-medlem.md: mangler regelverksforklaring: ' . $required_text;

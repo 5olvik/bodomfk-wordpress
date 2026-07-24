@@ -1,10 +1,10 @@
 <?php
 /**
- * Lightweight member password gate for the Avinor agreement.
+ * Lightweight shared password gate for protected club documents.
  *
- * The agreement itself remains a public theme asset. This gate is intended as
- * a practical, shared-password barrier for club members, not as a replacement
- * for individual user accounts or access-controlled file storage.
+ * The documents themselves remain public theme assets. This gate is intended
+ * as a practical, shared-password barrier, not as a replacement for individual
+ * user accounts or access-controlled file storage.
  *
  * @package BMFK
  */
@@ -102,35 +102,76 @@ function bmfk_remember_avinor_access() {
 }
 
 /**
- * Return the agreement URL only from server-side code.
+ * Return a protected document URL only from server-side code.
+ *
+ * @param string $document Allowed document identifier.
+ * @return string
+ */
+function bmfk_protected_document_url( $document ) {
+	$documents = array(
+		'avinor'     => 'documents/avinor-bestemorenga-avtale-2026.pdf',
+		'rules-2018' => 'documents/flyplass-og-sikkerhetsregler-2018.pdf',
+	);
+
+	if ( ! isset( $documents[ $document ] ) ) {
+		return '';
+	}
+
+	return bmfk_asset_url( $documents[ $document ] );
+}
+
+/**
+ * Return the Avinor agreement URL for backwards compatibility.
  *
  * @return string
  */
 function bmfk_avinor_agreement_url() {
-	return bmfk_asset_url( 'documents/avinor-bestemorenga-avtale-2026.pdf' );
+	return bmfk_protected_document_url( 'avinor' );
 }
 
 /**
- * Render the cache-safe access panel inserted by the Markdown renderer.
+ * Render a cache-safe access panel inserted by the Markdown renderer.
  *
  * The initial HTML never contains the PDF URL. JavaScript asks WordPress for
  * the URL after the shared password or remembered browser token is verified.
  *
+ * @param string $document Allowed document identifier.
+ * @param array  $labels   Text shown in the access panel.
  * @return string
  */
-function bmfk_avinor_agreement_gate() {
+function bmfk_protected_document_gate( $document, $labels ) {
+	$document = sanitize_key( $document );
+	if ( '' === bmfk_protected_document_url( $document ) ) {
+		return '';
+	}
+
+	$labels = wp_parse_args(
+		$labels,
+		array(
+			'eyebrow'     => __( 'Beskyttet dokument', 'bmfk' ),
+			'title'       => __( 'Klubbdokument', 'bmfk' ),
+			'description' => __( 'Passord fås av styret.', 'bmfk' ),
+			'unlocked'    => __( 'Tilgang godkjent. Dokumentet er klart til å åpnes.', 'bmfk' ),
+			'link'        => __( 'Åpne dokumentet (PDF)', 'bmfk' ),
+		)
+	);
+
+	$gate_id     = 'avinor' === $document ? 'avinor-avtale' : 'historiske-regler-2018';
+	$password_id = $gate_id . '-password';
+
 	ob_start();
 	?>
 	<section
-		id="avinor-avtale"
+		id="<?php echo esc_attr( $gate_id ); ?>"
 		class="bmfk-document-gate wp-dark-mode-ignore"
 		data-bmfk-document-gate
+		data-document="<?php echo esc_attr( $document ); ?>"
 		data-endpoint="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>"
 	>
 		<div class="bmfk-document-gate__intro">
-			<span class="bmfk-document-gate__eyebrow"><?php esc_html_e( 'Medlemsdokument', 'bmfk' ); ?></span>
-			<h3><?php esc_html_e( 'Avtale med Bodø kontrolltårn', 'bmfk' ); ?></h3>
-			<p><?php esc_html_e( 'Avtalen er for klubbens medlemmer. Passord fås av styret.', 'bmfk' ); ?></p>
+			<span class="bmfk-document-gate__eyebrow"><?php echo esc_html( $labels['eyebrow'] ); ?></span>
+			<h3><?php echo esc_html( $labels['title'] ); ?></h3>
+			<p><?php echo esc_html( $labels['description'] ); ?></p>
 		</div>
 
 		<form
@@ -141,10 +182,11 @@ function bmfk_avinor_agreement_gate() {
 			autocomplete="off"
 		>
 			<input type="hidden" name="action" value="bmfk_avinor_access">
-			<label for="bmfk-avinor-password"><?php esc_html_e( 'Passord', 'bmfk' ); ?></label>
+			<input type="hidden" name="document" value="<?php echo esc_attr( $document ); ?>">
+			<label for="<?php echo esc_attr( $password_id ); ?>"><?php esc_html_e( 'Passord', 'bmfk' ); ?></label>
 			<div class="bmfk-document-gate__controls">
 				<input
-					id="bmfk-avinor-password"
+					id="<?php echo esc_attr( $password_id ); ?>"
 					name="password"
 					type="password"
 					required
@@ -158,14 +200,14 @@ function bmfk_avinor_agreement_gate() {
 		</form>
 
 		<div class="bmfk-document-gate__unlocked" data-bmfk-document-unlocked hidden>
-			<p><?php esc_html_e( 'Tilgang godkjent. Avtalen er klar til å åpnes.', 'bmfk' ); ?></p>
+			<p><?php echo esc_html( $labels['unlocked'] ); ?></p>
 			<a
 				class="bmfk-document-gate__link"
 				data-bmfk-document-link
 				href="#"
 				target="_blank"
 				rel="noopener noreferrer"
-			><?php esc_html_e( 'Åpne avtalen med Bodø kontrolltårn (PDF)', 'bmfk' ); ?></a>
+			><?php echo esc_html( $labels['link'] ); ?></a>
 		</div>
 	</section>
 	<?php
@@ -174,7 +216,43 @@ function bmfk_avinor_agreement_gate() {
 }
 
 /**
- * Verify the shared password and return the agreement URL.
+ * Render the Avinor agreement access panel.
+ *
+ * @return string
+ */
+function bmfk_avinor_agreement_gate() {
+	return bmfk_protected_document_gate(
+		'avinor',
+		array(
+			'eyebrow'     => __( 'Medlemsdokument', 'bmfk' ),
+			'title'       => __( 'Avtale med Bodø kontrolltårn', 'bmfk' ),
+			'description' => __( 'Avtalen er for klubbens medlemmer. Passord fås av styret.', 'bmfk' ),
+			'unlocked'    => __( 'Tilgang godkjent. Avtalen er klar til å åpnes.', 'bmfk' ),
+			'link'        => __( 'Åpne avtalen med Bodø kontrolltårn (PDF)', 'bmfk' ),
+		)
+	);
+}
+
+/**
+ * Render the historical rules access panel.
+ *
+ * @return string
+ */
+function bmfk_historical_rules_gate() {
+	return bmfk_protected_document_gate(
+		'rules-2018',
+		array(
+			'eyebrow'     => __( 'Styredokument', 'bmfk' ),
+			'title'       => __( 'Historiske flyplassregler fra 2018', 'bmfk' ),
+			'description' => __( 'Dokumentet er for styret. Bruk samme passord som for Avinor-avtalen.', 'bmfk' ),
+			'unlocked'    => __( 'Tilgang godkjent. Det historiske dokumentet er klart til å åpnes.', 'bmfk' ),
+			'link'        => __( 'Åpne historiske flyplass- og sikkerhetsregler fra 2018 (PDF)', 'bmfk' ),
+		)
+	);
+}
+
+/**
+ * Verify the shared password and return the requested document URL.
  *
  * This endpoint is deliberately POST-only and disables caching. A status
  * request without a password is also used to restore remembered access.
@@ -194,6 +272,18 @@ function bmfk_ajax_avinor_access() {
 		);
 	}
 
+	$document     = isset( $_POST['document'] ) ? sanitize_key( wp_unslash( $_POST['document'] ) ) : 'avinor';
+	$document_url = bmfk_protected_document_url( $document );
+	if ( '' === $document_url ) {
+		wp_send_json_error(
+			array(
+				'code'    => 'document_not_found',
+				'message' => __( 'Dokumentet finnes ikke.', 'bmfk' ),
+			),
+			404
+		);
+	}
+
 	$password_hash = bmfk_avinor_password_hash();
 	if ( '' === $password_hash ) {
 		wp_send_json_error(
@@ -208,7 +298,7 @@ function bmfk_ajax_avinor_access() {
 	if ( bmfk_avinor_access_granted() ) {
 		wp_send_json_success(
 			array(
-				'url' => bmfk_avinor_agreement_url(),
+				'url' => $document_url,
 			)
 		);
 	}
@@ -237,7 +327,7 @@ function bmfk_ajax_avinor_access() {
 	bmfk_remember_avinor_access();
 	wp_send_json_success(
 		array(
-			'url' => bmfk_avinor_agreement_url(),
+			'url' => $document_url,
 		)
 	);
 }
@@ -334,7 +424,7 @@ function bmfk_render_document_access_page() {
 	$is_configured = '' !== bmfk_avinor_password_hash();
 	$messages     = array(
 		'updated'  => array( 'success', __( 'Passordet er lagret. Tidligere godkjenninger er nå ugyldige.', 'bmfk' ) ),
-		'removed'  => array( 'success', __( 'Passordet er fjernet. Avtalen kan ikke låses opp før et nytt passord er satt.', 'bmfk' ) ),
+		'removed'  => array( 'success', __( 'Passordet er fjernet. Dokumentene kan ikke låses opp før et nytt passord er satt.', 'bmfk' ) ),
 		'length'   => array( 'error', __( 'Passordet må inneholde mellom 6 og 128 tegn.', 'bmfk' ) ),
 		'mismatch' => array( 'error', __( 'Passordene var ikke like. Prøv på nytt.', 'bmfk' ) ),
 	);
@@ -348,7 +438,7 @@ function bmfk_render_document_access_page() {
 			</div>
 		<?php endif; ?>
 
-		<p><?php esc_html_e( 'Her setter du medlemspassordet som låser opp Avinor-avtalen på Flyplassregler-siden.', 'bmfk' ); ?></p>
+		<p><?php esc_html_e( 'Her setter du det delte passordet som låser opp Avinor-avtalen og de historiske flyplassreglene fra 2018.', 'bmfk' ); ?></p>
 		<p>
 			<strong><?php esc_html_e( 'Status:', 'bmfk' ); ?></strong>
 			<?php echo $is_configured ? esc_html__( 'Passord er konfigurert.', 'bmfk' ) : esc_html__( 'Passord er ikke konfigurert.', 'bmfk' ); ?>
@@ -362,10 +452,10 @@ function bmfk_render_document_access_page() {
 
 			<table class="form-table" role="presentation">
 				<tr>
-					<th scope="row"><label for="bmfk-avinor-password-admin"><?php esc_html_e( 'Nytt medlemspassord', 'bmfk' ); ?></label></th>
+					<th scope="row"><label for="bmfk-avinor-password-admin"><?php esc_html_e( 'Nytt dokumentpassord', 'bmfk' ); ?></label></th>
 					<td>
 						<input id="bmfk-avinor-password-admin" class="regular-text" name="bmfk_avinor_password" type="password" minlength="6" maxlength="128" required autocomplete="new-password">
-						<p class="description"><?php esc_html_e( 'Bruk minst seks tegn. Del passordet kun med klubbens medlemmer.', 'bmfk' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Bruk minst seks tegn. Det samme passordet gjelder begge dokumentene og skal bare deles med dem som skal ha tilgang.', 'bmfk' ); ?></p>
 					</td>
 				</tr>
 				<tr>

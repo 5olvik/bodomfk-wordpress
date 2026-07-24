@@ -45,6 +45,10 @@ jobs:
         shell: bash
         run: php tests/test-content-pages.php
 
+      - name: Kontroller dokumenttilgangen
+        shell: bash
+        run: php tests/test-document-access.php
+
       - name: Pakk temaet
         shell: bash
         run: |

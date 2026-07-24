@@ -48,7 +48,6 @@ function bmfk_git_content_replace_tokens( $markdown ) {
 		'{{facebook_market_url}}' => bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' ),
 		'{{electric_hours}}'      => bmfk_setting( 'bmfk_electric_hours', 'Hele døgnet' ),
 		'{{combustion_hours}}'    => bmfk_setting( 'bmfk_combustion_hours', '09:00-21:00' ),
-		'{{rules_2018_pdf_url}}'  => bmfk_asset_url( 'documents/flyplass-og-sikkerhetsregler-2018.pdf' ),
 		'{{new_member_pdf_url}}'  => bmfk_asset_url( 'documents/velkommen-som-medlem-2026.pdf' ),
 	);
 
@@ -161,8 +160,9 @@ function bmfk_markdown_flush_blocks( &$html, &$paragraph, &$list, &$quote, &$par
  * Convert the deliberately small Markdown subset used by BMFK into HTML.
  *
  * Supported extensions are :::columns / :::column / :::endcolumns, the
- * one-line button form [Button: Label](URL), and [AvinorAgreement] for the
- * member password panel. All ordinary text is escaped.
+ * one-line button form [Button: Label](URL), [AvinorAgreement], and
+ * [HistoricalRules] for the shared password panels. All ordinary text is
+ * escaped.
  *
  * @param string $markdown Markdown source.
  * @return string
@@ -229,6 +229,14 @@ function bmfk_markdown_to_html( $markdown ) {
 			bmfk_markdown_flush_blocks( $html, $paragraph, $list, $quote, $paragraph_count );
 			if ( function_exists( 'bmfk_avinor_agreement_gate' ) ) {
 				$html[] = bmfk_avinor_agreement_gate();
+			}
+			continue;
+		}
+
+		if ( '[HistoricalRules]' === $trimmed ) {
+			bmfk_markdown_flush_blocks( $html, $paragraph, $list, $quote, $paragraph_count );
+			if ( function_exists( 'bmfk_historical_rules_gate' ) ) {
+				$html[] = bmfk_historical_rules_gate();
 			}
 			continue;
 		}

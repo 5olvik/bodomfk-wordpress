@@ -19,6 +19,7 @@ Skal du bare endre en fast sidetekst, les [veiledningen for Git-versjonert innho
 - Kontroller tastaturnavigasjon, kontrast og mobilvisning.
 - Optimaliser bilder før de legges inn.
 - Oppdater dokumentasjonen når installasjon eller administrasjon endres.
+- Få endringer i lokale flyplass- og sikkerhetsregler kontrollert av styret eller klubbens sikkerhetsansvarlige, og hold kortversjonen og velkomst-PDF-en samkjørt.
 
 ## Test før pull request
 

@@ -1,5 +1,24 @@
 # Endringslogg
 
+## 1.6.9 – 2026-07-24
+
+- Legger de historiske flyplass- og sikkerhetsreglene fra 2018 bak samme delte passord som Avinor-avtalen.
+- Fjerner den historiske PDF-lenken fra Flyplassregler-sidens opprinnelige HTML og henter den først etter godkjent passord.
+- Låser automatisk opp begge dokumentpanelene når passordet godkjennes i ett av dem.
+- Beholder eksisterende passord, hash, 30-dagers nettlesergodkjenning og administrasjon under **Utseende → Dokumenttilgang**.
+- Merker 2018-dokumentet som historisk styredokument og oppdaterer testene og dokumentasjonen for begge dokumentportene.
+
+## 1.6.8 – 2026-07-24
+
+- Erstatter den korte, generelle omtalen med et komplett og tydelig merket lokalt regelverk for Bestemorenga.
+- Samler regler om adgang og lokal orientering, flysone, forbudte områder, pilotområde, rullebane, trafikk og preflight-kontroll.
+- Viderefører relevante lokale sikkerhetsrutiner fra 2018, blant annet felles pilotområde, tydelige rop, normalt maksimalt tre modeller i lufta og forbud mot overflyging av depot, hytte, parkering og publikum.
+- Presiserer vikeplikten for bemannet luftfart, håndtering av instruks fra kontrolltårnet og krav ved flyging over 120 meter eller utenfor normal klubbaktivitet.
+- Legger inn egne lokale regler for FPV, helikopter, multirotor, failsafe og automatiske funksjoner.
+- Samkjører åpningstider, støyhensyn, bakke- og batterisikkerhet, beredskap, OBSREG og håndtering av regelbrudd.
+- Legger en kortversjon av de lokale reglene på Nytt medlem-siden og i den nedlastbare velkomstguiden.
+- Beholder 2018-dokumentet tydelig merket som historisk referanse.
+
 ## 1.6.7 – 2026-07-23
 
 - Forklarer tydelig forskjellen mellom flyging under NLFs godkjente sikkerhetssystem og flyging i åpen kategori.

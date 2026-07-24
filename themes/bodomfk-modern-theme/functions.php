@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.7' );
+define( 'BMFK_THEME_VERSION', '1.6.9' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -186,7 +186,7 @@ function bmfk_register_customizer( $wp_customize ) {
 		'bmfk_club_settings',
 		array(
 			'title'       => __( 'Klubbinformasjon', 'bmfk' ),
-			'description' => __( 'Lenker og praktisk informasjon som brukes flere steder på nettsiden. Medlemspassordet til Avinor-avtalen settes under Utseende → Dokumenttilgang.', 'bmfk' ),
+			'description' => __( 'Lenker og praktisk informasjon som brukes flere steder på nettsiden. Det delte passordet til beskyttede dokumenter settes under Utseende → Dokumenttilgang.', 'bmfk' ),
 			'priority'    => 30,
 		)
 	);
@@ -335,7 +335,7 @@ function bmfk_meta_description() {
 		'nytt-medlem'       => 'Ny i Bodø Modellflyklubb? Her finner du medlemskap, NLF, forsikring, kompetanse, operatørregistrering og praktisk informasjon om Bestemorenga.',
 		'medlemsfordeler'   => 'Se medlemsfordelene i Bodø Modellflyklubb: trygg flyplass, opplæring, klubbmiljø og forsikringsinformasjon gjennom NLF.',
 		'klubbhytta'        => 'Informasjon for medlemmer om adgang til klubbhytta ved modellflyplassen på Bestemorenga.',
-		'flyplassregler'    => 'Gjeldende sikkerhetsinformasjon for Bestemorenga modellflyplass og avtalen mellom Bodø Modellflyklubb og Bodø kontrolltårn.',
+		'flyplassregler'    => 'Lokalt regelverk, flysoner, åpningstider og sikkerhetsrutiner for Bestemorenga modellflyplass, samt klubbens avtale med Bodø kontrolltårn.',
 		'kontaktoss'        => 'Kontakt Bodø Modellflyklubb for generelle henvendelser, medlemsinformasjon og faktura, eller finn riktig Facebook-gruppe.',
 		'gruppeansvarlige'  => 'Kontaktpersoner og ansvarlige for opplæring, sikkerhet, bane og nettsider i Bodø Modellflyklubb.',
 	);

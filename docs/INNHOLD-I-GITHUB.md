@@ -58,13 +58,20 @@ Tekst i andre kolonne.
 [Button: Les mer](https://example.com/)
 ```
 
-Flyplassregler bruker også denne spesialmarkøren:
+Flyplassregler bruker også disse spesialmarkørene:
 
 ```md
 [AvinorAgreement]
+[HistoricalRules]
 ```
 
-Den viser passordpanelet for Avinor-avtalen. Ikke erstatt markøren med en direkte PDF-lenke. Passordet settes i WordPress under **Utseende → Dokumenttilgang** og skal aldri skrives i Markdown-filen.
+De viser passordpanelene for Avinor-avtalen og de historiske reglene fra 2018. Ikke erstatt markørene med direkte PDF-lenker. Begge panelene bruker passordet som settes i WordPress under **Utseende → Dokumenttilgang**. Passordet skal aldri skrives i Markdown-filen.
+
+## Sikkerhetskritiske endringer
+
+`flyplassregler.md` inneholder klubbens operative lokale regelverk. Endringer i flysone, åpningstider, adgang, maksimal aktivitet, tårnrutine, FPV-krav eller beredskap skal kontrolleres av styret eller klubbens sikkerhetsansvarlige før de slås sammen.
+
+Når en lokal regel endres, skal den korte oversikten i `nytt-medlem.md` og PDF-en `assets/documents/velkommen-som-medlem-2026.pdf` kontrolleres samtidig. Dokumentet fra 2018 er historisk referanse og skal ikke redigeres for å beskrive dagens regler.
 
 ## Verdier som styres av WordPress
 
@@ -84,7 +91,6 @@ Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vis
 - `{{facebook_market_url}}`
 - `{{electric_hours}}`
 - `{{combustion_hours}}`
-- `{{rules_2018_pdf_url}}`
 - `{{new_member_pdf_url}}`
 
 Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende → Tilpass → Klubbinformasjon** uten at samme verdi må skrives flere steder.
@@ -93,4 +99,4 @@ Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende �
 
 Bare publisert informasjon skal ligge i innholdsfilene. Ikke legg til medlemslister, private telefonnumre, brukerdata, passord, API-nøkler, WordPress-eksporter eller backupfiler. WordPress XML-eksporten som ble brukt til førstegangsuthenting er ikke en del av repositoryet.
 
-Avinor-PDF-en finnes fortsatt i Git-historikken og temaets offentlige filer. Passordpanelet er derfor en praktisk medlemsbarriere, ikke dokumentbeskyttelse mot en person som allerede kjenner den direkte filadressen.
+Begge de passordmerkede PDF-ene finnes fortsatt i Git-historikken og temaets offentlige filer. Passordpanelene er derfor en praktisk barriere, ikke dokumentbeskyttelse mot en person som allerede kjenner den direkte filadressen.
