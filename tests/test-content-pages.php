@@ -146,6 +146,13 @@ foreach ( array(
 	'åpen kategori',
 	'Operatørregistrering og merking er egne krav',
 	'Les hele forklaringen under Flyplassregler',
+	'Barn og ungdom kan fly selvstendig gjennom klubben',
+	'Hovedregelen er at piloten må være minst 16 år',
+	'NLF har ingen nedre aldersgrense for å starte modellflyopplæring',
+	'Generelt anbefales det at kandidaten har fylt 12 år',
+	'barn under 16 år som har gjennomført opplæringen og bestått oppflyging til A-bevis',
+	'fly selvstendig i regi av BMFK/NLF innenfor rettighetene beviset gir',
+	'vedlegg-b---krav-til-modellflybevis-a_-v.1.4.pdf',
 	'FPV - sjekkliste og teoriprøve',
 	'sjekkliste-fpv',
 	'ta-teoriprove-for-fpv',
@@ -156,6 +163,18 @@ foreach ( array(
 ) as $required_text ) {
 	if ( false === strpos( $new_member_html, $required_text ) ) {
 		$errors[] = 'nytt-medlem.md: mangler regelverksforklaring: ' . $required_text;
+	}
+}
+
+$benefits_html = bmfk_git_page_content( 'medlemsfordeler' );
+foreach ( array(
+	'Barn og ungdom',
+	'NLF har ingen nedre aldersgrense for å starte modellflyopplæring',
+	'Barn under 16 år kan ta A-bevis og fly selvstendig i klubbregi',
+	'Kompetanse, modellkategori og lokale regler avgjør hva piloten kan fly',
+) as $required_text ) {
+	if ( false === strpos( $benefits_html, $required_text ) ) {
+		$errors[] = 'medlemsfordeler.md: mangler alders- og kompetanseforklaring: ' . $required_text;
 	}
 }
 

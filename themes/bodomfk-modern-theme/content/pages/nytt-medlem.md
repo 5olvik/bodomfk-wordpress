@@ -54,6 +54,26 @@ En instruktør hjelper deg med teori, sikker bruk av utstyret, lokale bestemmels
 
 Søknad om ny kompetanse gjøres av deg i TMS og bekreftes digitalt av instruktør eller klubbleder når det kreves. Kontroller alltid gjeldende krav i Modellflyhåndboka og hos NLF.
 
+## Barn og ungdom kan fly selvstendig gjennom klubben
+
+:::columns
+:::column
+### Flyging i åpen kategori
+
+Hovedregelen er at piloten må være minst 16 år. Det finnes unntak for enkelte lette modeller og leketøy, og en yngre pilot kan fly under veiledning når vilkårene er oppfylt. Les [Luftfartstilsynets gjeldende regler](https://www.luftfartstilsynet.no/droner/droneregler/droneregler/).
+
+:::column
+### Flyging i BMFK og NLF
+
+NLF har ingen nedre aldersgrense for å starte modellflyopplæring. Generelt anbefales det at kandidaten har fylt 12 år, mens yngre kandidater vurderes individuelt av instruktøren. Dette er en anbefaling og vurdering - ikke en absolutt aldersgrense.
+:::endcolumns
+
+Formålet med A-opplæringen er at kandidaten skal få ferdigheter og kunnskap til å fly sikkert uten tilsyn. Et barn under 16 år som har gjennomført opplæringen og bestått oppflyging til A-bevis, kan derfor fly selvstendig i regi av BMFK/NLF innenfor rettighetene beviset gir.
+
+[Les NLFs krav til modellflybevis klasse A →](https://nlf.no/siteassets/modellfly/sikkerhet-og-utdanning/modellflyhandboka/modellflyhandboka/vedlegg-b---krav-til-modellflybevis-a_-v.1.4.pdf)
+
+> **Viktig:** Ingen blir automatisk klar til å fly alene på grunn av alder eller medlemskap. Instruktøren vurderer ferdigheter og egnethet under opplæringen. Modellkategori, gyldig medlemskap og kompetanse, operatørmerking, Modellflyhåndboka og lokale regler gjelder fortsatt.
+
 :::columns
 :::column
 ## Før du flyr alene

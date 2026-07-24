@@ -28,6 +28,20 @@ Mulighet for strukturert opplæring og kompetansebevis for aktuell modelltype.
 [Se kompetansebevis hos NLF →](https://nlf.no/grener/modellfly/sikkerhet-utdanning/kompetansebevis/kompetansebevis-oversikt/)
 :::endcolumns
 
+:::columns
+:::column
+## Barn og ungdom
+
+NLF har ingen nedre aldersgrense for å starte modellflyopplæring. Generelt anbefales 12 år, mens yngre kandidater vurderes individuelt av instruktøren.
+
+:::column
+## Veien til selvstendig flyging
+
+Barn under 16 år kan ta A-bevis og fly selvstendig i klubbregi når opplæringen og oppflygingen er bestått. Kompetanse, modellkategori og lokale regler avgjør hva piloten kan fly.
+
+[Les den presise forklaringen på Nytt medlem →](https://bodomfk.no/nytt-medlem/)
+:::endcolumns
+
 > Regler og forsikringsvilkår kan endres. Kontroller alltid gjeldende informasjon hos klubben og NLF før du flyr.
 
 [Button: Bli medlem]({{membership_url}})

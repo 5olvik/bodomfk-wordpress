@@ -1,5 +1,13 @@
 # Endringslogg
 
+## 1.6.10 – 2026-07-24
+
+- Forklarer presist forskjellen mellom 16-årshovedregelen i åpen kategori og opplæring i NLFs godkjente sikkerhetssystem.
+- Fremhever at NLF ikke har en nedre aldersgrense for å starte modellflyopplæring, men normalt anbefaler 12 år og individuell instruktørvurdering for yngre kandidater.
+- Presiserer at barn under 16 år kan ta A-bevis og fly selvstendig i klubbregi etter bestått opplæring og oppflyging, innenfor bevisets rettigheter og øvrige regler.
+- Legger informasjonen på både Nytt medlem og Medlemsfordeler, med lenker til Luftfartstilsynet og NLFs krav til A-bevis.
+- Oppdaterer den nedlastbare velkomstguiden og de automatiske innholdstestene med samme forklaring.
+
 ## 1.6.9 – 2026-07-24
 
 - Legger de historiske flyplass- og sikkerhetsreglene fra 2018 bak samme delte passord som Avinor-avtalen.

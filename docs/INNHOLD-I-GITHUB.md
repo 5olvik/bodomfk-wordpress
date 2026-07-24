@@ -73,6 +73,8 @@ De viser passordpanelene for Avinor-avtalen og de historiske reglene fra 2018. I
 
 Når en lokal regel endres, skal den korte oversikten i `nytt-medlem.md` og PDF-en `assets/documents/velkommen-som-medlem-2026.pdf` kontrolleres samtidig. Dokumentet fra 2018 er historisk referanse og skal ikke redigeres for å beskrive dagens regler.
 
+Påstander om aldersgrenser og selvstendig flyging skal skille tydelig mellom åpen kategori og flyging i regi av BMFK/NLF. Kontroller slike endringer mot Luftfartstilsynets gjeldende droneregler, Modellflyhåndboka og NLFs krav til A-bevis. Ikke forkort teksten til at det alltid er 16-årsgrense, eller at medlemskap alene gir rett til å fly uten tilsyn.
+
 ## Verdier som styres av WordPress
 
 Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vises:
