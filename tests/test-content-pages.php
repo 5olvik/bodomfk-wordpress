@@ -15,6 +15,10 @@ function bmfk_asset_url( $path ) {
 	return 'https://example.com/theme/assets/' . ltrim( $path, '/' );
 }
 
+function bmfk_cookie_policy_url() {
+	return 'https://example.com/cookie-policy-eu/';
+}
+
 function home_url( $path = '/' ) {
 	return 'https://example.com' . '/' . ltrim( $path, '/' );
 }
@@ -136,6 +140,35 @@ if ( false === strpos( $new_member_html, 'rett utenfor femkilometersonen rundt B
 
 if ( false === strpos( $new_member_html, 'Flyging vest for rullebanen kan likevel berøre sonen' ) ) {
 	$errors[] = 'nytt-medlem.md: mangler forklaring om flyging vest for rullebanen';
+}
+
+$privacy_html = bmfk_git_page_content( 'personvern' );
+foreach ( array(
+	'Bodø Modellflyklubb er behandlingsansvarlig',
+	'993 764 299',
+	'Vanlige besøk og sikkerhet',
+	'Webkameraet på Bestemorenga',
+	'gjeldende stillbildet',
+	'WindNerd',
+	'PRO ISP',
+	'Zoho',
+	'Norges idrettsforbund og Norges Luftsportforbund',
+	'Vi lagrer ikke opplysninger lenger enn nødvendig',
+	'Dine rettigheter',
+	'Datatilsynet',
+	'Sist oppdatert: 30. juli 2026',
+) as $required_text ) {
+	if ( false === strpos( $privacy_html, $required_text ) ) {
+		$errors[] = 'personvern.md: mangler ' . $required_text;
+	}
+}
+
+if ( false === strpos( $privacy_html, 'https://example.com/cookie-policy-eu/' ) ) {
+	$errors[] = 'personvern.md: mangler dynamisk lenke til informasjonskapsler';
+}
+
+if ( false !== strpos( $privacy_html, '{{' ) ) {
+	$errors[] = 'personvern.md: har ubehandlede plassholdere';
 }
 
 if ( false === strpos( $new_member_html, 'avtale med Bodø kontrolltårn gjelder flyging i regi av Bodø Modellflyklubb og under NLFs sikkerhetssystem' ) ) {

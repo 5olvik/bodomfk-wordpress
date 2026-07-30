@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.10' );
+define( 'BMFK_THEME_VERSION', '1.6.11' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -141,6 +141,25 @@ function bmfk_asset_url( $path ) {
 
 function bmfk_setting( $key, $default = '' ) {
 	return get_theme_mod( $key, $default );
+}
+
+/**
+ * Return Complianz' current EU cookie-policy URL.
+ *
+ * The fallback matches the plugin's standard page slug and keeps the theme
+ * usable while Complianz is temporarily unavailable.
+ *
+ * @return string
+ */
+function bmfk_cookie_policy_url() {
+	if ( function_exists( 'cmplz_get_document_url' ) ) {
+		$url = cmplz_get_document_url( 'cookie-statement', 'eu' );
+		if ( $url ) {
+			return $url;
+		}
+	}
+
+	return home_url( '/cookie-policy-eu/' );
 }
 
 /**
@@ -338,6 +357,7 @@ function bmfk_meta_description() {
 		'flyplassregler'    => 'Lokalt regelverk, flysoner, åpningstider og sikkerhetsrutiner for Bestemorenga modellflyplass, samt klubbens avtale med Bodø kontrolltårn.',
 		'kontaktoss'        => 'Kontakt Bodø Modellflyklubb for generelle henvendelser, medlemsinformasjon og faktura, eller finn riktig Facebook-gruppe.',
 		'gruppeansvarlige'  => 'Kontaktpersoner og ansvarlige for opplæring, sikkerhet, bane og nettsider i Bodø Modellflyklubb.',
+		'personvern'        => 'Les hvordan Bodø Modellflyklubb behandler personopplysninger, informasjonskapsler, sikkerhetslogger, e-post og webkamerabilder på bodomfk.no.',
 	);
 
 	if ( is_front_page() ) {

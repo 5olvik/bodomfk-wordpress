@@ -9,13 +9,13 @@ BMFK-nettsiden er ferdig migrert. Temaet er selvstendig og trenger ikke Generate
 | WP Dark Mode | Gir besøkende valget mellom lys og mørk visning. Temaet låser egne kort og knapper til kontrastsikre farger. |
 | Email Address Encoder | Gir ekstra koding av `post@bodomfk.no` og `faktura@bodomfk.no`. Temaet bruker også WordPress-beskyttelse som reserve. |
 | SuperPWA | Gjør nettstedet installerbart som app. Temaet inneholder ikoner og kompatibilitetsregler for manifest, service worker og webkamera. |
+| Complianz GDPR | Håndterer cookie-skanning, samtykkebanner og erklæring om informasjonskapsler. Den separate personvernerklæringen ligger i temaet og velges som WordPress-personvernside. |
+| Really Simple Security | Gir sikkerhetsherding, innloggingsbeskyttelse og tofaktor for administratorer. Gratisutgaven kan beholdes så lenge funksjonene brukes og sikkerhetsloggene har en fornuftig lagringstid. |
 
 ## Bare dersom det fortsatt er nødvendig
 
 | Utvidelse | Vurdering |
 | --- | --- |
-| Complianz GDPR | Behold hvis nettstedets cookie-skanning viser samtykkekrevende informasjonskapsler eller tredjepartstjenester. Kjør ny skanning etter større endringer. |
-| Really Simple SSL | Behold bare dersom webhotellet ikke selv håndterer HTTPS, omdirigering og sikkerhetsoverskrifter. Test før fjerning. |
 | Duplicator | Kan brukes til manuelle sikkerhetskopier, men ferdige pakker og `installer.php` må aldri legges i GitHub eller være offentlig tilgjengelige. |
 
 ## Utfaset

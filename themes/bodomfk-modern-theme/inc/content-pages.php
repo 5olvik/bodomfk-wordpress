@@ -25,6 +25,7 @@ function bmfk_git_content_pages() {
 		'klubbhytta'      => 'klubbhytta.md',
 		'kontaktoss'      => 'kontaktoss.md',
 		'flyplassregler'  => 'flyplassregler.md',
+		'personvern'      => 'personvern.md',
 	);
 }
 
@@ -49,6 +50,7 @@ function bmfk_git_content_replace_tokens( $markdown ) {
 		'{{electric_hours}}'      => bmfk_setting( 'bmfk_electric_hours', 'Hele døgnet' ),
 		'{{combustion_hours}}'    => bmfk_setting( 'bmfk_combustion_hours', '09:00-21:00' ),
 		'{{new_member_pdf_url}}'  => bmfk_asset_url( 'documents/velkommen-som-medlem-2026.pdf' ),
+		'{{cookie_policy_url}}'   => bmfk_cookie_policy_url(),
 	);
 
 	return strtr( $markdown, $tokens );
@@ -386,3 +388,43 @@ function bmfk_ensure_new_member_page() {
 }
 add_action( 'after_switch_theme', 'bmfk_ensure_new_member_page' );
 add_action( 'admin_init', 'bmfk_ensure_new_member_page' );
+
+/**
+ * Create and register the Git-managed privacy page.
+ *
+ * An existing page or an existing WordPress privacy-page selection is never
+ * replaced. This lets Complianz and WordPress discover the public statement
+ * without requiring a paid legal-document generator.
+ */
+function bmfk_ensure_privacy_page() {
+	$page = get_page_by_path( 'personvern' );
+
+	if ( ! $page ) {
+		$page_id = wp_insert_post(
+			array(
+				'post_title'     => __( 'Personvernerklæring', 'bmfk' ),
+				'post_name'      => 'personvern',
+				'post_type'      => 'page',
+				'post_status'    => 'publish',
+				'comment_status' => 'closed',
+				'post_content'   => '<!-- wp:paragraph --><p>Personvernerklæringen leveres av klubbens tema.</p><!-- /wp:paragraph -->',
+			),
+			true
+		);
+
+		if ( ! is_wp_error( $page_id ) ) {
+			$page = get_post( $page_id );
+		}
+	}
+
+	$current_privacy_page = (int) get_option( 'wp_page_for_privacy_policy' );
+	if (
+		$page
+		&& 'publish' === $page->post_status
+		&& ( ! $current_privacy_page || 'publish' !== get_post_status( $current_privacy_page ) )
+	) {
+		update_option( 'wp_page_for_privacy_policy', (int) $page->ID );
+	}
+}
+add_action( 'after_switch_theme', 'bmfk_ensure_privacy_page' );
+add_action( 'admin_init', 'bmfk_ensure_privacy_page' );

@@ -1,5 +1,16 @@
 # Endringslogg
 
+## 1.6.11 – 2026-07-30
+
+- Oppretter en komplett, Git-versjonert personvernerklæring på `/personvern/`.
+- Beskriver behandling knyttet til tekniske logger, WordPress-kontoer, e-post, samtykkevalg, medlemsadministrasjon, webkamera og WindNerd-værmodulen.
+- Forklarer formål, behandlingsgrunnlag, mottakere, lagringskriterier og de registrertes rettigheter, med kontaktvei og lenke til Datatilsynet.
+- Oppretter siden automatisk og velger den som WordPress-personvernside dersom ingen annen side allerede er valgt.
+- Legger Personvern og Complianz' dynamiske informasjonskapsellenke i bunnteksten.
+- Tilpasser sidefelt, metadata, dokumentasjon og automatiske tester til den nye siden.
+- Oppdaterer utvidelsesplanen slik at Complianz og Really Simple Security har tydelige roller i den anbefalte driften.
+- Legger kontroll av kameravinkel, identifiserbarhet og informasjon på området inn i installasjonssjekklisten.
+
 ## 1.6.10 – 2026-07-24
 
 - Forklarer presist forskjellen mellom 16-årshovedregelen i åpen kategori og opplæring i NLFs godkjente sikkerhetssystem.

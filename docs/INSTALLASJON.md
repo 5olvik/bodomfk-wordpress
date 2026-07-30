@@ -1,6 +1,6 @@
 # Installere og oppdatere BMFK-temaet
 
-Dette er rutinen for versjon 1.6.10 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
+Dette er rutinen for versjon 1.6.11 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
 ## Før oppdatering
 
@@ -8,15 +8,15 @@ Dette er rutinen for versjon 1.6.10 og nyere. Den tidligere migreringsutvidelsen
 2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
 3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-Filen skal hete omtrent `bodomfk-modern-theme-1.6.10.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
+Filen skal hete omtrent `bodomfk-modern-theme-1.6.11.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
 ## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Velg `bodomfk-modern-theme-1.6.10.zip`.
+2. Velg `bodomfk-modern-theme-1.6.11.zip`.
 3. Trykk **Installer nå**.
 4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
-5. Kontroller at **Bodø Modellflyklubb Modern 1.6.10** fortsatt er aktivt.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.6.11** fortsatt er aktivt.
 
 Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
@@ -41,7 +41,11 @@ Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en
 - At den tidligere PDF-en med flyplass- og sikkerhetsregler er merket som historisk styredokument fra 2018 og ikke viser en direkte lenke før godkjenning.
 - At `post@bodomfk.no` og `faktura@bodomfk.no` vises riktig på kontaktsiden og i bunnteksten.
 - At Google Maps- og Grasrotandelen-lenkene nederst på siden åpner riktig klubbside.
-- At Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler viser tekstene fra GitHub uten synlige strukturmarkører.
+- At `/personvern/` viser den Git-versjonerte personvernerklæringen, og at Personvern og Informasjonskapsler ligger i bunnteksten.
+- Gå til **Innstillinger → Personvern** og kontroller at «Personvernerklæring» er valgt. Temaet velger siden automatisk dersom ingen annen personvernside allerede var valgt.
+- Kjør Complianz-veiviseren og en ny cookie-skanning. For et norskspråklig klubbnettsted velges Norge/EØS og GDPR; flere språk eller regioner skal bare aktiveres dersom nettstedet faktisk retter seg mot dem.
+- Kontroller at webkameraets vinkel, avstand og oppløsning gjør at enkeltpersoner normalt ikke kan identifiseres, og at de som bruker området er informert om kameraet. Dersom noen kan gjenkjennes, skal bildet ikke publiseres før løsningen er justert.
+- At Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss, Flyplassregler og Personvernerklæring viser tekstene fra GitHub uten synlige strukturmarkører.
 - At `/nytt-medlem/` er opprettet, og at PDF-knappen åpner den oppdaterte velkomstguiden.
 - At `superpwa-manifest.json` viser JSON og at `superpwa-sw.js` viser JavaScript uten en WordPress 404-side.
 - At webkamerabildet oppdateres i den installerte PWA-en og ikke hentes fra en gammel service-worker-cache.
@@ -51,7 +55,7 @@ Tøm eventuell cache på webhotellet eller i WordPress hvis gamle farger eller f
 
 ## Git-versjonerte sidetekster
 
-Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler henter hovedinnholdet fra Markdown-filene i temaets `content/pages`-mappe. WordPress-innholdet brukes automatisk som reserve hvis en fil mangler. Endringer i WordPress-redigeringen overstyrer derfor ikke GitHub-teksten så lenge den tilhørende filen finnes. Se [INNHOLD-I-GITHUB.md](INNHOLD-I-GITHUB.md) for bidragsrutinen.
+Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss, Flyplassregler og Personvernerklæring henter hovedinnholdet fra Markdown-filene i temaets `content/pages`-mappe. WordPress-innholdet brukes automatisk som reserve hvis en fil mangler. Endringer i WordPress-redigeringen overstyrer derfor ikke GitHub-teksten så lenge den tilhørende filen finnes. Se [INNHOLD-I-GITHUB.md](INNHOLD-I-GITHUB.md) for bidragsrutinen.
 
 ## Redigere klubbinformasjon
 

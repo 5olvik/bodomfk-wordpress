@@ -9,6 +9,7 @@ Fra tema 1.5.0 er GitHub hovedkilden for innholdet på disse offentlige informas
 | Klubbhytta | `themes/bodomfk-modern-theme/content/pages/klubbhytta.md` |
 | Kontakt oss | `themes/bodomfk-modern-theme/content/pages/kontaktoss.md` |
 | Flyplassregler | `themes/bodomfk-modern-theme/content/pages/flyplassregler.md` |
+| Personvernerklæring | `themes/bodomfk-modern-theme/content/pages/personvern.md` |
 
 Forsiden og nyheter/innlegg følger fortsatt sine vanlige WordPress- og temarutiner.
 
@@ -94,6 +95,7 @@ Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vis
 - `{{electric_hours}}`
 - `{{combustion_hours}}`
 - `{{new_member_pdf_url}}`
+- `{{cookie_policy_url}}`
 
 Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende → Tilpass → Klubbinformasjon** uten at samme verdi må skrives flere steder.
 

@@ -23,6 +23,14 @@ get_header();
 		if ( 'kontaktoss' === $page_slug ) {
 			$useful_links[] = array( 'label' => 'Kontaktpersoner og ansvarlige', 'url' => home_url( '/gruppeansvarlige/' ), 'slug' => 'gruppeansvarlige' );
 		}
+
+		if ( 'personvern' === $page_slug ) {
+			$useful_links = array(
+				array( 'label' => 'Informasjonskapsler', 'url' => bmfk_cookie_policy_url() ),
+				array( 'label' => 'Kontakt klubben', 'url' => home_url( '/kontaktoss/' ) ),
+				array( 'label' => 'Datatilsynet', 'url' => 'https://www.datatilsynet.no/' ),
+			);
+		}
 		?>
 		<header class="page-hero">
 			<div class="wrap"><span class="eyebrow">Bodø Modellflyklubb</span><h1><?php the_title(); ?></h1></div>

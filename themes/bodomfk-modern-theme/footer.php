@@ -49,7 +49,13 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 	</div>
 	<div class="footer-bottom wrap">
 		<span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Bodø Modellflyklubb</span>
-		<span>Stiftet i 1973 · Bestemorenga, Bodø</span>
+		<div class="footer-bottom__right">
+			<span>Stiftet i 1973 · Bestemorenga, Bodø</span>
+			<nav class="footer-legal" aria-label="Personvern og informasjonskapsler">
+				<a href="<?php echo esc_url( home_url( '/personvern/' ) ); ?>">Personvern</a>
+				<a href="<?php echo esc_url( bmfk_cookie_policy_url() ); ?>">Informasjonskapsler</a>
+			</nav>
+		</div>
 	</div>
 </footer>
 <?php wp_footer(); ?>

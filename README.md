@@ -22,13 +22,14 @@
 - ferdige BMFK-ikoner for Apple-hjemskjerm og SuperPWA;
 - kompatibilitetsregler som holder SuperPWA-manifestet, service workeren og det levende webkamerabildet stabile på webhotellet;
 - Git-versjonerte sidetekster for Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler;
+- en Git-versjonert personvernerklæring med informasjon om webkamera, værmodul, sikkerhetslogger, e-post, medlemsdata og registrertes rettigheter;
 - redigerbare lenker og åpningstider under **Utseende → Tilpass → Klubbinformasjon**.
 
 Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig migrert, og temaet trenger ikke et separat migreringsverktøy i normal drift.
 
 ## Last ned og installer
 
-Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.10.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.11.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
 I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
 
@@ -40,7 +41,7 @@ Hver endring på `main` som berører temaet blir kontrollert og pakket automatis
 
 ## Endre sidetekster
 
-De fem faste informasjonssidene ligger under [`themes/bodomfk-modern-theme/content/pages/`](themes/bodomfk-modern-theme/content/pages/). De kan redigeres direkte på GitHub og sendes inn som pull request. Se [veiledningen for Git-versjonert innhold](docs/INNHOLD-I-GITHUB.md) før du endrer struktur, lenker eller spesialmarkører.
+De seks faste informasjonssidene ligger under [`themes/bodomfk-modern-theme/content/pages/`](themes/bodomfk-modern-theme/content/pages/). De kan redigeres direkte på GitHub og sendes inn som pull request. Se [veiledningen for Git-versjonert innhold](docs/INNHOLD-I-GITHUB.md) før du endrer struktur, lenker eller spesialmarkører.
 
 ## Krav
 
