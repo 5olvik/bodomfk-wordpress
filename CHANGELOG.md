@@ -1,5 +1,15 @@
 # Endringslogg
 
+## 1.6.12 – 2026-07-31
+
+- Skiller tydelig mellom det offentlige, personvernbehandlede stillbildet og den lokale sikkerhetsovervåkingen på Bestemorenga.
+- Opplyser at Reolink NVR for tiden gjør opptak hele døgnet, uten lyd eller appbasert fjerntilgang, med lokal tilgang og automatisk overskriving etter inntil syv dager.
+- Dokumenterer formålet om å forebygge og oppklare innbrudd, tyveri og hærverk ved et avsidesliggende anlegg som tidligere har vært utsatt for innbrudd.
+- Tar med at klubbens containere inneholder modellfly og annet utstyr av betydelig verdi.
+- Forklarer hvem som kan se eller motta relevante opptak, og at opptakene ikke skal brukes til kontroll av medlemmer eller klubbaktivitet.
+- Opplyser at styret skal behandle fortsatt 24/7-opptak og dokumentere nødvendighets- og interesseavveiningen, mens dagens oppsett fortsetter frem til behandlingen er gjennomført.
+- Oppdaterer installasjonssjekklisten og testene for kameraopplysningene.
+
 ## 1.6.11 – 2026-07-30
 
 - Oppretter en komplett, Git-versjonert personvernerklæring på `/personvern/`.

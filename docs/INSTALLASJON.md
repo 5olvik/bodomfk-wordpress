@@ -1,6 +1,6 @@
 # Installere og oppdatere BMFK-temaet
 
-Dette er rutinen for versjon 1.6.11 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
+Dette er rutinen for versjon 1.6.12 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
 ## Før oppdatering
 
@@ -8,15 +8,15 @@ Dette er rutinen for versjon 1.6.11 og nyere. Den tidligere migreringsutvidelsen
 2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
 3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-Filen skal hete omtrent `bodomfk-modern-theme-1.6.11.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
+Filen skal hete omtrent `bodomfk-modern-theme-1.6.12.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
 ## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Velg `bodomfk-modern-theme-1.6.11.zip`.
+2. Velg `bodomfk-modern-theme-1.6.12.zip`.
 3. Trykk **Installer nå**.
 4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
-5. Kontroller at **Bodø Modellflyklubb Modern 1.6.11** fortsatt er aktivt.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.6.12** fortsatt er aktivt.
 
 Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
@@ -44,7 +44,11 @@ Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en
 - At `/personvern/` viser den Git-versjonerte personvernerklæringen, og at Personvern og Informasjonskapsler ligger i bunnteksten.
 - Gå til **Innstillinger → Personvern** og kontroller at «Personvernerklæring» er valgt. Temaet velger siden automatisk dersom ingen annen personvernside allerede var valgt.
 - Kjør Complianz-veiviseren og en ny cookie-skanning. For et norskspråklig klubbnettsted velges Norge/EØS og GDPR; flere språk eller regioner skal bare aktiveres dersom nettstedet faktisk retter seg mot dem.
-- Kontroller at webkameraets vinkel, avstand og oppløsning gjør at enkeltpersoner normalt ikke kan identifiseres, og at de som bruker området er informert om kameraet. Dersom noen kan gjenkjennes, skal bildet ikke publiseres før løsningen er justert.
+- Kontroller at det offentlige webkamerabildets vinkel, avstand, oppløsning og personvernfilter gjør at enkeltpersoner ikke kan identifiseres. Dersom noen kan gjenkjennes, skal bildet ikke publiseres før løsningen er justert.
+- Kontroller at kameraovervåkingen er tydelig skiltet før man går inn i området, med Bodø Modellflyklubb som behandlingsansvarlig, konkret formål og lenke eller QR-kode til `/personvern/`.
+- Kontroller at Reolink NVR ikke tar opp lyd, at fjerntilgang er deaktivert, at bare et begrenset antall autoriserte personer har lokal tilgang, og at vanlige opptak overskrives automatisk etter inntil syv dager.
+- Styret skal behandle og dokumentere nødvendighets- og interesseavveiningen for fortsatt 24/7-opptak, inkludert om tidsstyring, kameravinkel eller permanent maskering kan redusere personvernulempen.
+- Hold `/webcam/` utenfor langsiktige sikkerhetskopier og bildearkiver, slik at midlertidige opplastinger eller tidligere stillbilder ikke får en utilsiktet lengre lagringstid.
 - At Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss, Flyplassregler og Personvernerklæring viser tekstene fra GitHub uten synlige strukturmarkører.
 - At `/nytt-medlem/` er opprettet, og at PDF-knappen åpner den oppdaterte velkomstguiden.
 - At `superpwa-manifest.json` viser JSON og at `superpwa-sw.js` viser JavaScript uten en WordPress 404-side.

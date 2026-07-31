@@ -39,13 +39,27 @@ Når du sender e-post til klubben, behandler vi kontaktopplysningene og innholde
 Nettstedet kan lagre valg for informasjonskapsler, lys eller mørk visning, PWA-funksjoner og tilgang til beskyttede dokumenter. Detaljer om informasjonskapsler, formål og lagringstid finnes i [erklæringen om informasjonskapsler]({{cookie_policy_url}}).
 :::endcolumns
 
-## Webkameraet på Bestemorenga
+## Kamera på Bestemorenga
 
-Webkameraet viser et oversiktsbilde av forholdene ved modellflyplassen. Formålet er å vise vær- og baneforhold, ikke å overvåke, identifisere eller følge enkeltpersoner.
+Det samme fastmonterte kameraet inngår i to klart adskilte behandlinger: et offentlig, personvernbehandlet stillbilde og lokal sikkerhetsovervåking på klubbens opptaker. Formålene, tilgangen og lagringstiden er forskjellige.
 
-Kameravinkel, bildeutsnitt og publisering skal være innrettet slik at enkeltpersoner normalt ikke kan identifiseres. Nettstedet viser bare det gjeldende stillbildet. Når et nytt bilde mottas, erstattes det forrige, og eldre kamerabilder brukes ikke til et offentlig arkiv eller tidslinje. Klubben bruker ikke ansiktsgjenkjenning.
+### Offentlig webkamera
 
-Hvis du mener at du eller andre kan gjenkjennes i et publisert kamerabilde, kontakt klubben umiddelbart på {{contact_email_link}}. Vi vil vurdere bildet og nødvendige justeringer av kameravinkel, utsnitt eller oppløsning.
+Webkameraet viser et oversiktsbilde av vær- og baneforholdene ved modellflyplassen. Reolink-opptakeren sender ett stillbilde til klubbens webhotell hvert tiende minutt. Før bildet publiseres, reduseres oppløsningen og relevante deler av bildet gjøres uskarpe av personvernhensyn.
+
+Kameravinkel, bildeutsnitt, avstand, oppløsning og filter skal være innrettet slik at enkeltpersoner ikke kan identifiseres i det publiserte bildet. Nettstedet viser bare det gjeldende stillbildet. Den ubehandlede opplastingen slettes etter behandlingen, det forrige offentlige bildet erstattes, og eldre bilder brukes ikke til et offentlig arkiv eller en tidslinje. Klubben bruker ikke ansiktsgjenkjenning.
+
+Hvis du mener at du eller andre kan gjenkjennes i et publisert kamerabilde, kontakt klubben umiddelbart på {{contact_email_link}}. Vi vil vurdere bildet og nødvendige justeringer av filter, kameravinkel, utsnitt eller oppløsning.
+
+### Lokal sikkerhetsovervåking
+
+Kameraet er også koblet til en lokal Reolink NVR som for tiden gjør videoopptak hele døgnet. Formålet er å forebygge og dokumentere innbrudd, tyveri og hærverk mot klubbens bygninger, containere og eiendeler. Anlegget ligger avsides, klubben har tidligere vært utsatt for innbrudd, og containerne inneholder modellfly og annet utstyr av betydelig verdi.
+
+Det tas ikke opp lyd, og klubben bruker ikke ansiktsgjenkjenning. Reolink-anleggets UUID- og appbaserte fjerntilgang er deaktivert. Opptakene kan bare åpnes lokalt på anlegget av et begrenset antall autoriserte personer, normalt etter en konkret sikkerhetshendelse eller når teknisk vedlikehold er nødvendig. Opptakene skal ikke brukes til å kontrollere medlemmenes aktivitet, oppmøte eller etterlevelse av klubbregler.
+
+NVR-opptakene overskrives automatisk etter inntil syv dager. Et relevant utdrag kan beholdes lenger dersom det er nødvendig for å undersøke en konkret hendelse, politianmelde forholdet, behandle en forsikringssak eller fastsette, gjøre gjeldende eller forsvare et rettskrav. Tilgangen og eventuell utlevering skal begrenses til det som er nødvendig for saken.
+
+Sikkerhetsovervåkingen bygger på klubbens berettigede interesse i å beskytte anlegget og verdiene mot en reell risiko for kriminalitet. Opptak skjer for tiden hele døgnet. Styret skal behandle den videre bruken av døgnkontinuerlig opptak og dokumentere nødvendighets- og interesseavveiningen. Styret skal samtidig vurdere om tidsstyring, kameravinkel, permanent maskering eller andre tiltak kan redusere personvernulempen uten å svekke den nødvendige sikringen. Dagens 24/7-oppsett fortsetter frem til denne behandlingen er gjennomført.
 
 ## Værstasjon og eksterne tjenester
 
@@ -64,6 +78,8 @@ Ikke send fødselsnummer, passord, operatørnøkkel eller andre unødvendige sen
 Vi behandler bare opplysninger når vi har et gyldig formål og behandlingsgrunnlag:
 
 - **Drift og sikkerhet:** Klubbens berettigede interesse i å holde nettstedet stabilt, sikkert og tilgjengelig.
+- **Offentlig webkamera:** Klubbens berettigede interesse i å vise oppdaterte vær- og baneforhold, med tekniske tiltak som skal hindre at enkeltpersoner kan identifiseres i det publiserte bildet.
+- **Sikring av Bestemorenga:** Klubbens berettigede interesse i å forebygge og dokumentere innbrudd, tyveri og hærverk ved et avsidesliggende anlegg med bygninger, containere og utstyr av betydelig verdi.
 - **Henvendelser og medlemsadministrasjon:** For å følge opp en avtale, et medlemsforhold eller en berettiget interesse i å svare og drive klubben.
 - **Lovpålagte oppgaver:** For eksempel dokumentasjon som må oppbevares etter regnskaps- eller annen lovgivning.
 - **Samtykke:** For valgfrie informasjonskapsler eller tjenester som krever samtykke. Samtykket kan trekkes tilbake når som helst.
@@ -75,9 +91,11 @@ Når behandlingen bygger på en berettiget interesse, vurderer klubben behovet o
 Opplysninger er bare tilgjengelige for personer og leverandører som trenger dem for det aktuelle formålet. Dette kan omfatte:
 
 - klubbens autoriserte nettstedsadministratorer og relevante styremedlemmer;
+- et begrenset antall personer med tjenstlig behov for lokal tilgang til sikkerhetsopptak;
 - **PRO ISP**, som leverer webhotell og teknisk infrastruktur;
 - **Zoho**, når klubben mottar eller sender e-post gjennom e-posttjenesten;
 - leverandører som bidrar med sikkerhet, sikkerhetskopiering og teknisk vedlikehold;
+- politiet, forsikringsselskap eller andre mottakere når en konkret hendelse gir et gyldig og dokumentert grunnlag for nødvendig utlevering;
 - offentlige myndigheter dersom klubben har en rettslig plikt til å utlevere opplysninger.
 
 En ekstern tjeneste kan behandle opplysninger utenfor EØS. Når klubben selv bruker en leverandør til slik behandling, skal overføringen ha et gyldig grunnlag og nødvendige garantier. Vanlige eksterne lenker styres av mottakerens egne personvernvilkår.
@@ -90,7 +108,8 @@ Vi lagrer ikke opplysninger lenger enn nødvendig:
 - WordPress-kontoer deaktiveres eller slettes når personen ikke lenger trenger tilgang, med mindre opplysninger må beholdes av sikkerhets- eller dokumentasjonshensyn.
 - Vanlige e-posthenvendelser slettes når saken er ferdig og det ikke lenger er nødvendig å beholde dem. Faktura- og regnskapsopplysninger oppbevares så lenge loven krever.
 - Samtykkevalg og informasjonskapsler følger lagringstidene i erklæringen om informasjonskapsler.
-- Webkameraet beholder bare gjeldende stillbilde som beskrevet over.
+- Webkameraet beholder bare det gjeldende, personvernbehandlede stillbildet. Den ubehandlede opplastingen slettes etter behandlingen, og tidligere offentlige stillbilder brukes ikke til et arkiv.
+- Lokale NVR-opptak overskrives automatisk etter inntil syv dager. Utdrag fra en konkret hendelse kan beholdes så lenge det er nødvendig for undersøkelse, politianmeldelse, forsikringssak eller rettskrav.
 - Sikkerhetskopier beholdes etter klubbens og webhotellets rulleringsplan og overskrives fortløpende.
 
 ## Dine rettigheter
@@ -112,4 +131,4 @@ Hvis du mener at klubben behandler personopplysninger i strid med regelverket, �
 
 Vi oppdaterer personvernerklæringen når nettstedet, leverandørene eller behandlingen endres vesentlig. Gjeldende versjon publiseres alltid på denne siden.
 
-**Sist oppdatert: 30. juli 2026.**
+**Sist oppdatert: 31. juli 2026.**
