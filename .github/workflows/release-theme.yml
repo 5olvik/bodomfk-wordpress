@@ -6,6 +6,7 @@ on:
     paths:
       - "themes/bodomfk-modern-theme/**"
       - "tests/test-content-pages.php"
+      - "tests/test-pwa-start.php"
       - ".github/workflows/release-theme.yml"
   workflow_dispatch:
 
@@ -48,6 +49,10 @@ jobs:
       - name: Kontroller dokumenttilgangen
         shell: bash
         run: php tests/test-document-access.php
+
+      - name: Kontroller PWA-starten
+        shell: bash
+        run: php tests/test-pwa-start.php
 
       - name: Pakk temaet
         shell: bash

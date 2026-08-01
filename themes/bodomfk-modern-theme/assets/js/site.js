@@ -2,6 +2,30 @@
   const button = document.querySelector('[data-menu-toggle]');
   const navigation = document.querySelector('[data-navigation]');
 
+  function openPwaWebcamStart() {
+    const parameters = new URLSearchParams(window.location.search);
+    if (parameters.get('bmfk_pwa') !== 'webkamera') return;
+
+    const webcamSection = document.getElementById('webkamera');
+    if (!webcamSection) return;
+
+    const cleanUrl = window.location.pathname + '#webkamera';
+    if (window.history && typeof window.history.replaceState === 'function') {
+      window.history.replaceState(window.history.state, '', cleanUrl);
+    } else {
+      window.location.hash = 'webkamera';
+    }
+
+    function showWebcam() {
+      webcamSection.scrollIntoView({ block: 'start' });
+    }
+
+    window.requestAnimationFrame(showWebcam);
+    window.addEventListener('load', showWebcam, { once: true });
+  }
+
+  openPwaWebcamStart();
+
   function labelDarkModeSwitch() {
     const darkModeSwitch = document.querySelector('.wp-dark-mode-switch[role="button"]');
     if (darkModeSwitch) {

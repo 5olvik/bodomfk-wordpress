@@ -1,5 +1,14 @@
 # Endringslogg
 
+## 1.6.13 – 2026-08-01
+
+- Lar SuperPWA starte på en robust intern webkamerarute i stedet for den generelle forsiden.
+- Ruller startmarkøren automatisk ned til seksjonen «Direkte fra Bodø Modellflyklubb» og rydder adressen til `/#webkamera` uten en ekstra sideinnlasting.
+- Bygger SuperPWA-manifestet på nytt én gang etter oppdateringen, uten at startsidefeltet må endres manuelt i kontrollpanelet.
+- Legger riktig avstand under den klebrige hovedmenyen når webkameraet åpnes via direkte lenke eller appikon.
+- Dokumenterer at en allerede installert app må slettes og legges til på hjemskjermen på nytt for å ta i bruk den nye startadressen.
+- Legger til en automatisk kontroll av PWA-filteret, startadressen og manifestoppdateringen i GitHub Actions.
+
 ## 1.6.12 – 2026-07-31
 
 - Skiller tydelig mellom det offentlige, personvernbehandlede stillbildet og den lokale sikkerhetsovervåkingen på Bestemorenga.

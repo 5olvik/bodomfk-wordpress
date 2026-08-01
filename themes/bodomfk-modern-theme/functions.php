@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.12' );
+define( 'BMFK_THEME_VERSION', '1.6.13' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -18,6 +18,7 @@ define( 'BMFK_WEATHER_WIDGET_URL', 'https://windnerd.net/en/widget/bhpgk?accent_
 require_once get_template_directory() . '/inc/document-access.php';
 require_once get_template_directory() . '/inc/content-pages.php';
 require_once get_template_directory() . '/inc/webcam.php';
+require_once get_template_directory() . '/inc/pwa.php';
 
 function bmfk_theme_setup() {
 	load_theme_textdomain( 'bmfk', get_template_directory() . '/languages' );
