@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.14' );
+define( 'BMFK_THEME_VERSION', '1.6.15' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -359,6 +359,7 @@ function bmfk_meta_description() {
 		'kontaktoss'        => 'Kontakt Bodø Modellflyklubb for generelle henvendelser, medlemsinformasjon og faktura, eller finn riktig Facebook-gruppe.',
 		'gruppeansvarlige'  => 'Kontaktpersoner og ansvarlige for opplæring, sikkerhet, bane og nettsider i Bodø Modellflyklubb.',
 		'personvern'        => 'Les hvordan Bodø Modellflyklubb behandler personopplysninger, informasjonskapsler, sikkerhetslogger, e-post, webkamerabilder og lokal sikkerhetsovervåking.',
+		'bruk-som-app'      => 'Installer bodomfk.no som app på iPhone, iPad, Android, Windows, Mac eller Linux, og åpne direkte ved webkamera og vær fra Bestemorenga.',
 	);
 
 	if ( is_front_page() ) {

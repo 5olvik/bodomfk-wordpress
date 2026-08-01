@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.6.14
+Version: 1.6.15
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -794,6 +794,31 @@ p {
   align-items: center;
   gap: 24px;
   grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.field-app-guide {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+.field-app-guide a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--bmfk-blue);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.field-app-guide a:hover {
+  color: var(--bmfk-orange-strong);
+  text-decoration: underline;
+}
+
+.field-app-guide svg {
+  width: 17px;
+  height: 17px;
 }
 
 .field-webcam-card {
@@ -1643,10 +1668,26 @@ p {
 }
 
 .footer-bottom__right,
+.footer-bottom__left,
 .footer-legal {
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+.footer-bottom__left {
+  flex-wrap: wrap;
+}
+
+.footer-version {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-version:hover {
+  color: var(--bmfk-orange);
 }
 
 .footer-bottom__right {
@@ -1828,6 +1869,14 @@ html[data-wp-dark-mode-active] .safety-card h3 {
 
 html[data-wp-dark-mode-active] .safety-card p {
   color: #b7c5d2 !important;
+}
+
+html[data-wp-dark-mode-active] .field-app-guide a {
+  color: #75baff !important;
+}
+
+html[data-wp-dark-mode-active] .field-app-guide a:hover {
+  color: #ffc04f !important;
 }
 
 html[data-wp-dark-mode-active] .entry-content .wp-block-column,
@@ -2305,6 +2354,12 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
     flex-direction: column;
     justify-content: center;
     gap: 8px;
+  }
+
+  .footer-bottom__left {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .footer-legal {

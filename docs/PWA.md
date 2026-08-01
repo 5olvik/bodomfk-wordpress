@@ -22,6 +22,8 @@ Alle ikonene har bakgrunnsfargen `#04152F`. Det maskable ikonet har ekstra luft 
 
 Temaet overstyrer SuperPWAs startside automatisk. Manifestet bruker den stabile adressen `/?bmfk_pwa=webkamera`, og temaets JavaScript ruller deretter direkte til webkameraseksjonen og rydder adressen til `/#webkamera`. SuperPWA kan normalisere manifestadressen til `/?bmfk_pwa=webkamera/`; temaet godtar begge variantene. Dette er mer pålitelig enn å lagre en fragmentadresse direkte som `start_url`, spesielt på iPhone og iPad. Det er derfor ikke nødvendig å velge en egen startside manuelt i SuperPWA.
 
+Den offentlige installasjonsveiledningen ligger på `/bruk-som-app/`. Forsiden lenker dit med en liten tekstlenke under webkamera og vær, og bunnteksten har en fast snarvei. Veiledningen vedlikeholdes som Git-versjonert nettsideinnhold og skal ikke dupliseres som PDF.
+
 Temaet legger automatisk `/?bmfk_webcam=1` til listen over adresser som ikke skal hurtigbufres. Det fjerner også utilsiktede linjeskift fra SuperPWAs eget felt for cacheunntak, slik at service worker-filen forblir gyldig JavaScript. WordPress-innlogging og administrasjon holdes utenfor cachen av SuperPWA.
 
 Versjon 1.6.3 legger inn korrekte WordPress-ruter for `superpwa-manifest.json` og `superpwa-sw.js`. Lenkereglene bygges automatisk én gang når en administrator åpner kontrollpanelet med SuperPWA aktivert.

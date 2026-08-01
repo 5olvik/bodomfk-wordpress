@@ -26,6 +26,7 @@ function bmfk_git_content_pages() {
 		'kontaktoss'      => 'kontaktoss.md',
 		'flyplassregler'  => 'flyplassregler.md',
 		'personvern'      => 'personvern.md',
+		'bruk-som-app'    => 'bruk-som-app.md',
 	);
 }
 
@@ -428,3 +429,26 @@ function bmfk_ensure_privacy_page() {
 }
 add_action( 'after_switch_theme', 'bmfk_ensure_privacy_page' );
 add_action( 'admin_init', 'bmfk_ensure_privacy_page' );
+
+/**
+ * Create the public installation guide for the BMFK web app.
+ * Existing pages are never changed or replaced.
+ */
+function bmfk_ensure_app_guide_page() {
+	if ( get_page_by_path( 'bruk-som-app' ) ) {
+		return;
+	}
+
+	wp_insert_post(
+		array(
+			'post_title'     => __( 'Bruk BMFK som app', 'bmfk' ),
+			'post_name'      => 'bruk-som-app',
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'comment_status' => 'closed',
+			'post_content'   => '<!-- wp:paragraph --><p>Installasjonsveiledningen leveres av klubbens tema.</p><!-- /wp:paragraph -->',
+		)
+	);
+}
+add_action( 'after_switch_theme', 'bmfk_ensure_app_guide_page' );
+add_action( 'admin_init', 'bmfk_ensure_app_guide_page' );

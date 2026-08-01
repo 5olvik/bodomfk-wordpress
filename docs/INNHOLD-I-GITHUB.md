@@ -10,6 +10,7 @@ Fra tema 1.5.0 er GitHub hovedkilden for innholdet på disse offentlige informas
 | Kontakt oss | `themes/bodomfk-modern-theme/content/pages/kontaktoss.md` |
 | Flyplassregler | `themes/bodomfk-modern-theme/content/pages/flyplassregler.md` |
 | Personvernerklæring | `themes/bodomfk-modern-theme/content/pages/personvern.md` |
+| Bruk BMFK som app | `themes/bodomfk-modern-theme/content/pages/bruk-som-app.md` |
 
 Forsiden og nyheter/innlegg følger fortsatt sine vanlige WordPress- og temarutiner.
 
@@ -73,6 +74,10 @@ De viser passordpanelene for Avinor-avtalen og de historiske reglene fra 2018. I
 `flyplassregler.md` inneholder klubbens operative lokale regelverk. Endringer i flysone, åpningstider, adgang, maksimal aktivitet, tårnrutine, FPV-krav eller beredskap skal kontrolleres av styret eller klubbens sikkerhetsansvarlige før de slås sammen.
 
 Når en lokal regel endres, skal den korte oversikten i `nytt-medlem.md` og PDF-en `assets/documents/velkommen-som-medlem-2026.pdf` kontrolleres samtidig. Dokumentet fra 2018 er historisk referanse og skal ikke redigeres for å beskrive dagens regler.
+
+## Appveiledningen
+
+`bruk-som-app.md` er den eneste vedlikeholdte installasjonsveiledningen for PWA-en. Oppdater samme side dersom menyvalg eller installasjonsflyt endres på iPhone, iPad, Android eller Chrome. Det skal ikke legges en separat PWA-veiledning i PDF-format i temaet, fordi to kopier lett kan bli forskjellige.
 
 Påstander om aldersgrenser og selvstendig flyging skal skille tydelig mellom åpen kategori og flyging i regi av BMFK/NLF. Kontroller slike endringer mot Luftfartstilsynets gjeldende droneregler, Modellflyhåndboka og NLFs krav til A-bevis. Ikke forkort teksten til at det alltid er 16-årsgrense, eller at medlemskap alene gir rett til å fly uten tilsyn.
 

@@ -16,6 +16,7 @@ get_header();
 			array( 'label' => 'Bli medlem', 'url' => bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ),
 			array( 'label' => 'Nytt medlem', 'url' => home_url( '/nytt-medlem/' ), 'slug' => 'nytt-medlem' ),
 			array( 'label' => 'Webkamera', 'url' => home_url( '/#webkamera' ) ),
+			array( 'label' => 'Bruk siden som app', 'url' => home_url( '/bruk-som-app/' ), 'slug' => 'bruk-som-app' ),
 			array( 'label' => 'Flyplassregler', 'url' => bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ), 'slug' => 'flyplassregler' ),
 			array( 'label' => 'Kontakt klubben', 'url' => home_url( '/kontaktoss/' ), 'slug' => 'kontaktoss' ),
 		);

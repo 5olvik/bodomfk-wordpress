@@ -31,6 +31,7 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_membership_url', 'https://blimedlem.bodomfk.no/' ) ); ?>">Bli medlem</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/nytt-medlem/' ) ); ?>">Nytt medlem - start her</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/#webkamera' ) ); ?>">Webkamera</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/bruk-som-app/' ) ); ?>">Bruk siden som app</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) ) ); ?>">Flyplassregler</a></li>
 				<li><a href="<?php echo esc_url( bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL ) ); ?>">Meld hendelse/uhell</a></li>
 			</ul>
@@ -48,7 +49,10 @@ $invoice_email = bmfk_setting( 'bmfk_invoice_email', 'faktura@bodomfk.no' );
 		</div>
 	</div>
 	<div class="footer-bottom wrap">
-		<span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Bodø Modellflyklubb</span>
+		<div class="footer-bottom__left">
+			<span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Bodø Modellflyklubb</span>
+			<a class="footer-version" href="<?php echo esc_url( 'https://github.com/5olvik/bodomfk-wordpress/releases/tag/v' . BMFK_THEME_VERSION ); ?>" target="_blank" rel="noopener noreferrer">Nettsideversjon <?php echo esc_html( BMFK_THEME_VERSION ); ?></a>
+		</div>
 		<div class="footer-bottom__right">
 			<span>Stiftet i 1973 · Bestemorenga, Bodø</span>
 			<nav class="footer-legal" aria-label="Personvern og informasjonskapsler">

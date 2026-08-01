@@ -1,5 +1,13 @@
 # Endringslogg
 
+## 1.6.15 – 2026-08-01
+
+- Oppretter den Git-versjonerte siden «Bruk BMFK som app» på `/bruk-som-app/` med veiledning for iPhone, iPad, Android og Chrome på datamaskin.
+- Oppretter siden automatisk i WordPress uten å endre en eventuell eksisterende side.
+- Legger en liten, diskret app-lenke under webkamera og vær på forsiden, samt en snarvei i bunnteksten.
+- Viser aktiv nettsideversjon helt nederst og henter nummeret direkte fra temaets `BMFK_THEME_VERSION`, med lenke til tilsvarende GitHub-utgivelse.
+- Holder installasjonsveiledningen samlet på nettsiden slik at klubben slipper å vedlikeholde en separat PDF-kopi.
+
 ## 1.6.14 – 2026-08-01
 
 - Retter PWA-starten etter at SuperPWA viste seg å legge en avsluttende skråstrek i parameterverdien og levere `?bmfk_pwa=webkamera/`.

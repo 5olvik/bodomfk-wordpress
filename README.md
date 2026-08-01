@@ -10,7 +10,7 @@
 
 - hovedbanner, moderne forside og mobilmeny;
 - fremhevet valg mellom klubbens to Facebook-grupper;
-- snarveier til ny-medlem-guiden, webkamera, regler og hendelsesrapportering;
+- snarveier til ny-medlem-guiden, webkamera, appveiledning, regler og hendelsesrapportering;
 - klubbens eget, WordPress-leverte webkamera og værstasjon fra Bestemorenga på forsiden;
 - Light/Dark-visning styrt av WP Dark Mode, med egne kontrastsikre kortfarger;
 - beskyttede kontaktadresser for generelle henvendelser og faktura;
@@ -21,6 +21,7 @@
 - metadata for søkemotorer og deling i sosiale medier;
 - ferdige BMFK-ikoner for Apple-hjemskjerm og SuperPWA;
 - kompatibilitetsregler som holder SuperPWA-manifestet, service workeren og det levende webkamerabildet stabile på webhotellet;
+- en Git-versjonert installasjonsveiledning for BMFK-appen på iPhone, iPad, Android og Chrome;
 - Git-versjonerte sidetekster for Nytt medlem, Medlemsfordeler, Klubbhytta, Kontakt oss og Flyplassregler;
 - en Git-versjonert personvernerklæring med informasjon om webkamera, værmodul, sikkerhetslogger, e-post, medlemsdata og registrertes rettigheter;
 - redigerbare lenker og åpningstider under **Utseende → Tilpass → Klubbinformasjon**.
@@ -29,7 +30,7 @@ Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig m
 
 ## Last ned og installer
 
-Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.14.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.15.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
 I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
 
@@ -41,7 +42,7 @@ Hver endring på `main` som berører temaet blir kontrollert og pakket automatis
 
 ## Endre sidetekster
 
-De seks faste informasjonssidene ligger under [`themes/bodomfk-modern-theme/content/pages/`](themes/bodomfk-modern-theme/content/pages/). De kan redigeres direkte på GitHub og sendes inn som pull request. Se [veiledningen for Git-versjonert innhold](docs/INNHOLD-I-GITHUB.md) før du endrer struktur, lenker eller spesialmarkører.
+De sju faste informasjonssidene ligger under [`themes/bodomfk-modern-theme/content/pages/`](themes/bodomfk-modern-theme/content/pages/). De kan redigeres direkte på GitHub og sendes inn som pull request. Se [veiledningen for Git-versjonert innhold](docs/INNHOLD-I-GITHUB.md) før du endrer struktur, lenker eller spesialmarkører.
 
 ## Krav
 

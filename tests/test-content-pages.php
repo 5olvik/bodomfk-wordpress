@@ -142,6 +142,30 @@ if ( false === strpos( $new_member_html, 'Flyging vest for rullebanen kan likeve
 	$errors[] = 'nytt-medlem.md: mangler forklaring om flyging vest for rullebanen';
 }
 
+$app_guide_html = bmfk_git_page_content( 'bruk-som-app' );
+foreach ( array(
+	'iPhone og iPad',
+	'Android',
+	'Chrome på Windows, Mac og Linux',
+	'Legg til på Hjem-skjerm',
+	'Installer siden som app',
+	'Appikonet åpner direkte ved webkamera og vær',
+	'Hvis installasjonsvalget mangler',
+	'Hvis appen ikke åpner ved webkameraet',
+) as $required_text ) {
+	if ( false === strpos( $app_guide_html, $required_text ) ) {
+		$errors[] = 'bruk-som-app.md: mangler ' . $required_text;
+	}
+}
+
+if ( false === strpos( $app_guide_html, 'https://example.com/#webkamera' ) ) {
+	$errors[] = 'bruk-som-app.md: mangler dynamisk lenke til webkameraet';
+}
+
+if ( false !== stripos( $app_guide_html, '.pdf' ) || file_exists( get_template_directory() . '/assets/documents/bmfk-pwa-bruksanvisning.pdf' ) ) {
+	$errors[] = 'Appveiledningen skal vedlikeholdes som nettside og ikke dupliseres som PDF';
+}
+
 $privacy_html = bmfk_git_page_content( 'personvern' );
 foreach ( array(
 	'Bodø Modellflyklubb er behandlingsansvarlig',
@@ -226,6 +250,32 @@ foreach ( array( 'nær yttergrensen av femkilometersonen', 'kun organisert aktiv
 	if ( false !== strpos( $new_member_html, $outdated_text ) ) {
 		$errors[] = 'nytt-medlem.md: inneholder utdatert formulering: ' . $outdated_text;
 	}
+}
+
+$style_source     = file_get_contents( get_template_directory() . '/style.css' );
+$functions_source = file_get_contents( get_template_directory() . '/functions.php' );
+$footer_source    = file_get_contents( get_template_directory() . '/footer.php' );
+$style_version    = '';
+$constant_version = '';
+
+if ( ! preg_match( '/^Version:\s*([0-9]+\.[0-9]+\.[0-9]+)$/m', $style_source, $style_match ) ) {
+	$errors[] = 'style.css: mangler gyldig temanummer';
+} else {
+	$style_version = $style_match[1];
+}
+
+if ( ! preg_match( "/define\(\s*'BMFK_THEME_VERSION',\s*'([0-9]+\.[0-9]+\.[0-9]+)'\s*\)/", $functions_source, $constant_match ) ) {
+	$errors[] = 'functions.php: mangler BMFK_THEME_VERSION';
+} else {
+	$constant_version = $constant_match[1];
+}
+
+if ( $style_version && $constant_version && $style_version !== $constant_version ) {
+	$errors[] = 'Versjonen i style.css og BMFK_THEME_VERSION er forskjellige';
+}
+
+if ( false === strpos( $footer_source, 'Nettsideversjon' ) || false === strpos( $footer_source, 'BMFK_THEME_VERSION' ) ) {
+	$errors[] = 'footer.php: mangler automatisk nettsideversjon';
 }
 
 if ( $errors ) {
