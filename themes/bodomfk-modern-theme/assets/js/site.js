@@ -4,7 +4,8 @@
 
   function openPwaWebcamStart() {
     const parameters = new URLSearchParams(window.location.search);
-    if (parameters.get('bmfk_pwa') !== 'webkamera') return;
+    const requestedStart = (parameters.get('bmfk_pwa') || '').replace(/\/+$/, '');
+    if (requestedStart !== 'webkamera') return;
 
     const webcamSection = document.getElementById('webkamera');
     if (!webcamSection) return;

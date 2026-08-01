@@ -20,7 +20,7 @@ Alle ikonene har bakgrunnsfargen `#04152F`. Det maskable ikonet har ekstra luft 
 - Visning: `Standalone`
 - Retning: `Any` eller `Portrait`
 
-Temaet overstyrer SuperPWAs startside automatisk. Manifestet bruker den stabile adressen `/?bmfk_pwa=webkamera`, og temaets JavaScript ruller deretter direkte til webkameraseksjonen og rydder adressen til `/#webkamera`. Dette er mer pålitelig enn å lagre en fragmentadresse direkte som `start_url`, spesielt på iPhone og iPad. Det er derfor ikke nødvendig å velge en egen startside manuelt i SuperPWA.
+Temaet overstyrer SuperPWAs startside automatisk. Manifestet bruker den stabile adressen `/?bmfk_pwa=webkamera`, og temaets JavaScript ruller deretter direkte til webkameraseksjonen og rydder adressen til `/#webkamera`. SuperPWA kan normalisere manifestadressen til `/?bmfk_pwa=webkamera/`; temaet godtar begge variantene. Dette er mer pålitelig enn å lagre en fragmentadresse direkte som `start_url`, spesielt på iPhone og iPad. Det er derfor ikke nødvendig å velge en egen startside manuelt i SuperPWA.
 
 Temaet legger automatisk `/?bmfk_webcam=1` til listen over adresser som ikke skal hurtigbufres. Det fjerner også utilsiktede linjeskift fra SuperPWAs eget felt for cacheunntak, slik at service worker-filen forblir gyldig JavaScript. WordPress-innlogging og administrasjon holdes utenfor cachen av SuperPWA.
 

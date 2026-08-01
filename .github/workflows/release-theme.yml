@@ -7,6 +7,7 @@ on:
       - "themes/bodomfk-modern-theme/**"
       - "tests/test-content-pages.php"
       - "tests/test-pwa-start.php"
+      - "tests/test-pwa-start.js"
       - ".github/workflows/release-theme.yml"
   workflow_dispatch:
 
@@ -52,7 +53,9 @@ jobs:
 
       - name: Kontroller PWA-starten
         shell: bash
-        run: php tests/test-pwa-start.php
+        run: |
+          php tests/test-pwa-start.php
+          node tests/test-pwa-start.js
 
       - name: Pakk temaet
         shell: bash

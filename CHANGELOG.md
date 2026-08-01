@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.6.14 – 2026-08-01
+
+- Retter PWA-starten etter at SuperPWA viste seg å legge en avsluttende skråstrek i parameterverdien og levere `?bmfk_pwa=webkamera/`.
+- Normaliserer verdien før den kontrolleres, slik at både `webkamera` og `webkamera/` åpner direkte ved `/#webkamera`.
+- Legger til en JavaScript-regresjonstest som kjører begge variantene i GitHub Actions.
+
 ## 1.6.13 – 2026-08-01
 
 - Lar SuperPWA starte på en robust intern webkamerarute i stedet for den generelle forsiden.
