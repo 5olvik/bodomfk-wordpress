@@ -24,6 +24,8 @@ Temaet overstyrer SuperPWAs startside automatisk. Manifestet bruker den stabile 
 
 Den offentlige installasjonsveiledningen ligger på `/bruk-som-app/`. Forsiden lenker dit med en liten tekstlenke under webkamera og vær, og bunnteksten har en fast snarvei. Veiledningen vedlikeholdes som Git-versjonert nettsideinnhold og skal ikke dupliseres som PDF.
 
+På iPhone og iPad skal vinduet «Hjem-skjerm» vise `https://bodomfk.no/?bmfk_pwa=webkamera` i den grå adresselinjen før brukeren trykker «Legg til». En avsluttende skråstrek etter `webkamera` er også gyldig. Hvis bare `https://bodomfk.no/` vises, skal installasjonen avbrytes og forsøkes på nytt etter at siden er lastet på nytt.
+
 Temaet legger automatisk `/?bmfk_webcam=1` til listen over adresser som ikke skal hurtigbufres. Det fjerner også utilsiktede linjeskift fra SuperPWAs eget felt for cacheunntak, slik at service worker-filen forblir gyldig JavaScript. WordPress-innlogging og administrasjon holdes utenfor cachen av SuperPWA.
 
 Versjon 1.6.3 legger inn korrekte WordPress-ruter for `superpwa-manifest.json` og `superpwa-sw.js`. Lenkereglene bygges automatisk én gang når en administrator åpner kontrollpanelet med SuperPWA aktivert.

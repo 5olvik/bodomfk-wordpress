@@ -1,6 +1,6 @@
 # Installere og oppdatere BMFK-temaet
 
-Dette er rutinen for versjon 1.6.15 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
+Dette er rutinen for versjon 1.6.16 og nyere. Den tidligere migreringsutvidelsen er ferdig brukt og skal ikke installeres på nytt.
 
 ## Før oppdatering
 
@@ -8,15 +8,15 @@ Dette er rutinen for versjon 1.6.15 og nyere. Den tidligere migreringsutvidelsen
 2. Kontroller at **WP Dark Mode** og **Email Address Encoder** er aktive.
 3. Last ned tema-ZIP-en fra nyeste utgivelse på [GitHub Releases](https://github.com/5olvik/bodomfk-wordpress/releases).
 
-Filen skal hete omtrent `bodomfk-modern-theme-1.6.15.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
+Filen skal hete omtrent `bodomfk-modern-theme-1.6.16.zip`. Ikke last opp «Source code (zip)»; den inneholder hele GitHub-prosjektet og kan ikke installeres direkte som tema.
 
 ## Oppdater i WordPress
 
 1. Gå til **Utseende → Temaer → Legg til nytt tema → Last opp tema**.
-2. Velg `bodomfk-modern-theme-1.6.15.zip`.
+2. Velg `bodomfk-modern-theme-1.6.16.zip`.
 3. Trykk **Installer nå**.
 4. Når WordPress finner den gamle versjonen, velg **Erstatt gjeldende med opplastet**.
-5. Kontroller at **Bodø Modellflyklubb Modern 1.6.15** fortsatt er aktivt.
+5. Kontroller at **Bodø Modellflyklubb Modern 1.6.16** fortsatt er aktivt.
 
 Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en administrator åpner kontrollpanelet. Dette oppdaterer utdaterte NLF-lenker og overskriftsnivåer, men kjører ikke den gamle innholdsmigreringen på nytt.
 
@@ -56,6 +56,7 @@ Temaet utfører nødvendige, små innholdsjusteringer automatisk første gang en
 - Slett en tidligere installert BMFK-app fra hjemskjermen, åpne bodomfk.no i nettleseren og legg den til på nytt. Kontroller at appikonet åpner direkte ved `/#webkamera`.
 - At webkamerabildet oppdateres i den installerte PWA-en og ikke hentes fra en gammel service-worker-cache.
 - At `/bruk-som-app/` er opprettet og viser installasjonsveiledning for iPhone/iPad, Android og Chrome på datamaskin.
+- At iPhone/iPad-veiledningen ber brukeren kontrollere `?bmfk_pwa=webkamera` i den grå adresselinjen før appen legges til.
 - At den lille lenken under webkamera og vær åpner appveiledningen.
 - At bunnteksten viser samme nettsideversjon som `Version` i temaets `style.css` og den aktuelle GitHub-utgivelsen.
 - At kortene har god kontrast i både lys og mørk visning.

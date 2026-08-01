@@ -2,6 +2,8 @@ Installer bodomfk.no som en app på mobil, nettbrett eller datamaskin. Appen åp
 
 > Appen hentes ikke fra App Store eller Google Play. Den installeres direkte fra nettleseren og oppdateres automatisk sammen med bodomfk.no.
 
+> På iPhone og iPad skal den grå adresselinjen i vinduet «Hjem-skjerm» vise **https://bodomfk.no/?bmfk_pwa=webkamera** før du trykker «Legg til». SuperPWA kan vise adressen med en avsluttende skråstrek etter «webkamera»; begge variantene er riktige. Denne startmarkøren gjør at appen åpner direkte ved kamera og vær.
+
 :::columns
 :::column
 ## iPhone og iPad
@@ -10,6 +12,7 @@ Installer bodomfk.no som en app på mobil, nettbrett eller datamaskin. Appen åp
 - Trykk **Del** nederst i Safari.
 - Bla ned og velg **Legg til på Hjem-skjerm**.
 - Slå på **Åpne som webapp** dersom valget vises.
+- Kontroller at den grå adresselinjen inneholder **?bmfk_pwa=webkamera**. Hvis den bare viser https://bodomfk.no/, trykker du X, laster siden på nytt og prøver igjen.
 - Trykk **Legg til**.
 
 BMFK-ikonet vises nå på hjemskjermen. Første åpning skal gå direkte til webkameraet.

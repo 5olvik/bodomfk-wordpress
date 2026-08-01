@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.6.16 – 2026-08-01
+
+- Viser den eksakte PWA-startadressen `https://bodomfk.no/?bmfk_pwa=webkamera` tydelig i appveiledningen.
+- Ber iPhone- og iPad-brukere kontrollere den grå adresselinjen i vinduet «Hjem-skjerm» før de trykker «Legg til».
+- Forklarer at SuperPWAs variant med avsluttende skråstrek også er gyldig, og hva brukeren skal gjøre dersom bare den vanlige forsiden vises.
+
 ## 1.6.15 – 2026-08-01
 
 - Oppretter den Git-versjonerte siden «Bruk BMFK som app» på `/bruk-som-app/` med veiledning for iPhone, iPad, Android og Chrome på datamaskin.
