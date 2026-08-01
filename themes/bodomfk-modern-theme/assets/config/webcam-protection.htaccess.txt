@@ -4,15 +4,15 @@
 # webcam.php er fortsatt tilgjengelig og kan opprette, gi nytt navn til og slette filer lokalt.
 # PHP-endepunktet i BMFK-temaet leser fortsatt webcam.jpg direkte fra filsystemet.
 
-<IfModule mod_authz_core.c>
-  <FilesMatch "(?i)\.jpe?g$">
-    Require all denied
-  </FilesMatch>
-</IfModule>
+Options -Indexes
 
-<IfModule !mod_authz_core.c>
-  <FilesMatch "(?i)\.jpe?g$">
-    Order allow,deny
-    Deny from all
-  </FilesMatch>
-</IfModule>
+<FilesMatch "\.(jpg|jpeg)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
