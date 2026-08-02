@@ -130,7 +130,7 @@ foreach ( array( 'Min idrett', 'TMS', 'Ansvarsforsikring', 'Operatørregistrerin
 	}
 }
 
-if ( false !== stripos( $new_member_html, '.pdf' ) || file_exists( get_template_directory() . '/assets/documents/velkommen-som-medlem-2026.pdf' ) ) {
+if ( false !== stripos( $new_member_html, 'velkommen-som-medlem-2026.pdf' ) || file_exists( get_template_directory() . '/assets/documents/velkommen-som-medlem-2026.pdf' ) ) {
 	$errors[] = 'Nytt medlem skal vedlikeholdes som nettside og ikke dupliseres som PDF';
 }
 
