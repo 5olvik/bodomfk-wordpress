@@ -50,7 +50,6 @@ function bmfk_git_content_replace_tokens( $markdown ) {
 		'{{facebook_market_url}}' => bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' ),
 		'{{electric_hours}}'      => bmfk_setting( 'bmfk_electric_hours', 'Hele døgnet' ),
 		'{{combustion_hours}}'    => bmfk_setting( 'bmfk_combustion_hours', '09:00-21:00' ),
-		'{{new_member_pdf_url}}'  => bmfk_asset_url( 'documents/velkommen-som-medlem-2026.pdf' ),
 		'{{cookie_policy_url}}'   => bmfk_cookie_policy_url(),
 	);
 

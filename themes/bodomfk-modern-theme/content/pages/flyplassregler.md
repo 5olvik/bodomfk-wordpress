@@ -4,14 +4,14 @@ Sikker flyging starter med riktig og oppdatert informasjon.
 
 :::columns
 :::column
-## Medlem i BMFK og NLF
+### Medlem i BMFK og NLF
 
 Når du flyr i regi av Bodø Modellflyklubb og under NLFs godkjente sikkerhetssystem, følger du Modellflyhåndboka, klubbens lokale regler og instrukser fra klubbens ansvarlige. Du må ha medlemskap og den kompetansen Modellflyhåndboka krever for aktiviteten.
 
 A1/A3-kompetanse fra flydrone.no er ikke nødvendig for denne flygingen. Du må likevel være registrert som droneoperatør og merke modellene med operatørnummer. NLF ordner normalt operatørregistreringen når kontingenten er betalt.
 
 :::column
-## Ikke medlem i NLF
+### Ikke medlem i NLF
 
 Er du ikke medlem i NLF, er du ikke omfattet av NLFs sikkerhetssystem eller klubbens avtale med kontrolltårnet. Selvstendig flyging må da skje i åpen kategori eller under en annen gyldig tillatelse.
 
@@ -38,14 +38,14 @@ Du må selv kontrollere krav til operatørregistrering, merking, A1/A3 eller A2,
 
 :::columns
 :::column
-## Hvem kan fly?
+#### Hvem kan fly?
 
 Selvstendig flyging fra plassen er for medlemmer som er omfattet av klubbens og NLFs ordning, og som har gyldig medlemskap, operatørregistrering og kompetansen aktiviteten krever.
 
 Gjester fra andre NLF-klubber kan fly etter avtale med et BMFK-medlem, kontroll av medlemskap og kompetanse og en lokal sikkerhetsorientering. Andre besøkende kan bare fly som elev sammen med godkjent instruktør eller etter en særskilt avtale med klubben.
 
 :::column
-## Før første avgang
+#### Før første avgang
 
 Er du ny på Bestemorenga, skal et erfarent medlem eller en instruktør vise deg pilotområdet, flysonen, forbudte områder, aktiv rullebane, startplass, brann- og førstehjelpsutstyr og rutinene ved bemannet luftfart.
 
@@ -64,7 +64,7 @@ Kontroller dagens oppslag, vær, sikt, vind, baneforhold og aktivitet på plasse
 
 :::columns
 :::column
-## Når du flyr
+#### Når du flyr
 
 - Piloter med modeller i lufta står samlet i anvist pilotområde og holder kontakt med hverandre.
 - Avklar aktiv rullebane og normal flyretning før avgang.
@@ -73,7 +73,7 @@ Kontroller dagens oppslag, vær, sikt, vind, baneforhold og aktivitet på plasse
 - Ikke forstyrr en pilot som flyr, og hold tilskuere bak sikkerhetsgrensen.
 
 :::column
-## På og rundt banen
+#### På og rundt banen
 
 - Gå bare ut på rullebanen når det er nødvendig for avgang, landing eller henting av modell, og først etter tydelig varsel til de andre pilotene.
 - Det er ikke tillatt å takse inn i eller ut av depotområdet.
@@ -106,14 +106,14 @@ Ikke fly en modell med kjent skade, ustabil radiolink, uklar failsafe eller andr
 
 :::columns
 :::column
-## FPV
+#### FPV
 
 Ved FPV med utkikksperson skal utkikkspersonen kunne se modellen, overvåke luftrommet og kommunisere direkte med piloten.
 
 Ved FPV uten utkikksperson gjelder de særskilte kravene i Modellflyhåndboka. Som lokal regel på Bestemorenga skal NLFs digitale sjekkliste fylles ut før **hver** slik flyging. Gjeldende teorikrav og kompetansestatus kontrolleres i TMS.
 
 :::column
-## Rotor og automatikk
+#### Rotor og automatikk
 
 Helikopter, multirotor og andre modeller med roterende vinger startes, armeres og prøvekjøres bare på anvist sikker plass.
 
@@ -127,12 +127,12 @@ Failsafe, geofence, retur-til-hjem og andre automatiske funksjoner skal være sa
 
 :::columns
 :::column
-## Elektromotor
+#### Elektromotor
 
 Flyging med elektromotor er tillatt **{{electric_hours}}**, så lenge aktiviteten kan gjennomføres sikkert og uten unødig sjenanse.
 
 :::column
-## Forbrenningsmotor
+#### Forbrenningsmotor
 
 Flyging og motorprøving med forbrenningsmotor er tillatt **{{combustion_hours}}**. Vis særlig hensyn tidlig og sent på dagen.
 :::endcolumns

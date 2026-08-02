@@ -16,6 +16,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 
 <main id="main-content">
 	<section class="hero" aria-label="Bodø Modellflyklubb">
+		<h1 class="screen-reader-text">Bodø Modellflyklubb – modellfly, droner og FPV i Bodø</h1>
 		<img class="hero-banner" src="<?php echo esc_url( bmfk_asset_url( 'images/bmfk-hero.webp' ) ); ?>" alt="Bodø Modellflyklubb ved modellflyplassen på Bestemorenga" width="2033" height="774" loading="eager" decoding="async" fetchpriority="high">
 	</section>
 
@@ -66,7 +67,7 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 		<div class="wrap intro-grid">
 			<div class="intro-copy">
 				<span class="eyebrow">Velkommen til klubben</span>
-				<h1>Mange drømmer om å fly. <span>Vi gjør det – radiostyrt.</span></h1>
+				<h2 class="intro-copy__title">Mange drømmer om å fly. <span>Vi gjør det – radiostyrt.</span></h2>
 				<p>Bodø Modellflyklubb er møteplassen for deg som bygger, flyr eller bare er nysgjerrig på modellfly, helikopter, droner og FPV. Hos oss finner du kunnskap, trygg opplæring og et miljø som heier på nye piloter.</p>
 				<div class="button-row">
 					<a class="button button--orange wp-dark-mode-ignore" href="<?php echo esc_url( $membership_url ); ?>">Jeg vil bli medlem <span aria-hidden="true">→</span></a>

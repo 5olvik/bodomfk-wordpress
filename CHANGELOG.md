@@ -1,5 +1,15 @@
 # Endringslogg
 
+## 1.6.17 – 2026-08-02
+
+- Dokumenterer alle fem aktive utvidelser i README, installasjonsveiledningen og utvidelsesplanen: WP Dark Mode, Email Address Encoder, SuperPWA, Complianz og Really Simple Security.
+- Presiserer at Duplicator bare er valgfri ved manuelle sikkerhetskopier, og at Klassisk redigering, LightStart og utvidelsen som deaktiverer oppdateringsvarsler ikke brukes av temaet.
+- Hindrer at WP Dark Mode-bryteren dekker Complianz-kontroller og reserverer plass til bryteren nederst på siden.
+- Retter overskriftsrekkefølgen på forsiden, de Git-versjonerte regelssidene og den eldre siden med gruppeansvarlige uten å endre den visuelle utformingen.
+- Fjerner den separate velkomstguiden som PDF. «Nytt medlem» på nettsiden er nå eneste versjon som skal vedlikeholdes.
+- Legger den aktive webkamerabehandlingen inn som en ikke-kjørbar distribusjonsmal sammen med `.htaccess`-mal og egen driftsveiledning.
+- Herder webkamerabehandlingen med låsing, minste filalder, filstørrelseskontroll og kontroll av fullført JPEG før behandling, slik at cron ikke publiserer en halvferdig NVR-opplasting.
+
 ## 1.6.16 – 2026-08-01
 
 - Viser den eksakte PWA-startadressen `https://bodomfk.no/?bmfk_pwa=webkamera` tydelig i appveiledningen.

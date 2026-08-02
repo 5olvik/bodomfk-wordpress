@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.16' );
+define( 'BMFK_THEME_VERSION', '1.6.17' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -521,6 +521,37 @@ function bmfk_upgrade_to_140() {
 	update_option( 'bmfk_theme_content_version', '1.4.0', false );
 }
 add_action( 'admin_init', 'bmfk_upgrade_to_140' );
+
+/**
+ * Normalize the remaining legacy headings on the responsibility page.
+ *
+ * The page predates the Git-managed information pages and used H3 directly
+ * below the page H1. Converting its block headings to H2 keeps the visual
+ * layout while restoring a logical document outline for assistive tools.
+ */
+function bmfk_upgrade_to_1617() {
+	if ( version_compare( (string) get_option( 'bmfk_theme_content_version', '1.4.0' ), '1.6.17', '>=' ) ) {
+		return;
+	}
+
+	$page = get_page_by_path( 'gruppeansvarlige' );
+	if ( $page ) {
+		$content = preg_replace_callback(
+			'~<!-- wp:heading\s+\{[^}]*"level":3[^}]*\}\s*-->\s*<h3([^>]*)>(.*?)</h3>\s*<!-- /wp:heading -->~s',
+			function ( $matches ) {
+				return '<!-- wp:heading --><h2' . $matches[1] . '>' . $matches[2] . '</h2><!-- /wp:heading -->';
+			},
+			$page->post_content
+		);
+
+		if ( is_string( $content ) && $content !== $page->post_content ) {
+			wp_update_post( array( 'ID' => $page->ID, 'post_content' => $content ) );
+		}
+	}
+
+	update_option( 'bmfk_theme_content_version', '1.6.17', false );
+}
+add_action( 'admin_init', 'bmfk_upgrade_to_1617' );
 
 // Remove obsolete WordPress metadata from the public page header.
 remove_action( 'wp_head', 'wp_generator' );

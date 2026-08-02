@@ -2,8 +2,6 @@ Velkommen til Bodø Modellflyklubb! Her finner du det viktigste du trenger for �
 
 > **Begynn rolig:** Er du ny i klubben eller på flyplassen, avtal den første turen med en instruktør eller et erfarent medlem. Ikke fly alene før du kjenner lokale regler, flysoner og rutinene på plassen.
 
-[Button: Last ned velkomstguiden som PDF]({{new_member_pdf_url}})
-
 ## Start her - sju viktige punkter
 
 - Kontroller at medlemskapet og kontingenten er registrert i [Min idrett](https://www.minidrett.no/).
@@ -18,24 +16,24 @@ Velkommen til Bodø Modellflyklubb! Her finner du det viktigste du trenger for �
 
 :::columns
 :::column
-## Bodø Modellflyklubb
+### Bodø Modellflyklubb
 
 Klubben driver modellflyplassen og klubbhytta på Bestemorenga. Her får du lokalkunnskap, opplæring, et sosialt miljø og hjelp med modellfly, helikopter, droner og FPV.
 
 :::column
-## Norges Luftsportforbund
+### Norges Luftsportforbund
 
 NLF Modellflyseksjonen forvalter Modellflyhåndboka, kompetanseordningen, ansvarsforsikringen, sikkerhetsinformasjon og hendelsesrapportering for organisert modellflyging.
 :::endcolumns
 
 :::columns
 :::column
-## Min idrett
+### Min idrett
 
 [Min idrett](https://www.minidrett.no/) er medlemsportalen til Norges idrettsforbund. Der kontrollerer du kontaktopplysninger, klubbmedlemskap og fakturaer. Hold e-postadresse og mobilnummer oppdatert.
 
 :::column
-## TMS
+### TMS
 
 [TMS](https://tms.nlf.no/) er NLFs løsning for kompetanse. Der finner du kompetansebevis, søker om ny kompetanse og fornyer bevis når vilkårene er oppfylt. Du logger inn med samme idrettsbruker som i Min idrett.
 :::endcolumns
@@ -127,7 +125,7 @@ Selve Bestemorenga modellflyplass ligger rett utenfor femkilometersonen rundt Bo
 
 :::columns
 :::column
-## Før og under flyging
+#### Før og under flyging
 
 - Få en lokal sikkerhetsorientering før du flyr alene på Bestemorenga.
 - Gjør preflight-kontroll av modell, radio, batteri eller drivstoff, rorretninger og failsafe.
@@ -136,7 +134,7 @@ Selve Bestemorenga modellflyplass ligger rett utenfor femkilometersonen rundt Bo
 - Normalt kan maksimalt tre modeller være i lufta samtidig.
 
 :::column
-## Områder og beredskap
+#### Områder og beredskap
 
 - Fly aldri over depotet, sikkerhetsgjerdet, klubbhytta, parkeringen, publikum, uvedkommende personer eller kjøretøy.
 - Bemannede luftfartøy har alltid prioritet. Varsle de andre og reduser høyden eller land sikkert.
@@ -179,12 +177,12 @@ Kontroller alltid pris og gjeldende adgangsrutine med styret før betaling. La h
 
 :::columns
 :::column
-## Medlemsgruppen
+### Medlemsgruppen
 
 [Facebook-gruppen for medlemmer]({{facebook_members_url}}) brukes til klubbaktiviteter, praktiske beskjeder og diskusjoner mellom medlemmene.
 
 :::column
-## Offentlig gruppe
+### Offentlig gruppe
 
 [Den offentlige Facebook-gruppen]({{facebook_market_url}}) er åpen for kjøp og salg, spørsmål og generell hobbyprat.
 :::endcolumns

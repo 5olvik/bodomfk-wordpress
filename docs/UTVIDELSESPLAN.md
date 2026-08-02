@@ -18,6 +18,18 @@ BMFK-nettsiden er ferdig migrert. Temaet er selvstendig og trenger ikke Generate
 | --- | --- |
 | Duplicator | Kan brukes til manuelle sikkerhetskopier, men ferdige pakker og `installer.php` må aldri legges i GitHub eller være offentlig tilgjengelige. |
 
+Duplicator trenger ikke stå aktiv mellom sikkerhetskopier. Oppdater utvidelsen før bruk, lag en kontrollert sikkerhetskopi og deaktiver den igjen dersom den ikke inngår i en fast backup-rutine.
+
+## Kan deaktiveres og slettes
+
+| Utvidelse | Hvorfor den ikke er nødvendig |
+| --- | --- |
+| Klassisk redigering | De Git-versjonerte informasjonssidene redigeres i Markdown på GitHub. WordPress' blokkredigering er tilstrekkelig for annet innhold. |
+| LightStart / Maintenance Mode | Trengs bare når nettstedet bevisst skal settes i vedlikeholds- eller «kommer snart»-modus. |
+| Disable auto-update Email Notifications | Endrer bare varsel-e-post og tilfører ingen funksjon nettstedet trenger. Behold heller normale oppdateringsvarsler. |
+
+Deaktiver først og kontroller nettstedet før en utvidelse slettes. Ingen av utvidelsene i tabellen over brukes av BMFK-temaet.
+
 ## Utfaset
 
 **BMFK Modern – oppsett og opprydding** ble brukt til den opprinnelige innholdsmigreringen og er ikke lenger nødvendig. Fra tema 1.4.0 ligger eventuelle små, versjonerte vedlikeholdsjusteringer i temaet og kjører én gang.

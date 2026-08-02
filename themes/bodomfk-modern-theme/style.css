@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.6.16
+Version: 1.6.17
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -445,13 +445,13 @@ p {
   grid-template-columns: 1.05fr 0.95fr;
 }
 
-.intro-copy h1 {
+.intro-copy__title {
   max-width: 800px;
   margin-bottom: 24px;
   font-size: clamp(2.5rem, 5vw, 4.8rem);
 }
 
-.intro-copy h1 span {
+.intro-copy__title span {
   color: var(--bmfk-blue);
 }
 
@@ -1341,7 +1341,9 @@ p {
   border-radius: var(--bmfk-radius-sm);
 }
 
-.entry-content .wp-block-column > h2 {
+.entry-content .wp-block-column > h2,
+.entry-content .wp-block-column > h3,
+.entry-content .wp-block-column > h4 {
   margin-top: 0;
   font-size: clamp(1.25rem, 2vw, 1.6rem);
 }
@@ -1965,6 +1967,23 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
   left: auto !important;
 }
 
+/* Complianz and WP Dark Mode both use floating controls. Never stack them. */
+body:has(.cmplz-cookiebanner:not(.cmplz-dismissed)) .wp-dark-mode-floating-switch {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body:has(.cmplz-manage-consent.cmplz-show) .wp-dark-mode-floating-switch {
+  bottom: 86px !important;
+}
+
+@media (min-width: 681px) {
+  .footer-bottom {
+    padding-right: 240px;
+  }
+}
+
 @media (max-width: 1080px) {
   .header-cta {
     display: none;
@@ -2343,6 +2362,7 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
 
   .footer-bottom {
     padding: 20px 0;
+    padding-bottom: 94px;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;

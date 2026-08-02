@@ -73,7 +73,7 @@ De viser passordpanelene for Avinor-avtalen og de historiske reglene fra 2018. I
 
 `flyplassregler.md` inneholder klubbens operative lokale regelverk. Endringer i flysone, åpningstider, adgang, maksimal aktivitet, tårnrutine, FPV-krav eller beredskap skal kontrolleres av styret eller klubbens sikkerhetsansvarlige før de slås sammen.
 
-Når en lokal regel endres, skal den korte oversikten i `nytt-medlem.md` og PDF-en `assets/documents/velkommen-som-medlem-2026.pdf` kontrolleres samtidig. Dokumentet fra 2018 er historisk referanse og skal ikke redigeres for å beskrive dagens regler.
+Når en lokal regel endres, skal den korte oversikten i `nytt-medlem.md` kontrolleres samtidig. Ny-medlem-guiden vedlikeholdes bare som nettside, slik at klubben ikke får en utdatert PDF-kopi. Dokumentet fra 2018 er historisk referanse og skal ikke redigeres for å beskrive dagens regler.
 
 ## Appveiledningen
 
@@ -99,7 +99,6 @@ Disse plassholderne kan brukes i innholdsfilene og blir erstattet når siden vis
 - `{{facebook_market_url}}`
 - `{{electric_hours}}`
 - `{{combustion_hours}}`
-- `{{new_member_pdf_url}}`
 - `{{cookie_policy_url}}`
 
 Dermed kan kontaktadresser og enkelte lenker fortsatt endres under **Utseende → Tilpass → Klubbinformasjon** uten at samme verdi må skrives flere steder.

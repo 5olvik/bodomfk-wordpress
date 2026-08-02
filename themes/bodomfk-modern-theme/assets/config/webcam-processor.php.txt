@@ -1,0 +1,273 @@
+<?php
+
+/*
+ * BMFK webkamera – personvernbehandling
+ *
+ * Dette er en distribusjonsmal. Kopier filen til /webcam/webcam.php på
+ * webhotellet. Den skal ikke kjøres fra temamappen.
+ */
+
+/* =========================================================
+ * INNSTILLINGER DU KAN ENDRE
+ * ========================================================= */
+
+/* Øvre halvdel: 0 = ingen blur. */
+$upperBlurPasses = 2;
+
+/* Nedre halvdel: høyere tall gir mer blur. */
+$lowerBlurPasses = 16;
+
+/* Hvor filteret for nederste del begynner. 0.50 = midten. */
+$privacyStart = 0.50;
+
+/* Oppløsning på det publiserte bildet. */
+$targetWidth  = 960;
+$targetHeight = 540;
+
+/* JPEG-kvalitet fra 0 til 100. */
+$jpegQuality = 78;
+
+/*
+ * Ikke behandle en NVR-fil før den har vært urørt så lenge.
+ * 90 sekunder passer når cron kjører hvert minutt og hindrer at en pågående
+ * FTP-opplasting blir lest som et ferdig bilde.
+ */
+$minimumFileAge = 90;
+
+/* Avvis åpenbart tomme eller ufullstendige kamerafiler. */
+$minimumFileSize = 8 * 1024;
+
+/* ========================================================= */
+
+$dir        = __DIR__;
+$outputFile = $dir . '/webcam.jpg';
+$tempFile   = $dir . '/webcam-processing.jpg';
+$lockFile   = $dir . '/webcam-processing.lock';
+
+/**
+ * Slett kameraets originale opplastinger.
+ */
+function deleteWebcamUploads($files)
+{
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            @unlink($file);
+        }
+    }
+}
+
+/**
+ * Kontroller at JPEG-filen avsluttes med standard EOI-markør.
+ */
+function hasCompleteJpegEnding($file)
+{
+    $handle = @fopen($file, 'rb');
+
+    if ($handle === false) {
+        return false;
+    }
+
+    $seekResult = @fseek($handle, -2, SEEK_END);
+    $ending     = $seekResult === 0 ? @fread($handle, 2) : false;
+
+    @fclose($handle);
+
+    return $ending === "\xFF\xD9";
+}
+
+/**
+ * Legg ønsket antall blur-runder på et bestemt område.
+ */
+function blurImageRegion($image, $x, $y, $width, $height, $passes)
+{
+    $passes = max(0, (int) $passes);
+
+    if ($passes === 0 || $width < 1 || $height < 1) {
+        return true;
+    }
+
+    $region = imagecreatetruecolor($width, $height);
+
+    if ($region === false) {
+        return false;
+    }
+
+    imagecopy($region, $image, 0, 0, $x, $y, $width, $height);
+
+    for ($i = 0; $i < $passes; $i++) {
+        imagefilter($region, IMG_FILTER_GAUSSIAN_BLUR);
+    }
+
+    imagecopy($image, $region, $x, $y, 0, 0, $width, $height);
+    imagedestroy($region);
+
+    return true;
+}
+
+/* Hindre at to cron-kjøringer behandler samme opplasting samtidig. */
+$lockHandle = @fopen($lockFile, 'c');
+
+if ($lockHandle === false || !@flock($lockHandle, LOCK_EX | LOCK_NB)) {
+    if (is_resource($lockHandle)) {
+        @fclose($lockHandle);
+    }
+    exit;
+}
+
+register_shutdown_function(function () use ($lockHandle) {
+    @flock($lockHandle, LOCK_UN);
+    @fclose($lockHandle);
+});
+
+$files = glob($dir . '/NVR_00_*.jpg');
+
+if ($files === false || count($files) === 0) {
+    exit;
+}
+
+$now           = time();
+$eligibleFiles = array();
+
+foreach ($files as $file) {
+    clearstatcache(true, $file);
+    $modified = @filemtime($file);
+
+    /* En ny fil kan fortsatt være under opplasting. La neste cron ta den. */
+    if ($modified === false || ($now - $modified) < max(30, (int) $minimumFileAge)) {
+        continue;
+    }
+
+    $size = @filesize($file);
+    $info = $size !== false && $size >= max(1024, (int) $minimumFileSize)
+        ? @getimagesize($file)
+        : false;
+
+    if (
+        !is_array($info) ||
+        !isset($info[2]) ||
+        $info[2] !== IMAGETYPE_JPEG ||
+        $info[0] < 320 ||
+        $info[1] < 180 ||
+        !hasCompleteJpegEnding($file)
+    ) {
+        error_log('BMFK webcam: Avviste en ufullstendig eller ugyldig NVR-fil.');
+        @unlink($file);
+        continue;
+    }
+
+    $eligibleFiles[] = $file;
+}
+
+if (count($eligibleFiles) === 0) {
+    exit;
+}
+
+/* Nyeste ferdige bilde først. */
+usort($eligibleFiles, function ($a, $b) {
+    return (@filemtime($b) ?: 0) <=> (@filemtime($a) ?: 0);
+});
+
+$sourceFile = $eligibleFiles[0];
+
+/*
+ * GD må være tilgjengelig.
+ * Originalbildet publiseres aldri som reserve.
+ */
+if (
+    !extension_loaded('gd') ||
+    !function_exists('imagecreatefromjpeg') ||
+    !function_exists('imagefilter')
+) {
+    error_log('BMFK webcam: PHP GD er ikke tilgjengelig.');
+    deleteWebcamUploads($eligibleFiles);
+    exit;
+}
+
+$sourceImage = @imagecreatefromjpeg($sourceFile);
+
+if ($sourceImage === false) {
+    error_log('BMFK webcam: Kunne ikke åpne det ferdig opplastede bildet.');
+    deleteWebcamUploads($eligibleFiles);
+    exit;
+}
+
+$sourceWidth  = imagesx($sourceImage);
+$sourceHeight = imagesy($sourceImage);
+
+if ($sourceWidth < 1 || $sourceHeight < 1) {
+    error_log('BMFK webcam: Bildet har ugyldig størrelse.');
+    imagedestroy($sourceImage);
+    deleteWebcamUploads($eligibleFiles);
+    exit;
+}
+
+$targetRatio = $targetWidth / $targetHeight;
+$sourceRatio = $sourceWidth / $sourceHeight;
+
+/* Beskjær originalbildet sentrert til 16:9. */
+if ($sourceRatio > $targetRatio) {
+    $cropHeight = $sourceHeight;
+    $cropWidth  = (int) round($sourceHeight * $targetRatio);
+    $sourceX    = (int) round(($sourceWidth - $cropWidth) / 2);
+    $sourceY    = 0;
+} else {
+    $cropWidth  = $sourceWidth;
+    $cropHeight = (int) round($sourceWidth / $targetRatio);
+    $sourceX    = 0;
+    $sourceY    = (int) round(($sourceHeight - $cropHeight) / 2);
+}
+
+$processedImage = imagecreatetruecolor($targetWidth, $targetHeight);
+
+if ($processedImage === false) {
+    error_log('BMFK webcam: Kunne ikke opprette behandlet bilde.');
+    imagedestroy($sourceImage);
+    deleteWebcamUploads($eligibleFiles);
+    exit;
+}
+
+imagecopyresampled(
+    $processedImage,
+    $sourceImage,
+    0,
+    0,
+    $sourceX,
+    $sourceY,
+    $targetWidth,
+    $targetHeight,
+    $cropWidth,
+    $cropHeight
+);
+
+$privacyStart = max(0.10, min(0.90, (float) $privacyStart));
+$privacyY     = (int) round($targetHeight * $privacyStart);
+$upperHeight  = $privacyY;
+$lowerHeight  = $targetHeight - $privacyY;
+
+blurImageRegion($processedImage, 0, 0, $targetWidth, $upperHeight, $upperBlurPasses);
+blurImageRegion($processedImage, 0, $privacyY, $targetWidth, $lowerHeight, $lowerBlurPasses);
+
+@unlink($tempFile);
+
+$saved = imagejpeg(
+    $processedImage,
+    $tempFile,
+    max(0, min(100, (int) $jpegQuality))
+);
+
+imagedestroy($processedImage);
+imagedestroy($sourceImage);
+
+if ($saved) {
+    /* webcam.jpg erstattes først når hele den nye filen er ferdig skrevet. */
+    if (!@rename($tempFile, $outputFile)) {
+        error_log('BMFK webcam: Kunne ikke erstatte webcam.jpg.');
+        @unlink($tempFile);
+    }
+} else {
+    error_log('BMFK webcam: Kunne ikke lagre behandlet bilde.');
+    @unlink($tempFile);
+}
+
+/* Ferdigbehandlede originalfiler skal aldri bli liggende. */
+deleteWebcamUploads($eligibleFiles);

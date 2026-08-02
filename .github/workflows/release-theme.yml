@@ -37,7 +37,9 @@ jobs:
 
       - name: Kontroller PHP-syntaks
         shell: bash
-        run: find themes/bodomfk-modern-theme -name "*.php" -print0 | xargs -0 -n1 php -l
+        run: |
+          find themes/bodomfk-modern-theme -name "*.php" -print0 | xargs -0 -n1 php -l
+          php -l themes/bodomfk-modern-theme/assets/config/webcam-processor.php.txt
 
       - name: Kontroller JavaScript-syntaks
         shell: bash

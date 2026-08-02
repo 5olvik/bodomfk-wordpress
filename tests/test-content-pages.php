@@ -130,8 +130,8 @@ foreach ( array( 'Min idrett', 'TMS', 'Ansvarsforsikring', 'Operatørregistrerin
 	}
 }
 
-if ( false === strpos( $new_member_html, 'velkommen-som-medlem-2026.pdf' ) ) {
-	$errors[] = 'nytt-medlem.md: mangler lenke til den oppdaterte velkomstguiden';
+if ( false !== stripos( $new_member_html, '.pdf' ) || file_exists( get_template_directory() . '/assets/documents/velkommen-som-medlem-2026.pdf' ) ) {
+	$errors[] = 'Nytt medlem skal vedlikeholdes som nettside og ikke dupliseres som PDF';
 }
 
 if ( false === strpos( $new_member_html, 'rett utenfor femkilometersonen rundt Bodø lufthavn' ) ) {
@@ -258,8 +258,65 @@ foreach ( array( 'nær yttergrensen av femkilometersonen', 'kun organisert aktiv
 $style_source     = file_get_contents( get_template_directory() . '/style.css' );
 $functions_source = file_get_contents( get_template_directory() . '/functions.php' );
 $footer_source    = file_get_contents( get_template_directory() . '/footer.php' );
+$front_source     = file_get_contents( get_template_directory() . '/front-page.php' );
 $style_version    = '';
 $constant_version = '';
+
+if (
+	false === strpos( $front_source, '<h1 class="screen-reader-text">Bodø Modellflyklubb' ) ||
+	false === strpos( $front_source, '<h2 class="intro-copy__title">Mange drømmer om å fly.' ) ||
+	strpos( $front_source, '<h1 class="screen-reader-text">' ) > strpos( $front_source, '<h2 id="facebook-hub-title">' )
+) {
+	$errors[] = 'front-page.php: hovedoverskriften må komme før Facebook-seksjonens H2';
+}
+
+foreach ( array(
+	'<h3>Medlem i BMFK og NLF</h3>',
+	'<h4>Hvem kan fly?</h4>',
+	'<h4>Når du flyr</h4>',
+) as $required_heading ) {
+	if ( false === strpos( $rules_html, $required_heading ) ) {
+		$errors[] = 'flyplassregler.md: mangler semantisk overskrift ' . $required_heading;
+	}
+}
+
+foreach ( array(
+	'<h3>Bodø Modellflyklubb</h3>',
+	'<h4>Før og under flyging</h4>',
+	'<h3>Medlemsgruppen</h3>',
+) as $required_heading ) {
+	if ( false === strpos( $new_member_html, $required_heading ) ) {
+		$errors[] = 'nytt-medlem.md: mangler semantisk overskrift ' . $required_heading;
+	}
+}
+
+$config_directory = get_template_directory() . '/assets/config';
+$processor_source = file_get_contents( $config_directory . '/webcam-processor.php.txt' );
+$htaccess_source  = file_get_contents( $config_directory . '/webcam-protection.htaccess.txt' );
+
+foreach ( array( 'minimumFileAge', 'LOCK_EX | LOCK_NB', 'hasCompleteJpegEnding', 'webcam-processing.jpg' ) as $required_code ) {
+	if ( false === strpos( $processor_source, $required_code ) ) {
+		$errors[] = 'webcam-processor.php.txt: mangler ' . $required_code;
+	}
+}
+
+if ( false === strpos( $htaccess_source, 'Options -Indexes' ) || false === strpos( $htaccess_source, 'Require all denied' ) ) {
+	$errors[] = 'webcam-protection.htaccess.txt: mangler katalog- eller bildebeskyttelse';
+}
+
+$readme_source     = file_get_contents( dirname( __DIR__ ) . '/README.md' );
+$install_source    = file_get_contents( dirname( __DIR__ ) . '/docs/INSTALLASJON.md' );
+$extensions_source = file_get_contents( dirname( __DIR__ ) . '/docs/UTVIDELSESPLAN.md' );
+
+foreach ( array( 'WP Dark Mode', 'Email Address Encoder', 'SuperPWA', 'Complianz', 'Really Simple Security' ) as $extension_name ) {
+	if (
+		false === strpos( $readme_source, $extension_name ) ||
+		false === strpos( $install_source, $extension_name ) ||
+		false === strpos( $extensions_source, $extension_name )
+	) {
+		$errors[] = 'Dokumentasjonen mangler aktiv utvidelse: ' . $extension_name;
+	}
+}
 
 if ( ! preg_match( '/^Version:\s*([0-9]+\.[0-9]+\.[0-9]+)$/m', $style_source, $style_match ) ) {
 	$errors[] = 'style.css: mangler gyldig temanummer';
