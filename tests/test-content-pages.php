@@ -263,6 +263,14 @@ $style_version    = '';
 $constant_version = '';
 
 if (
+	false === strpos( $style_source, 'html body .wp-dark-mode-floating-switch.wp-dark-mode-ignore' ) ||
+	false === strpos( $style_source, 'left: 18px !important;' ) ||
+	false !== strpos( $style_source, 'bottom: 86px !important;' )
+) {
+	$errors[] = 'style.css: Light/Dark-bryteren skal være synlig nederst til venstre';
+}
+
+if (
 	false === strpos( $front_source, '<h1 class="screen-reader-text">Bodø Modellflyklubb' ) ||
 	false === strpos( $front_source, '<h2 class="intro-copy__title">Mange drømmer om å fly.' ) ||
 	strpos( $front_source, '<h1 class="screen-reader-text">' ) > strpos( $front_source, '<h2 id="facebook-hub-title">' )

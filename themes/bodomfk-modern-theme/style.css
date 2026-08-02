@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.6.17
+Version: 1.6.18
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -1960,28 +1960,15 @@ html[data-wp-dark-mode-active] .button--ghost:hover {
   border-color: #8fc6ff !important;
 }
 
-/* Keep the plugin control clear of page content and easy to reach on mobile. */
-.wp-dark-mode-floating-switch {
-  right: 18px !important;
+/* Keep the plugin control visible in its familiar lower-left position. */
+html body .wp-dark-mode-floating-switch.wp-dark-mode-ignore {
+  display: flex !important;
+  top: auto !important;
+  right: auto !important;
   bottom: 18px !important;
-  left: auto !important;
-}
-
-/* Complianz and WP Dark Mode both use floating controls. Never stack them. */
-body:has(.cmplz-cookiebanner:not(.cmplz-dismissed)) .wp-dark-mode-floating-switch {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-body:has(.cmplz-manage-consent.cmplz-show) .wp-dark-mode-floating-switch {
-  bottom: 86px !important;
-}
-
-@media (min-width: 681px) {
-  .footer-bottom {
-    padding-right: 240px;
-  }
+  left: 18px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 @media (max-width: 1080px) {
@@ -2033,7 +2020,7 @@ body:has(.cmplz-manage-consent.cmplz-show) .wp-dark-mode-floating-switch {
     backdrop-filter: none;
   }
 
-  body.menu-open .wp-dark-mode-floating-switch {
+  html body.menu-open .wp-dark-mode-floating-switch.wp-dark-mode-ignore {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
@@ -2162,9 +2149,10 @@ body:has(.cmplz-manage-consent.cmplz-show) .wp-dark-mode-floating-switch {
     font-size: 16px;
   }
 
-  .wp-dark-mode-floating-switch {
-    right: 10px !important;
+  html body .wp-dark-mode-floating-switch.wp-dark-mode-ignore {
+    right: auto !important;
     bottom: 10px !important;
+    left: 10px !important;
   }
 
   .header-inner {
@@ -2362,7 +2350,6 @@ body:has(.cmplz-manage-consent.cmplz-show) .wp-dark-mode-floating-switch {
 
   .footer-bottom {
     padding: 20px 0;
-    padding-bottom: 94px;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;

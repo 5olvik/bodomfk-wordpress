@@ -1,5 +1,10 @@
 # Endringslogg
 
+## 1.6.18 – 2026-08-02
+
+- Flytter Light/Dark-bryteren tilbake til nederste venstre hjørne på både PC og mobil, og sørger for at den ikke skjules av temaets Complianz-tilpasning.
+- Fjerner den ekstra side- og bunnluften som versjon 1.6.17 reserverte i bunnteksten for flytende kontroller.
+
 ## 1.6.17 – 2026-08-02
 
 - Dokumenterer alle fem aktive utvidelser i README, installasjonsveiledningen og utvidelsesplanen: WP Dark Mode, Email Address Encoder, SuperPWA, Complianz og Really Simple Security.
