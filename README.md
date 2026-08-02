@@ -30,7 +30,7 @@ Versjon 1.4.0 faser ut den tidligere migreringsutvidelsen. Nettsiden er ferdig m
 
 ## Last ned og installer
 
-Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.18.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
+Den enkleste metoden er å åpne [Releases](https://github.com/5olvik/bodomfk-wordpress/releases), velge nyeste versjon og laste ned `bodomfk-modern-theme-1.6.19.zip` under **Assets**. Dette er den ferdige tema-ZIP-en; ikke bruk GitHubs «Source code»-filer som WordPress-tema.
 
 I WordPress går du til **Utseende → Temaer → Legg til nytt tema → Last opp tema**, velger ZIP-filen og godtar å erstatte den installerte versjonen. Se [installasjonsveiledningen](docs/INSTALLASJON.md) for kontrollpunkter.
 
@@ -41,6 +41,10 @@ Se [dokumenttilgang](docs/DOKUMENTTILGANG.md) for hvordan det delte passordet ti
 Se [`assets/config/README.txt`](themes/bodomfk-modern-theme/assets/config/README.txt) for manuell installasjon av webkameraets behandlingsscript og `.htaccess` i `/webcam/` på webhotellet. Filene følger tema-ZIP-en som dokumenterte maler, men aktiveres ikke automatisk av WordPress.
 
 Hver endring på `main` som berører temaet blir kontrollert og pakket automatisk av GitHub Actions. Versjonsnummeret i `style.css` bestemmer navnet på utgivelsen.
+
+## Arbeide med Codex
+
+Codex og andre kodeagenter skal starte med [AGENTS.md](AGENTS.md), som inneholder faste regler for versjonering, avgrensede designendringer, testing, pakking og GitHub. [Prosjektstatusen](docs/PROSJEKTSTATUS.md) oppsummerer dagens arkitektur, integrasjoner og beslutninger uten å være avhengig av en bestemt ChatGPT-samtale.
 
 ## Endre sidetekster
 

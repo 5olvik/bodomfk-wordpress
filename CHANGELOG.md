@@ -1,5 +1,12 @@
 # Endringslogg
 
+## 1.6.19 – 2026-08-02
+
+- Legger inn `AGENTS.md` med faste regler for Codex og andre kodeagenter om versjonering, avgrenset designarbeid, sikkerhet, testing og korrekt ZIP-struktur.
+- Legger inn `docs/PROSJEKTSTATUS.md` som en varig overlevering av temaets arkitektur, designvalg, innholdskilder, webkamera, vær, PWA, utvidelser og releaseprosess.
+- Lenker prosjektreglene og statusdokumentet fra README, slik at nye bidragsytere ikke er avhengige av historikken i én bestemt samtale.
+- Endrer ingen offentlige funksjoner eller designelementer utover versjonsnummeret.
+
 ## 1.6.18 – 2026-08-02
 
 - Flytter Light/Dark-bryteren tilbake til nederste venstre hjørne på både PC og mobil, og sørger for at den ikke skjules av temaets Complianz-tilpasning.
