@@ -135,6 +135,53 @@
     });
   }
 
+  const weatherPanel = document.querySelector('[data-weather-panel]');
+  if (weatherPanel) {
+    const weatherStations = weatherPanel.querySelector('[data-weather-stations]');
+    const weatherEndpoint = weatherPanel.dataset.weatherEndpoint || '';
+    let weatherLastRefresh = 0;
+    let weatherRefreshing = false;
+
+    async function refreshWeather() {
+      if (!weatherStations || !weatherEndpoint || weatherRefreshing) return;
+
+      weatherRefreshing = true;
+      weatherLastRefresh = Date.now();
+
+      try {
+        const requestUrl = new URL(weatherEndpoint, window.location.origin);
+        requestUrl.searchParams.set('_', String(Date.now()));
+        const response = await window.fetch(requestUrl.toString(), {
+          method: 'GET',
+          credentials: 'same-origin',
+          cache: 'no-store',
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        });
+
+        if (!response.ok) throw new Error('Weather request failed');
+        const result = await response.json();
+        if (!result || typeof result.html !== 'string' || !result.html.trim()) {
+          throw new Error('Unexpected weather response');
+        }
+
+        weatherStations.innerHTML = result.html;
+      } catch (error) {
+        // Keep the last visible values when the connection is temporarily down.
+      } finally {
+        weatherRefreshing = false;
+      }
+    }
+
+    refreshWeather();
+    window.setInterval(refreshWeather, 5 * 60 * 1000);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && Date.now() - weatherLastRefresh > 60 * 1000) refreshWeather();
+    });
+  }
+
   document.querySelectorAll('[data-bmfk-document-gate]').forEach(function (gate) {
     const endpoint = gate.dataset.endpoint || '';
     const documentId = gate.dataset.document || 'avinor';

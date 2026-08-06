@@ -96,11 +96,19 @@ PDF-kopier. Se `docs/INNHOLD-I-GITHUB.md` for strukturmarkører og plassholdere.
 
 ## Værstasjon
 
-Gjeldende tema bruker WindNerd-widgeten `bhpgk` ved webkameraet, med vind i m/s,
-marineblå topp, lys tekst og hvit bakgrunn med 36 prosent opasitet. Holfuy
-Keiservarden og Vindnå/Bestemorenga er undersøkt som mulige alternativer, men er
-ikke implementert. En eventuell erstatning må testes visuelt og vurderes for
-stabilitet, personvern og tredjepartsavhengighet før WindNerd fjernes.
+Versjon 1.6.23 bruker et eget «Bodø-vinden»-panel uten vær-iframe. Panelet henter
+åpne Locationforecast-prognoser fra MET for Bestemorenga og Keiservarden, og en
+faktisk METAR-måling fra Bodø lufthavn via AviationWeather.gov. Det viser vind,
+temperatur og forventet nedbør neste time der kilden leverer dette. Data hentes på
+WordPress-serveren, mellomlagres og merkes som prognose eller fysisk måling.
+Panelet henter ferdig formatert innhold fra et offentlig, skrivebeskyttet
+WordPress-endepunkt straks siden åpnes, hvert femte minutt og når en eldre fane
+tas fram igjen. Tidspunktene formateres i den navngitte tidssonen `Europe/Oslo`.
+Besøkendes nettleser kontakter ikke leverandørene før en frivillig kildelenke
+åpnes. Den faktiske målestasjonen på Bestemorenga er tilgjengelig gjennom en
+offisiell WeatherLink-lenke, men bygges ikke inn. Direkte API-tilgang til denne
+stasjonen krever fortsatt tilgang. Hele tredjepartssider og udokumenterte
+dataendepunkter skal ikke bygges inn eller skrapes.
 
 ## PWA
 

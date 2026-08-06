@@ -3,7 +3,7 @@ Theme Name: Bodø Modellflyklubb Modern
 Theme URI: https://bodomfk.no/
 Author: Bodø Modellflyklubb
 Description: Et selvstendig, moderne og responsivt tema for Bodø Modellflyklubb. Ingen avhengighet til GeneratePress, GP Premium eller en sidebygger.
-Version: 1.6.19
+Version: 1.6.23
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: bmfk
@@ -882,20 +882,233 @@ p {
   font-size: 0.82rem;
 }
 
-.field-weather-station {
+.field-weather {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
   overflow: hidden;
-  background: transparent;
+  color: #e9f3fc;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(89, 173, 255, 0.24), transparent 34%),
+    linear-gradient(150deg, #06172b 0%, #0d2b4b 62%, #123d63 100%);
   border: 1px solid rgba(117, 186, 255, 0.34);
   border-radius: var(--bmfk-radius-lg);
   box-shadow: var(--bmfk-shadow);
 }
 
-.field-weather-station iframe {
+.field-weather::after {
+  position: absolute;
+  right: -42px;
+  bottom: -62px;
+  width: 170px;
+  height: 170px;
+  content: "";
+  border: 1px solid rgba(117, 186, 255, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(117, 186, 255, 0.035), 0 0 0 58px rgba(117, 186, 255, 0.025);
+  pointer-events: none;
+}
+
+.field-weather__header,
+.field-weather__stations,
+.field-weather__note {
+  position: relative;
+  z-index: 1;
+}
+
+.field-weather__header {
+  margin-bottom: 8px;
+}
+
+.field-weather__badge {
+  display: inline-flex;
+  padding: 3px 7px;
+  color: #07192d;
+  background: #8fd0ff;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field-weather__header h3 {
+  margin: 5px 0 1px;
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.field-weather__header p {
+  margin: 0;
+  color: rgba(222, 237, 250, 0.72);
+  font-size: 0.7rem;
+}
+
+.field-weather__stations {
+  display: grid;
+  gap: 6px;
+}
+
+.field-weather__station {
+  padding: 7px 10px;
+  background: rgba(4, 17, 34, 0.58);
+  border: 1px solid rgba(143, 208, 255, 0.16);
+  border-left: 3px solid #60aef0;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.field-weather__station--keiservarden {
+  border-left-color: #a8c9e8;
+}
+
+.field-weather__station--metar {
+  border-left-color: var(--bmfk-orange);
+}
+
+.field-weather__station-heading,
+.field-weather__reading {
+  display: flex;
+  align-items: center;
+}
+
+.field-weather__station-heading {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.field-weather__station-heading h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 0.78rem;
+}
+
+.field-weather__station-heading span {
   display: block;
-  width: 100%;
-  height: 400px;
-  background: transparent;
-  border: 0;
+  margin-top: 1px;
+  color: rgba(222, 237, 250, 0.58);
+  font-size: 0.56rem;
+}
+
+.field-weather__station-heading a {
+  color: #9bd5ff;
+  font-size: 0.56rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.field-weather__station-heading a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.field-weather__reading {
+  margin-top: 1px;
+  line-height: 1;
+}
+
+.field-weather__reading > strong {
+  color: #fff;
+  font-size: clamp(1.65rem, 2.6vw, 2.05rem);
+  letter-spacing: -0.055em;
+}
+
+.field-weather__reading > span:not(.field-weather__direction) {
+  margin: 5px 0 0 5px;
+  color: rgba(222, 237, 250, 0.7);
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.field-weather__direction {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 4px 7px;
+  color: #fff;
+  background: rgba(143, 208, 255, 0.12);
+  border: 1px solid rgba(143, 208, 255, 0.16);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.field-weather__arrow {
+  display: inline-block;
+  color: #8fd0ff;
+  font-size: 0.82rem;
+  transform: rotate(var(--weather-direction));
+  transform-origin: 50% 52%;
+}
+
+.field-weather__meta {
+  display: grid;
+  grid-template-columns: repeat(3, max-content) minmax(max-content, 1fr);
+  align-items: center;
+  gap: 3px 8px;
+  margin-top: 0;
+  color: rgba(222, 237, 250, 0.62);
+  font-size: 0.57rem;
+}
+
+.field-weather__meta span,
+.field-weather__meta time {
+  white-space: nowrap;
+}
+
+.field-weather__meta time {
+  justify-self: end;
+}
+
+.field-weather__meta strong {
+  color: #e9f3fc;
+}
+
+.field-weather__meta time.is-old {
+  color: #ffd184;
+  font-weight: 800;
+}
+
+.field-weather__station > h4 {
+  margin: 0 0 4px;
+  color: #fff;
+  font-size: 0.82rem;
+}
+
+.field-weather__station > p {
+  margin: 0;
+  color: rgba(222, 237, 250, 0.66);
+  font-size: 0.7rem;
+}
+
+.field-weather__note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 8px;
+  margin: 7px 2px 0;
+  color: rgba(222, 237, 250, 0.58);
+  font-size: 0.59rem;
+  line-height: 1.4;
+}
+
+.field-weather__note strong {
+  color: rgba(244, 249, 253, 0.9);
+}
+
+.field-weather__live-link {
+  flex: 0 0 auto;
+  color: #9bd5ff;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.field-weather__live-link:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .safety-section {
@@ -2080,6 +2293,14 @@ html body .wp-dark-mode-floating-switch.wp-dark-mode-ignore {
     grid-template-columns: 1fr;
   }
 
+  .field-weather__stations {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .field-weather__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .entry-content .wp-block-columns {
     grid-template-columns: 1fr;
   }
@@ -2297,8 +2518,21 @@ html body .wp-dark-mode-floating-switch.wp-dark-mode-ignore {
     border-radius: 20px;
   }
 
-  .field-weather-station {
+  .field-weather {
+    padding: 16px;
     border-radius: 20px;
+  }
+
+  .field-weather__stations {
+    grid-template-columns: 1fr;
+  }
+
+  .field-weather__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field-weather__meta time {
+    justify-self: end;
   }
 
   .gallery-grid {

@@ -12,6 +12,7 @@ $incident_url   = bmfk_setting( 'bmfk_incident_url', BMFK_INCIDENT_REPORT_URL );
 $rules_url      = bmfk_setting( 'bmfk_local_rules_url', home_url( '/flyplassregler/' ) );
 $facebook_group = bmfk_setting( 'bmfk_facebook_members_url', 'https://www.facebook.com/groups/bodomfk' );
 $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.facebook.com/groups/bodomfksalg' );
+$weather_data   = bmfk_get_weather_data();
 ?>
 
 <main id="main-content">
@@ -141,8 +142,19 @@ $facebook_sale  = bmfk_setting( 'bmfk_facebook_market_url', 'https://www.faceboo
 			<section class="field-live-section" id="webkamera" aria-labelledby="field-live-title">
 				<h2 class="eyebrow" id="field-live-title">Direkte fra Bodø Modellflyklubb</h2>
 				<div class="field-live-grid">
-					<div class="field-weather-station wp-dark-mode-ignore">
-						<iframe src="<?php echo esc_url( BMFK_WEATHER_WIDGET_URL ); ?>" title="Vindmålinger fra klubbens værstasjon på Bestemorenga" width="100%" height="400" loading="lazy"></iframe>
+					<div class="field-weather wp-dark-mode-ignore" aria-labelledby="field-weather-title" data-weather-panel data-weather-endpoint="<?php echo esc_url( rest_url( 'bmfk/v1/weather' ) ); ?>">
+						<div class="field-weather__header">
+							<span class="field-weather__badge">Lokale værdata</span>
+							<h3 id="field-weather-title">Bodø-vinden</h3>
+							<p>Vind, temperatur og nedbør i ett raskt overblikk.</p>
+						</div>
+						<div class="field-weather__stations" data-weather-stations>
+							<?php echo bmfk_weather_stations_html( $weather_data ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The helper escapes all dynamic values. ?>
+						</div>
+						<p class="field-weather__note">
+							<span><strong>Bestemorenga og Keiservarden</strong> er prognoser fra MET. <strong>Bodø lufthavn</strong> er en faktisk METAR-måling.</span>
+							<a class="field-weather__live-link" href="<?php echo esc_url( BMFK_WEATHERLINK_BESTEMORENGA_URL ); ?>" target="_blank" rel="noopener noreferrer">Faktisk Bestemorenga-måling ↗</a>
+						</p>
 					</div>
 					<div class="field-webcam-card wp-dark-mode-ignore">
 						<div class="field-webcam" aria-label="Webkamera fra Bodø Modellflyklubb på Bestemorenga" data-webcam>

@@ -1,5 +1,39 @@
 # Endringslogg
 
+## 1.6.23 – 2026-08-06
+
+- Oppdaterer værverdiene straks forsiden åpnes, deretter hvert femte minutt og når en eldre, skjult fane tas fram igjen.
+- Legger til et offentlig, skrivebeskyttet WordPress-endepunkt som bare returnerer ferdig formatert værinnhold fra temaets eksisterende server-side mellomlager.
+- Beholder sist viste verdier dersom en oppfriskning feiler, og omgår nettleser- og mellomproxycache uten at nettleseren kontakter MET eller AviationWeather.gov direkte.
+- Formaterer alle værtidspunkter eksplisitt i `Europe/Oslo`, slik at både sommer- og vintertid blir riktig uavhengig av WordPress' tidssoneoppsett.
+- Legger automatisk oppfriskning til i GitHub Actions og utvider regresjonskontrollene for værpanelet.
+
+## 1.6.22 – 2026-08-06
+
+- Gjør «Bodø-vinden» til den ordinære værmodulen og fjerner synlig testmerking og teknisk iframe-tekst fra forsiden.
+- Legger temperatur til alle tre værreferansene og viser forventet nedbør neste time for prognosene fra Bestemorenga og Keiservarden.
+- Legger inn en frivillig lenke til WeatherLinks offisielle, mobilvennlige livevisning for den faktiske målestasjonen på Bestemorenga uten å bygge den inn eller laste den i bakgrunnen.
+- Oppdaterer personvern- og medlemstekster slik at den utgående værleverandøren ikke lenger omtales på offentlige informasjonssider.
+- Bevarer skillet mellom prognoser og fysiske målinger, m/s som hovedverdi og den kompakte utformingen på PC og mobil.
+
+## 1.6.21 – 2026-08-06
+
+- Erstatter tidligere eksterne widgetforsøk med et egen-designet «Bodø-vinden»-panel uten vær-iframe.
+- Viser åpne MET-prognoser for Bestemorenga (109 moh.) og Keiservarden (366 moh.), samt en faktisk METAR-måling fra Bodø lufthavn (ENBO).
+- Holder prognoser og fysisk måling tydelig atskilt, viser vind og kast i m/s, retning, tidspunkt og markerer eldre reserveverdier.
+- Henter værdata på WordPress-serveren med identifisert User-Agent, lokal mellomlagring og siste-gode-verdi ved korte leverandørfeil.
+- Unngår at besøkendes nettlesere kontakter værleverandørene før de eventuelt åpner en frivillig kildelenke.
+- Tilpasser det kompakte værpanelet til Light/Dark, PC og mobil uten å endre webkameraet eller resten av forsiden.
+
+## 1.6.20 – 2026-08-06
+
+- Prøver leverandørens offisielle vertikale widget for Keiservarden, med vindhastighet og vindkast i m/s.
+- Holder værkortet kompakt med en responsiv ramme rundt widgetens 200 piksler brede innhold og en høyde på 460 piksler i stedet for leverandørens foreslåtte 550 piksler.
+- Legger inn en tydelig kildelenke til Keiservarden hos Holfuy og begrenser referrer til bodomfk.no-opprinnelsen.
+- Dokumenterer at Holfuy krever registrert domene, og at domenegodkjenning og Complianz-skanning må kontrolleres før produksjonsbruk.
+- Dokumenterer at Vindnå/Bestemorenga ikke har en funnet, dokumentert innbyggingsmetode og derfor ikke bygges inn eller skrapes.
+- Endrer ikke webkameraet, PWA-starten, Light/Dark-bryteren eller øvrig forsideutforming.
+
 ## 1.6.19 – 2026-08-02
 
 - Legger inn `AGENTS.md` med faste regler for Codex og andre kodeagenter om versjonering, avgrenset designarbeid, sikkerhet, testing og korrekt ZIP-struktur.
@@ -64,7 +98,7 @@
 ## 1.6.11 – 2026-07-30
 
 - Oppretter en komplett, Git-versjonert personvernerklæring på `/personvern/`.
-- Beskriver behandling knyttet til tekniske logger, WordPress-kontoer, e-post, samtykkevalg, medlemsadministrasjon, webkamera og WindNerd-værmodulen.
+- Beskriver behandling knyttet til tekniske logger, WordPress-kontoer, e-post, samtykkevalg, medlemsadministrasjon, webkamera og den daværende værmodulen.
 - Forklarer formål, behandlingsgrunnlag, mottakere, lagringskriterier og de registrertes rettigheter, med kontaktvei og lenke til Datatilsynet.
 - Oppretter siden automatisk og velger den som WordPress-personvernside dersom ingen annen side allerede er valgt.
 - Legger Personvern og Complianz' dynamiske informasjonskapsellenke i bunnteksten.
@@ -181,12 +215,12 @@
 
 - Forenkler direktedelen til én kort overskrift: «Direkte fra Bodø Modellflyklubb».
 - Plasserer den kompakte værstasjonen til venstre for webkameraet på brede skjermer.
-- Reduserer værwidgeten til 400 piksler og bruker WindNerd-visningens lyse standardutforming.
+- Reduserer værwidgeten til 400 piksler og bruker leverandørens lyse standardutforming.
 - Beholder webkameraets størrelse og lar rutene stables ryddig på mobil.
 
 ## 1.5.8 – 2026-07-20
 
-- Erstatter Yr-kortet på forsiden med klubbens egen værstasjon fra WindNerd.
+- Erstatter Yr-kortet på forsiden med klubbens daværende lokale værstasjon.
 - Samler webkamera og levende vindmålinger i én ryddig kolonne ved siden av forklaringen.
 - Tilpasser værwidgeten med klubbens mørkeblå profil, lyse og lesbare måledata samt vindhastighet i m/s.
 - Legger inn en tydelig lenke til alle data fra værstasjonen.

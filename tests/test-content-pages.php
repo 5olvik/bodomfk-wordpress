@@ -187,14 +187,18 @@ foreach ( array(
 	'inntil syv dager',
 	'Styret skal behandle den videre bruken av døgnkontinuerlig opptak',
 	'Dagens 24/7-oppsett fortsetter',
-	'WindNerd',
+	'Meteorologisk institutt',
+	'AviationWeather.gov',
+	'WeatherLink',
+	'vind, temperatur og forventet nedbør',
+	'værpanelet setter ingen tredjeparts informasjonskapsler',
 	'PRO ISP',
 	'Zoho',
 	'Norges idrettsforbund og Norges Luftsportforbund',
 	'Vi lagrer ikke opplysninger lenger enn nødvendig',
 	'Dine rettigheter',
 	'Datatilsynet',
-	'Sist oppdatert: 31. juli 2026',
+	'Sist oppdatert: 6. august 2026',
 ) as $required_text ) {
 	if ( false === strpos( $privacy_html, $required_text ) ) {
 		$errors[] = 'personvern.md: mangler ' . $required_text;
@@ -207,6 +211,10 @@ if ( false === strpos( $privacy_html, 'https://example.com/cookie-policy-eu/' ) 
 
 if ( false !== strpos( $privacy_html, '{{' ) ) {
 	$errors[] = 'personvern.md: har ubehandlede plassholdere';
+}
+
+if ( false !== stripos( $privacy_html, 'WindNerd' ) ) {
+	$errors[] = 'personvern.md: omtaler fortsatt den utgående værleverandøren';
 }
 
 if ( false === strpos( $new_member_html, 'avtale med Bodø kontrolltårn gjelder flyging i regi av Bodø Modellflyklubb og under NLFs sikkerhetssystem' ) ) {
@@ -257,6 +265,8 @@ foreach ( array( 'nær yttergrensen av femkilometersonen', 'kun organisert aktiv
 
 $style_source     = file_get_contents( get_template_directory() . '/style.css' );
 $functions_source = file_get_contents( get_template_directory() . '/functions.php' );
+$weather_source   = file_get_contents( get_template_directory() . '/inc/weather.php' );
+$site_js_source   = file_get_contents( get_template_directory() . '/assets/js/site.js' );
 $footer_source    = file_get_contents( get_template_directory() . '/footer.php' );
 $front_source     = file_get_contents( get_template_directory() . '/front-page.php' );
 $style_version    = '';
@@ -276,6 +286,50 @@ if (
 	strpos( $front_source, '<h1 class="screen-reader-text">' ) > strpos( $front_source, '<h2 id="facebook-hub-title">' )
 ) {
 	$errors[] = 'front-page.php: hovedoverskriften må komme før Facebook-seksjonens H2';
+}
+
+foreach ( array( 'api.met.no', 'lat=67.3003', 'lat=67.3150', 'altitude=366', 'aviationweather.gov', 'ids=ENBO', 'embeddablePage/show/8cead75f6eca41bd84ecc89fa8a34070/slim' ) as $required_weather_setting ) {
+	if ( false === strpos( $functions_source, $required_weather_setting ) ) {
+		$errors[] = 'functions.php: den åpne værkilden mangler ' . $required_weather_setting;
+	}
+}
+
+foreach ( array( '.field-weather', '.field-weather__station--metar', '.field-weather__live-link', '--weather-direction', 'grid-template-columns: repeat(3, minmax(0, 1fr));' ) as $required_weather_style ) {
+	if ( false === strpos( $style_source, $required_weather_style ) ) {
+		$errors[] = 'style.css: det responsive værpanelet mangler ' . $required_weather_style;
+	}
+}
+
+foreach ( array( 'wp_remote_get', 'get_transient', 'set_transient', 'BMFK-Weather/', 'bmfk_weather_get_keiservarden_forecast', 'next_1_hours', 'precipitation_amount', 'temperature', '0.514444', 'Europe/Oslo', 'bmfk_weather_stations_html', 'register_rest_route', 'Cache-Control' ) as $required_weather_code ) {
+	if ( false === strpos( $weather_source, $required_weather_code ) ) {
+		$errors[] = 'inc/weather.php: serverhenting eller mellomlagring mangler ' . $required_weather_code;
+	}
+}
+
+foreach ( array( '[data-weather-panel]', '[data-weather-stations]', 'weatherEndpoint', "searchParams.set('_', String(Date.now()))", '5 * 60 * 1000' ) as $required_weather_refresh ) {
+	if ( false === strpos( $site_js_source, $required_weather_refresh ) ) {
+		$errors[] = 'site.js: automatisk væroppdatering mangler ' . $required_weather_refresh;
+	}
+}
+
+if (
+	false === strpos( $front_source, 'Bodø-vinden' ) ||
+	false === strpos( $front_source, 'Bestemorenga og Keiservarden' ) ||
+	false === strpos( $front_source, 'faktisk METAR-måling' ) ||
+	false === strpos( $weather_source, 'Nedbør 1 t.' ) ||
+	false === strpos( $front_source, 'Faktisk Bestemorenga-måling' ) ||
+	false === strpos( $front_source, 'data-weather-panel' ) ||
+	false === strpos( $front_source, 'data-weather-endpoint' ) ||
+	false === strpos( $front_source, 'data-weather-stations' ) ||
+	false !== strpos( $front_source, 'Åpne værdata · test' ) ||
+	false !== strpos( $front_source, 'Tre lokale referanser. Ingen iframe.' ) ||
+	false !== stripos( $front_source, '<iframe' ) ||
+	false !== stripos( $front_source, 'WindNerd' ) ||
+	false !== stripos( $front_source, 'Holfuy' ) ||
+	false !== stripos( $functions_source, 'WindNerd' ) ||
+	false !== stripos( $functions_source, 'Holfuy' )
+) {
+	$errors[] = 'front-page.php: åpent værpanel, tydelig kildetype eller iframe-opprydding mangler';
 }
 
 foreach ( array(

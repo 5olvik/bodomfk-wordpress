@@ -8,6 +8,7 @@ on:
       - "tests/test-content-pages.php"
       - "tests/test-pwa-start.php"
       - "tests/test-pwa-start.js"
+      - "tests/test-weather-refresh.js"
       - ".github/workflows/release-theme.yml"
   workflow_dispatch:
 
@@ -44,6 +45,10 @@ jobs:
       - name: Kontroller JavaScript-syntaks
         shell: bash
         run: node --check themes/bodomfk-modern-theme/assets/js/site.js
+
+      - name: Kontroller automatisk væroppdatering
+        shell: bash
+        run: node tests/test-weather-refresh.js
 
       - name: Kontroller Git-versjonerte sidetekster
         shell: bash

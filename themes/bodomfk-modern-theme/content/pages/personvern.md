@@ -61,9 +61,9 @@ NVR-opptakene overskrives automatisk etter inntil syv dager. Et relevant utdrag 
 
 Sikkerhetsovervåkingen bygger på klubbens berettigede interesse i å beskytte anlegget og verdiene mot en reell risiko for kriminalitet. Opptak skjer for tiden hele døgnet. Styret skal behandle den videre bruken av døgnkontinuerlig opptak og dokumentere nødvendighets- og interesseavveiningen. Styret skal samtidig vurdere om tidsstyring, kameravinkel, permanent maskering eller andre tiltak kan redusere personvernulempen uten å svekke den nødvendige sikringen. Dagens 24/7-oppsett fortsetter frem til denne behandlingen er gjennomført.
 
-## Værstasjon og eksterne tjenester
+## Værdata og eksterne tjenester
 
-Værmålingene på forsiden vises i en innebygd modul fra **WindNerd**. Når modulen lastes, oppretter nettleseren forbindelse til WindNerd. Leverandøren kan da motta tekniske tilkoblingsdata som IP-adresse, tidspunkt, nettleser og henvisende side. Samtykkeinnstillingene håndteres gjennom nettstedets cookie-løsning der dette er nødvendig.
+Værpanelet på forsiden bruker åpne prognosedata fra **Meteorologisk institutt** for Bestemorenga og Keiservarden, og en offentlig METAR-måling fra Bodø lufthavn via **AviationWeather.gov**. Det viser vind, temperatur og forventet nedbør der kilden leverer dette. Opplysningene hentes og mellomlagres av WordPress-serveren. Besøkendes nettleser kobler derfor ikke direkte til værleverandørene, og værpanelet setter ingen tredjeparts informasjonskapsler. Panelet inneholder frivillige kildelenker, blant annet til den offisielle WeatherLink-visningen for Bestemorenga. Leverandøren mottar først vanlige tilkoblingsdata når du velger å åpne en slik lenke.
 
 Nettstedet har også vanlige lenker til blant annet NLF, NIF/Min idrett, Facebook, Google Maps og Norsk Tipping. Disse tjenestene mottar normalt ikke opplysninger fra bodomfk.no før du velger å åpne lenken. Når du går videre, gjelder personvernreglene til den aktuelle tjenesten.
 
@@ -131,4 +131,4 @@ Hvis du mener at klubben behandler personopplysninger i strid med regelverket, �
 
 Vi oppdaterer personvernerklæringen når nettstedet, leverandørene eller behandlingen endres vesentlig. Gjeldende versjon publiseres alltid på denne siden.
 
-**Sist oppdatert: 31. juli 2026.**
+**Sist oppdatert: 6. august 2026.**

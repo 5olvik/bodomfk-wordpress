@@ -9,7 +9,7 @@ Velkommen til Bodø Modellflyklubb! Her finner du det viktigste du trenger for �
 - Les [flyplassreglene]({{rules_url}}) og gjeldende [Modellflyhåndbok]({{handbook_url}}) før du flyr.
 - Avtal introduksjon, opplæring eller kontroll av modellen med en instruktør eller erfaren klubbkamerat.
 - Kontroller operatørregistreringen din og merk modellene med riktig operatørnummer.
-- Sjekk [værstasjon og webkamera]({{webcam_url}}) før du kjører til Bestemorenga.
+- Sjekk [værinformasjon og webkamera]({{webcam_url}}) før du kjører til Bestemorenga.
 - Spør når du er usikker. Det er både tryggere og raskere enn å gjette.
 
 ## Klubben, NLF, Min idrett og TMS
@@ -155,7 +155,7 @@ Oppslag på plassen, sikkerhetsbeskjeder og instrukser fra klubbens ansvarlige g
 ## Første flydag - praktisk sjekkliste
 
 - Avtal gjerne tidspunkt med et annet medlem eller en instruktør.
-- Sjekk vind, vær, sikt og kamerabildet fra Bestemorenga.
+- Sjekk vind, vær og sikt, og bruk kamerabildet til å se forholdene på Bestemorenga.
 - Ta med modell, sender, ladede batterier, lader, nødvendige verktøy og klær for været.
 - Kontroller modell, rorretninger, propell eller rotor, batterifeste, rekkevidde og failsafe etter riktig prosedyre.
 - Koble til fremdriftsbatteri eller start motor bare på anvist og sikker plass.
@@ -187,7 +187,7 @@ Kontroller alltid pris og gjeldende adgangsrutine med styret før betaling. La h
 [Den offentlige Facebook-gruppen]({{facebook_market_url}}) er åpen for kjøp og salg, spørsmål og generell hobbyprat.
 :::endcolumns
 
-Følg også bodomfk.no for regler, kontaktinformasjon, værstasjon og webkamera. Viktige sikkerhetsbeskjeder bør leses før neste flytur.
+Følg også bodomfk.no for regler, kontaktinformasjon, værinformasjon og webkamera. Viktige sikkerhetsbeskjeder bør leses før neste flytur.
 
 ## Hendelser, uhell og læring
 

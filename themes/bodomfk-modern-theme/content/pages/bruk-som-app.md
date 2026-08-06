@@ -1,4 +1,4 @@
-Installer bodomfk.no som en app på mobil, nettbrett eller datamaskin. Appen åpner direkte ved webkameraet og værinformasjonen fra Bestemorenga, men gir samtidig tilgang til hele nettstedet.
+Installer bodomfk.no som en app på mobil, nettbrett eller datamaskin. Appen åpner direkte ved webkameraet og den åpne vindoversikten for Bestemorenga, Keiservarden og Bodø lufthavn, men gir samtidig tilgang til hele nettstedet.
 
 > Appen hentes ikke fra App Store eller Google Play. Den installeres direkte fra nettleseren og oppdateres automatisk sammen med bodomfk.no.
 
