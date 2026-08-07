@@ -288,7 +288,7 @@ if (
 	$errors[] = 'front-page.php: hovedoverskriften må komme før Facebook-seksjonens H2';
 }
 
-foreach ( array( 'api.met.no', 'lat=67.3003', 'lat=67.3150', 'altitude=366', 'aviationweather.gov', 'ids=ENBO', 'embeddablePage/show/8cead75f6eca41bd84ecc89fa8a34070/slim' ) as $required_weather_setting ) {
+foreach ( array( 'api.met.no', 'lat=67.3003', 'lat=67.3150', 'altitude=366', 'aviationweather.gov', 'ids=ENBO', 'embeddablePage/show/8cead75f6eca41bd84ecc89fa8a34070/fullscreen' ) as $required_weather_setting ) {
 	if ( false === strpos( $functions_source, $required_weather_setting ) ) {
 		$errors[] = 'functions.php: den åpne værkilden mangler ' . $required_weather_setting;
 	}
@@ -317,7 +317,7 @@ if (
 	false === strpos( $front_source, 'Bestemorenga og Keiservarden' ) ||
 	false === strpos( $front_source, 'faktisk METAR-måling' ) ||
 	false === strpos( $weather_source, 'Nedbør 1 t.' ) ||
-	false === strpos( $front_source, 'Faktisk Bestemorenga-måling' ) ||
+	false === strpos( $front_source, 'Se værstasjonen på Bestemorenga' ) ||
 	false === strpos( $front_source, 'data-weather-panel' ) ||
 	false === strpos( $front_source, 'data-weather-endpoint' ) ||
 	false === strpos( $front_source, 'data-weather-stations' ) ||

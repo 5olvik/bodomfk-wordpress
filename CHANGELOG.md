@@ -1,5 +1,11 @@
 # Endringslogg
 
+## 1.6.24 – 2026-08-07
+
+- Endrer lenken ved værpanelet til WeatherLinks mer informative fullskjermvisning for Bestemorenga.
+- Endrer lenketeksten til «Se værstasjonen på Bestemorenga», mens WeatherLink fortsatt bare åpnes frivillig i en ny fane.
+- Bevarer det egen-designede værpanelet og unngår innbygging, bakgrunnslasting og scraping av udokumenterte WeatherLink-endepunkter.
+
 ## 1.6.23 – 2026-08-06
 
 - Oppdaterer værverdiene straks forsiden åpnes, deretter hvert femte minutt og når en eldre, skjult fane tas fram igjen.

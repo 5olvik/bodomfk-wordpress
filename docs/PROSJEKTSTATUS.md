@@ -96,7 +96,7 @@ PDF-kopier. Se `docs/INNHOLD-I-GITHUB.md` for strukturmarkører og plassholdere.
 
 ## Værstasjon
 
-Versjon 1.6.23 bruker et eget «Bodø-vinden»-panel uten vær-iframe. Panelet henter
+Versjon 1.6.24 bruker et eget «Bodø-vinden»-panel uten vær-iframe. Panelet henter
 åpne Locationforecast-prognoser fra MET for Bestemorenga og Keiservarden, og en
 faktisk METAR-måling fra Bodø lufthavn via AviationWeather.gov. Det viser vind,
 temperatur og forventet nedbør neste time der kilden leverer dette. Data hentes på
@@ -106,7 +106,7 @@ WordPress-endepunkt straks siden åpnes, hvert femte minutt og når en eldre fan
 tas fram igjen. Tidspunktene formateres i den navngitte tidssonen `Europe/Oslo`.
 Besøkendes nettleser kontakter ikke leverandørene før en frivillig kildelenke
 åpnes. Den faktiske målestasjonen på Bestemorenga er tilgjengelig gjennom en
-offisiell WeatherLink-lenke, men bygges ikke inn. Direkte API-tilgang til denne
+offisiell WeatherLink-lenke til fullskjermvisningen, men bygges ikke inn. Direkte API-tilgang til denne
 stasjonen krever fortsatt tilgang. Hele tredjepartssider og udokumenterte
 dataendepunkter skal ikke bygges inn eller skrapes.
 

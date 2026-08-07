@@ -153,7 +153,7 @@ $weather_data   = bmfk_get_weather_data();
 						</div>
 						<p class="field-weather__note">
 							<span><strong>Bestemorenga og Keiservarden</strong> er prognoser fra MET. <strong>Bodø lufthavn</strong> er en faktisk METAR-måling.</span>
-							<a class="field-weather__live-link" href="<?php echo esc_url( BMFK_WEATHERLINK_BESTEMORENGA_URL ); ?>" target="_blank" rel="noopener noreferrer">Faktisk Bestemorenga-måling ↗</a>
+							<a class="field-weather__live-link" href="<?php echo esc_url( BMFK_WEATHERLINK_BESTEMORENGA_URL ); ?>" target="_blank" rel="noopener noreferrer">Se værstasjonen på Bestemorenga ↗</a>
 						</p>
 					</div>
 					<div class="field-webcam-card wp-dark-mode-ignore">

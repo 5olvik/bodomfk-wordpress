@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BMFK_THEME_VERSION', '1.6.23' );
+define( 'BMFK_THEME_VERSION', '1.6.24' );
 
 define( 'BMFK_INCIDENT_REPORT_URL', 'https://nlf.no/grener/modellfly/rapportere-hendelse/' );
 define( 'BMFK_HANDBOOK_URL', 'https://nlf.no/grener/modellfly/sikkerhet-utdanning/modellflyhandboka/' );
@@ -18,7 +18,7 @@ define( 'BMFK_MET_KEISERVARDEN_URL', 'https://api.met.no/weatherapi/locationfore
 define( 'BMFK_MET_FORECAST_SOURCE_URL', 'https://www.met.no/' );
 define( 'BMFK_METAR_URL', 'https://aviationweather.gov/api/data/metar?ids=ENBO&format=json' );
 define( 'BMFK_METAR_SOURCE_URL', 'https://aviationweather.gov/data/metar/?id=ENBO' );
-define( 'BMFK_WEATHERLINK_BESTEMORENGA_URL', 'https://www.weatherlink.com/embeddablePage/show/8cead75f6eca41bd84ecc89fa8a34070/slim' );
+define( 'BMFK_WEATHERLINK_BESTEMORENGA_URL', 'https://www.weatherlink.com/embeddablePage/show/8cead75f6eca41bd84ecc89fa8a34070/fullscreen' );
 
 require_once get_template_directory() . '/inc/document-access.php';
 require_once get_template_directory() . '/inc/content-pages.php';
